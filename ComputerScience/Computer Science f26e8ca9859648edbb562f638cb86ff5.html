@@ -1,0 +1,635 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Computer Science</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e36ad878-19c8-4ba6-bdb9-ae18fa87d935" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_multi-axis_gimble_rig.jpg" style="object-position:center 80%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💻</span></div><h1 class="page-title">Computer Science</h1></header><div class="page-body"><figure id="8ddfe96c-f397-4cb4-9876-742af5abdc1b" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%208ddfe96cf3974cb49876742af5abdc1b.html"><span class="icon">⁉️</span>程式語言</a></figure><figure id="5179c27f-23d5-457e-a13f-485daceaa334" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Question%205179c27f23d5457ea13f485daceaa334.html"><span class="icon">📖</span>Question</a></figure><figure id="373fcfc0-9b0b-45a9-a70c-fa9d1971750e" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Band%E5%95%8F%E9%A1%8C%E9%9B%86%20373fcfc09b0b45a9a70cfa9d1971750e.html">Band問題集</a></figure><figure id="ef7bbd7c-89a7-4e94-ad80-7579659b927c" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%20ef7bbd7c89a74e94ad807579659b927c.html"><span class="icon">🔢</span>資料結構</a></figure><figure id="a1d3e73b-437c-4eb1-893b-8b4121543961" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Network%20a1d3e73b437c4eb1893b8b4121543961.html"><span class="icon">🗄️</span>Network</a></figure><figure id="2bfacec9-f7cd-43d7-b559-22d04e3dfb28" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28.html"><span class="icon">👌🏼</span>計概考古題</a></figure><figure id="b32ea3af-320f-4ca6-a647-74a6e2f4917d" class="link-to-page"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Foundation(%E7%B4%85%E9%B6%B4%E6%9B%B8)%20b32ea3af320f4ca6a64774a6e2f4917d.html"><span class="icon">🐦</span>Foundation(紅鶴書)</a></figure><h2 id="f002612f-c678-4f65-ab31-fb519e9d57b7" class="">搜尋與排序</h2><hr id="336379db-3fb4-41ff-bbda-42c58e1cd3ba"/><ul id="6bb649f0-3875-4cb1-92d9-d190dc98a88d" class="toggle"><li><details open=""><summary>搜尋 (Search)</summary><ul id="e8ff9c1d-7473-4b4e-8e75-46538cdf0e08" class="toggle"><li><details open=""><summary>Linear Search</summary><ul id="10bc36b5-d40b-45a7-ab46-fccc06e45685" class="bulleted-list"><li>Time Complexity : O(n)</li></ul></details></li></ul><ul id="cfb820e8-7a7c-46c2-8e93-9dad6bf56584" class="toggle"><li><details open=""><summary>Binary Search</summary><ul id="5abaf440-c648-4f50-a610-0e3013ac513f" class="bulleted-list"><li>Time Complexity : O(logn)、O(1) (best case)</li></ul></details></li></ul></details></li></ul><ul id="74bd18df-c1c7-42ef-94bf-1010da484ef8" class="toggle"><li><details open=""><summary>排序 (Sort)</summary><ul id="82922c7c-c7c7-43a6-9fa6-853e1d4f14c4" class="toggle"><li><details open=""><summary>Insertion Sort </summary><ul id="17b50fe4-0473-4e1c-999b-6b845809f620" class="bulleted-list"><li>Time Complexity : O(n) (best case)、O(n^2) (worst case)、O(n^2) (average case)</li></ul><ul id="6f6a4722-a4ae-4527-8c49-075f96445d04" class="bulleted-list"><li>stable sort</li></ul></details></li></ul><ul id="c19f7b2d-8d7d-4514-9351-d781352a0b8f" class="toggle"><li><details open=""><summary>Selection Sort</summary><ul id="9bf0af6f-beb8-4bc7-be5c-e4dbfce1f675" class="bulleted-list"><li>Time Complexity : O(n^2) (best、average、worst case)</li></ul><ul id="17bf2a20-8ffa-4fbf-9777-e75212f4a6d0" class="bulleted-list"><li>unstable sort</li></ul></details></li></ul><ul id="1b946992-5285-4db7-a963-570048855c42" class="toggle"><li><details open=""><summary>Bubble Sort</summary><ul id="95139484-77ae-4576-80ec-9e24a36d4f22" class="bulleted-list"><li>Time Complexity : O(n) (best case)、O(n^2) (worst case)、O(n^2) (average case)</li></ul><ul id="61622732-d0f4-488e-9483-6d894eb769bb" class="bulleted-list"><li>stable sort</li></ul></details></li></ul><ul id="23b558ab-16ff-4fa7-adc3-5bfe62a0bb5d" class="toggle"><li><details open=""><summary>Quick Sort</summary><ul id="c279d459-8d57-4258-b139-6fcf63283099" class="bulleted-list"><li>Time Complexity : O(nlogn) (best case)、O(n^2) (worst case)、O(nlogn) (average case)</li></ul><ul id="8032771a-4374-4a73-bd3a-136c133f0355" class="bulleted-list"><li>unstable sort</li></ul></details></li></ul><ul id="c560a125-cf20-4c82-b4f6-6c22609c5a33" class="toggle"><li><details open=""><summary>Merge Sort</summary><ul id="b2133e69-fb49-4c3e-aad4-0c8437132d24" class="bulleted-list"><li>Time Complexity : O(nlogn) (best、average、worst case)</li></ul><ul id="37e6ee9a-6718-4763-ab7d-d44691b7f240" class="bulleted-list"><li>stable sort</li></ul></details></li></ul><ul id="cd984762-15f2-40c3-928b-4f35549edc51" class="toggle"><li><details open=""><summary>Heap Sort</summary><ul id="1f69c6d1-8be8-4cca-a854-a0c16f5d853a" class="bulleted-list"><li>Time Complexity : O(nlogn) (best、worst、average case)</li></ul><ul id="52d15b6e-abfc-495d-87fa-2bb82e4c145b" class="bulleted-list"><li>unstable sort</li></ul></details></li></ul></details></li></ul><h2 id="80bebb6b-75e5-4ff9-9350-f551194872b4" class="">內外部碎裂</h2><hr id="25673b6b-70b7-4453-8227-debf5f4ae84d"/><ul id="f782a25e-b111-4c9e-a966-844e7a1a8a2f" class="toggle"><li><details open=""><summary> partitioning(分割法)</summary><figure id="f26e8ca9-8596-48ed-bb56-2f638cb86ff5" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/memory_management.png"><img style="width:984px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/memory_management.png"/></a></figure></details></li></ul><ul id="de4a1b37-e942-49e1-baba-38e485b45a27" class="toggle"><li><details open=""><summary>segmentation(分段法) : 外部碎裂</summary></details></li></ul><ul id="d0fe0180-ec09-4f06-9e06-098451808326" class="toggle"><li><details open=""><summary>paging(分頁法) : 內部碎裂 </summary></details></li></ul><p id="67569b35-437c-4ab0-b875-546ebd7ed343" class="">
+</p><h2 id="dd5550f8-a4bb-4dcb-8b88-f5ef003a05bc" class="">Pipeline 公式推導</h2><ul id="c07d818a-c7a6-4409-8840-d5566e7ce6c6" class="bulleted-list"><li>定義 ：將電腦指令處理過程拆分為多個步驟，作出類比，則電腦指令就是管線傳送帶上的產品，各個硬體處理單元就是管線旁的工人，每個工人都負責自己的事情，把管線SOP化</li></ul><ul id="a6a44c59-9e3d-424b-861e-1af286d03d3d" class="toggle"><li><details open=""><summary>Concept</summary><ul id="4c2f3ec0-e285-49d7-8c1b-fd20fad55cad" class="bulleted-list"><li>假如有四個工人分別做fetch(FE)(10ns)、decode(DE)(5ns)、execute(EX)(10ns)、writeToMemory(WM)(10ns)</li></ul><ul id="0584b180-bf3a-42c7-a218-7204b0de3322" class="bulleted-list"><li>第一段時間裡 : FE的工人開始工作(第一條指令)</li></ul><ul id="ca104ef7-1fc8-4b97-a2c9-998e989516ce" class="bulleted-list"><li>第二段時間裡 : FE的人做完了接著做第二條指令的，同時DE也開始它的第一條指令(5ns)</li></ul><ul id="9981a7cc-3724-41ee-ab01-8c0b24121e81" class="bulleted-list"><li>第一段時間需耗費5ns、第二段時間需耗費10ns</li></ul><figure id="0d9adbf9-6690-433d-bf52-ed8f7f417e34" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/_2021-04-03_1.10.42.png"><img style="width:1320px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/_2021-04-03_1.10.42.png"/></a></figure></details></li></ul><ul id="b4c9cd32-3261-41ce-bce7-0d2f382d6a1e" class="toggle"><li><details open=""><summary>基礎計概46題</summary><figure id="032d37f4-376a-4409-8328-3ad169895d93" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/04F37FAF-A859-4D3D-8423-5433BDBB1530.jpeg"><img style="width:3415px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/04F37FAF-A859-4D3D-8423-5433BDBB1530.jpeg"/></a></figure><figure id="4b1d3f11-6fe6-4142-b971-e561a3025cf8" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/0BB6CE4F-7176-4439-A9DA-F9D24584090E.jpeg"><img style="width:2688px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/0BB6CE4F-7176-4439-A9DA-F9D24584090E.jpeg"/></a></figure></details></li></ul><h2 id="24006d2e-2f3d-45dd-ab50-b1142429287b" class="">Memory Management</h2><hr id="6e57789d-02bc-4a56-9472-79d8ba86df37"/><ul id="f13898a3-2b5d-4caf-9ab8-9aff10498720" class="toggle"><li><details open=""><summary>Contiguous (連續性)</summary><figure id="06bf4611-43b9-44e6-ab5a-15242f10dcd9" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/memory_management%201.png"><img style="width:984px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/memory_management%201.png"/></a></figure></details></li></ul><ul id="42d8662e-ef47-4422-9f37-864ec4835d1c" class="toggle"><li><details open=""><summary>Non-Contiguous (不連續性)</summary></details></li></ul><h2 id="efc6f593-b72c-47c7-98e4-477d8284d638" class="">I/O Processing</h2><hr id="e22a9a33-8915-4931-aee0-1d475574547e"/><ul id="61e2083c-011c-437c-86bc-fdaf86c0f75a" class="toggle"><li><details open=""><summary>Programmed I/O (Polling)</summary><ul id="861a48b1-116d-4cec-82ce-801a609abf05" class="bulleted-list"><li>CPU一直監督I/O是否完成，直到I/O設備準備好</li></ul></details></li></ul><ul id="369a902e-45e0-41b3-aca9-148b0de266b3" class="toggle"><li><details open=""><summary>Interrupt-driven I/O</summary><ul id="fd57ab43-ffe3-4e1a-a19d-4ae8f3c085dc" class="bulleted-list"><li>CPU先發出I/O命令，然後去做別的事，直到I/O準備好了就Interrupt CPU </li></ul></details></li></ul><ul id="19bc68ed-ffa9-44bf-adb0-db92a44446fb" class="toggle"><li><details open=""><summary>Direct memory access (DMA)</summary><ul id="82ca83f2-98a7-4c6f-9305-796ec6486ea9" class="bulleted-list"><li>從disk→memory間會有一個DMA controller 暫存部分data</li></ul><ul id="8f170271-1e41-4035-912a-cdbe2a9ecac0" class="bulleted-list"><li>CPU 發出input/output的訊息、記憶體的初始位址、有多少的位元組需要被傳送訊息告訴DMA</li></ul><ul id="f3731b22-5fd7-486b-8f81-eeaa73096707" class="bulleted-list"><li>當 I/O device準備好了的話，告訴CPU需要匯流排的控制權，CPU轉移匯流排給DMA</li></ul><ul id="3a5a6f76-0fed-4c68-ba1f-d985df05278e" class="bulleted-list"><li>DMA與memory 結束檔案傳輸之後，還給CPU</li></ul></details></li></ul><h2 id="dbd3d07a-869a-4273-bd02-14513ddf5cbd" class="">RAID (Redundant Array of Independent Disk)</h2><hr id="2f577090-2b75-4c4e-be63-5ed4d7cd3a34"/><ul id="ad8262a5-c5ae-4446-b429-572f078491c1" class="bulleted-list"><li>降低CPU和Disk的access time，確保資料安全和可靠性</li></ul><ul id="992af9e7-4e86-4dd6-8e1a-93a0bbcb384a" class="toggle"><li><details open=""><summary>RAID 0</summary><p id="eb79d1aa-8a5c-4ff1-86b2-3e455a023ad2" class="">效能導向，速度最快，data striping</p></details></li></ul><ul id="78ad1afb-e0ca-44c7-95a7-390995aa95a8" class="toggle"><li><details open=""><summary>RAID 1</summary><p id="8394ffac-8f28-4a91-bc1e-30e63ad22ab4" class="">浪費一半的空間存相同的data(mirror)，可靠性高(fault tolerant)</p></details></li></ul><ul id="0144dd16-ecb0-4ed5-a9ab-4d25701a8be3" class="toggle"><li><details open=""><summary>RAID 0+1</summary><p id="09e4e243-6879-4a84-b9e7-ff01737bdd49" class="">兼具fault tolerance、speed up</p></details></li></ul><ul id="b5586c71-249d-4da3-bbe7-ba611e6eeadf" class="toggle"><li><details open=""><summary>RAID 3</summary><p id="f38cb03c-5767-4084-82e1-8cd58ad43056" class="">有disk專門存parity bit，bit 為切割單位(效能差)</p><p id="c9c46aae-c753-42b6-a948-142459cd9c9c" class="">
+</p></details></li></ul><ul id="2be12415-693b-4fb9-9847-89721e3d102a" class="toggle"><li><details open=""><summary>RAID 4</summary><p id="ecb3d8b8-6224-423d-8b83-2c17560c8d60" class="">以block為切割單位，有disk存parity bit</p></details></li></ul><ul id="136c7196-129f-492c-80d0-3859a96f322c" class="toggle"><li><details open=""><summary>RAID 5</summary><ul id="fa6d773f-f864-4809-aa3a-56fa1a410a72" class="bulleted-list"><li>parity bit分開存放，改善RAID3、4效能瓶頸</li></ul><ul id="3519b364-99a5-4cec-9284-18dabdf4e1b1" class="bulleted-list"><li>儲存成本、資料安全、儲存效能兼顧</li></ul></details></li></ul><ul id="dd6ec544-dd59-4810-998c-5249d4b01ebe" class="toggle"><li><details open=""><summary>RAID 6</summary><ul id="6f7beb60-2978-4f54-a4bb-589f73f1fc21" class="bulleted-list"><li>需經過 parity 容錯機制，需要一顆硬碟負責容錯機制</li></ul></details></li></ul><h2 id="f58e6384-af7b-4a47-908e-0bad03a8fcaa" class="">Data Compression</h2><hr id="02075194-77e6-41fa-a140-0b3494dd13ba"/><ul id="9c94ccb4-e822-4c39-ba4c-dcb9398cd3fa" class="bulleted-list"><li>Data compression 有兩種方式 : lossless methods v.s. lossy methods</li></ul><ul id="ac338a16-3ffd-4710-86c4-7b333c8927cf" class="toggle"><li><details open=""><summary>Lossless Methods (非破壞性資料壓縮)</summary><ul id="35ff4bf0-aaad-4c7e-8e42-8099e79b4d87" class="toggle"><li><details open=""><summary>Run-length </summary><ul id="d45e3df6-3433-4e98-b5c9-b342d0ce32c9" class="bulleted-list"><li> 只是用頻率去代換</li></ul><figure id="2970e4ac-909f-4842-a666-0cf02bff84ee" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/run-length.png"><img style="width:835px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/run-length.png"/></a></figure></details></li></ul><ul id="66a42281-6a7a-4a69-89bf-1a5ffb1b744b" class="toggle"><li><details open=""><summary>Huffman</summary><ul id="28e1d371-4fa0-4a82-9b55-290586782e82" class="bulleted-list"><li> 轉換成二元樹結構<figure id="5252bf49-1f7c-490e-a9b8-41cd6c1806d1" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/huffman_coding.png"><img style="width:585px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/huffman_coding.png"/></a></figure><figure id="2f331ff0-713c-4f1a-be62-c8785a6aa8fb" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/binary_tree.png"><img style="width:610px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/binary_tree.png"/></a></figure></li></ul></details></li></ul><ul id="7029e4a6-16a4-4a58-99d6-dc2bec7a4ffb" class="toggle"><li><details open=""><summary>Lempel Ziv</summary><ul id="f728e307-daa9-48c4-9d8f-a00060945c5f" class="bulleted-list"><li>創造字典再代換<figure id="e6aa4360-e519-4fe9-9aee-95d88aa430e7" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/LZ_.png"><img style="width:615px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/LZ_.png"/></a></figure></li></ul></details></li></ul></details></li></ul><ul id="8eb4c1f1-f04e-4f39-9ccd-a02e9a616c07" class="toggle"><li><details open=""><summary>Lossy Method</summary><ul id="e10c78a6-622d-45c0-8886-d64ee92f9b5d" class="bulleted-list"><li>JPEG </li></ul><ol id="8aa123ca-5a73-4caa-9530-35b180a75f33" class="numbered-list" start="1"><li>把照片分成很多的 <code>blocks</code> (用以減少計算量)</li></ol><ol id="d9fd76e4-a639-4ead-95d2-812e7edbcf6f" class="numbered-list" start="2"><li>透過 DCT (discrete cosine transform) 方法，每個blocks中的每個pixels的關係被存起來，同時找到幾乎沒改變的資料(redundancies)</li></ol><ol id="3a04efc4-2cf9-4ede-b31c-7d83a4b181d8" class="numbered-list" start="3"><li> change the pic into a linear (vector) set of numbers </li></ol><ol id="29df06d4-66a4-4868-a877-e8df988010bc" class="numbered-list" start="4"><li>把 redundancies (lack of changes) 會透過其中一種無損壓縮刪除</li></ol></details></li></ul><h2 id="692e8131-e1ed-4d02-9cf1-cf5f3a98ed4c" class="">Pixels v.a. DPI</h2><hr id="1159226d-48db-4a0d-92cc-1770a417ac4d"/><ul id="3ff311ad-282d-48c6-a120-678ca32b7f6c" class="bulleted-list"><li><a href="https://www.wonder-product.com/pages/digital-image">https://www.wonder-product.com/pages/digital-image</a></li></ul><ul id="3c892204-2489-4d60-bc81-cc06c40139be" class="bulleted-list"><li>我們會用『像素尺寸』來表達圖案的尺寸 : <code>像素尺寸=寬邊的像素數量*高邊的像素數量</code> 因此，在表達數位數位影像的大小時，我們可以說：這是一張『寬邊像素數』*『高邊像素數』的圖片</li></ul><ul id="ef4c8972-e02e-4631-ad24-2d95f1dc7c3f" class="toggle"><li><details open=""><summary>Example</summary><p id="4ab0dc90-6ac7-4ae6-980d-398625d4d446" class="">一張300*<em>200的數位影像，表示數位影像寬是300個像素、高是200個像素，共6萬個像素所組成(300</em>200=60,000)。數位相機的像素指的也是同樣的意思，例如：能拍攝最大影像為3072*2304=7,077,888像素，稱為7百萬像數的相機</p></details></li></ul><h2 id="8ef80104-560a-4892-8b9f-0956d8cb9e25" class="">范紐曼架構</h2><hr id="640f18e5-1099-41cb-911e-399149271f76"/><ol id="fa71dca6-dd05-469f-a757-9a5b5e042374" class="numbered-list" start="1"><li>為內儲程式的概念(stored programming)，即欲執行的程式跟資料，會先載入到memory中再循序執行</li></ol><ol id="3a216960-745c-4db9-8639-9e83f9e119fa" class="numbered-list" start="2"><li>把電腦分成四個子系統，分別為memory、arithmetic logic unit、control unit、input/output</li></ol><h2 id="1bd1ca07-e0ae-4092-8b45-4f6bcda1db32" class="">范紐曼瓶頸 (Von Neumann bottleneck)</h2><hr id="905cf126-00a9-455a-a982-b48bbbfd1906"/><ul id="15200d88-6c03-4bf9-85fb-a8a223da8de5" class="bulleted-list"><li>范紐曼架構將CPU與記憶體分開 。當CPU要從記憶體抓指令過來解碼跟執行，之後再把結果寫回記憶體，會一直耗費時間在處理存取的問題，尤其是當需要頻繁存取記憶體的時候，會明顯拖慢效能－也就是「范紐曼瓶頸」</li></ul><ul id="5d3070cf-7196-4fa5-ad78-bb50a2d24055" class="bulleted-list"><li>Overall : 當CPU與memeory效能不斷增加時，傳輸速度會成為整體效能上的瓶頸</li></ul><h2 id="b36cceec-a075-4698-9c7f-5ed66a372e9c" class="">Register</h2><hr id="f5a7aeea-e5f5-4923-9fed-c0a32ae2d23a"/><ul id="58144a87-4662-4029-bbcc-e2d361de340e" class="bulleted-list"><li>Data Register : 放input data &amp; result of operation</li></ul><ul id="5ea673c5-ef3d-4404-aae6-a15d36b0fdcd" class="bulleted-list"><li>Instruction Register : CPU 從 memory 拿到的指令放在這裡</li></ul><ul id="6e7161cc-3598-4765-b518-2af4aa9d4c1e" class="bulleted-list"><li>Program Counter : 指向下一個欲執行指令的位址</li></ul><ul id="d6ef2286-8cf7-4e22-bb91-34a2dfa416c3" class="bulleted-list"><li>Address Register : 用來存記憶體位址的暫存器，可以用來存取記憶體 (e.g. CPU 必須先將要存取位址存入位址暫存器，才能到主記憶體中存取資料)</li></ul><ul id="99a5fbc5-8276-474c-88af-6e15b7e3b866" class="bulleted-list"><li>通用目的暫存器 : 可以用來存資料或位址(同時是資料暫存器和位址暫存器)</li></ul><ul id="ac931df6-079f-49c9-b89a-b20c0e60b716" class="toggle"><li><details open=""><summary> Thumbnail of CPU</summary><figure id="44029562-dca7-42b2-9bc0-635fd069534c" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/register.png"><img style="width:428px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/register.png"/></a></figure></details></li></ul><h2 id="31172d14-b62b-4f81-a3c9-6b39980029bc" class=""> Optical Storage Devices</h2><hr id="2b31bc6f-ae73-4f60-bf5c-b87cbc26b5a2"/><ul id="0cd29ff7-1d77-4c6a-8089-aa3644e8b3b0" class="bulleted-list"><li>CD-ROM : CD-ROM 比 CD 更耐用、可以檢查錯誤 (Hamming code)
+單倍速的標準讀取速度為 <code>150KB/S</code> </li></ul><ul id="31f53e1a-aff2-441e-a5d9-388c0a834c20" class="bulleted-list"><li>CD-R : 常用為備份，不能複寫，can write once to CD-R disks, but they can be read many times (WORM)，讀取速度跟CD-ROM一樣</li></ul><ul id="74694878-a629-4f48-aa87-6beb909feb14" class="bulleted-list"><li>CD-RW : 可以復寫，空的 blank CD-RW 比 blank CD-R貴，讀取速度跟CD-ROM一樣</li></ul><ul id="30079d95-9e1f-4f05-ba4c-3e39a82af144" class="bulleted-list"><li>DVD (digital versatile disk) : CD-ROM (650MB) 不夠大，DVD可以儲存最少4.7GB</li></ul><ul id="5350c7ac-15a1-441e-8dae-174019f1f242" class="bulleted-list"><li>Blu-ray Disk : DVD之後的下一代光碟格式之一，單層就有25GB</li></ul><h2 id="ae6ba72f-c4df-4128-b193-4fd2ccf082e3" class=""> USB Speed</h2><hr id="e0db53d2-9206-4a01-9a98-c553f761b28d"/><figure id="8ef2228b-b7ed-42e2-b10d-1114b1c26c45" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Untitled.png"><img style="width:1200px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Untitled.png"/></a></figure><ul id="8f53a084-9d60-4dce-a671-55be431abac8" class="toggle"><li><details open=""><summary>圖示</summary><figure id="a51d6005-e9a1-438b-b039-68eaaca6106c" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5.png"><img style="width:725px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5.png"/></a></figure></details></li></ul><ul id="170a67d8-a4c1-44b2-ae2e-4d389a66548e" class="bulleted-list"><li>PCIe : 取代內部匯流排(AGP、PCI)</li></ul><ul id="451bc114-c6e4-41b9-9780-4ffc58e3fc74" class="bulleted-list"><li>AGP (Accelerated Graphics Port) : 電腦主機板上的一種高速點對點傳輸通道，供顯示卡使用，主要應用在三維電腦圖形的加速上</li></ul><ul id="2107cb61-694d-4364-808c-7d6e072a8d85" class="bulleted-list"><li>PCI : 取代MCA，連接電腦主機板和外部裝置的匯流排標準</li></ul><ul id="94e3b428-a0d2-4b8b-b755-de2a287dabb7" class="bulleted-list"><li>MCA : 頻寬16/32bits，取代ISA</li></ul><ul id="8071af14-fcd2-47db-a214-3f341d167f67" class="bulleted-list"><li>ISA : 頻寬為8~16bits</li></ul><h2 id="d5e17555-4b77-4657-b560-90fc923f9ec4" class="">DRAM &amp; SDRAM</h2><hr id="3dadc7bf-571b-4694-9de3-250dc220dbb1"/><ul id="1588f8b2-ade4-440f-8038-0dc853c56617" class="bulleted-list"><li>SDRAM 與其他種類的 DRAM 最大的不同就在於「同步」</li></ul><ul id="ef760e0a-0bb3-4ce8-9732-f433582fca52" class="bulleted-list"><li>記憶體的頻率可以獲得很大的提升 (超過 100 MHz 以上的記憶體運作時脈成為可能)</li></ul><ul id="9727d131-d37b-4de9-bbaf-f7f89260fc15" class="bulleted-list"><li>記憶體可以更精準的在處理器需要資料時就將資料送出</li></ul><ul id="49ce9c17-58dc-4557-ab32-fe6ea0892c17" class="bulleted-list"><li><a href="https://isite.tw/2016/05/21/15943">https://isite.tw/2016/05/21/15943</a></li></ul><h2 id="5ef713c7-f59d-460d-8c00-4e3169f87cd0" class="">Cache v.s. Memory</h2><hr id="83252a7d-ad72-4b56-80b3-7895b7d8739f"/><ul id="4fc6db78-b242-439a-81bb-3986c7df3e0f" class="bulleted-list"><li>區塊(block/line) : cache與memory間傳遞資料的單位</li></ul><ul id="62bec55a-2f72-46b0-afca-3e51e6cce12a" class="bulleted-list"><li>主記憶體是靠 <code>位址</code> 存取，而快取則是靠 <code>內容</code> 存取，所以又稱為內容定址記憶體(content addressable memory)</li></ul><ul id="5e82adc9-c03d-4700-8ca9-c7a399167a79" class="bulleted-list"><li>內容定址快取中的 <code>內容</code> 即 <code>主記憶體位址的子集</code> ，稱為 <code>欄位(field)</code> </li></ul><ul id="74d30516-f02d-446c-9a93-e519455a7925" class="bulleted-list"><li>字組欄(Word Field)(offset) : 特定區塊中的字組</li></ul><ul id="73ba1be7-12e1-4ca7-8463-849a3e0b44fe" class="bulleted-list"><li>欄位是記憶體位址的一部份，有多對一的對映關係</li></ul><ul id="744c8ec3-ca59-4a4b-8a9b-6c7feca4ba1b" class="bulleted-list"><li>記憶體中的多個區塊會對應到快取中的同一區塊，快取中的 <code>tag欄位</code> 會區分出是哪一個區塊</li></ul><ul id="492a3138-7097-4ad3-ab2d-bc407f17cd5d" class="toggle"><li><details open=""><summary> 快取的對映機制有 <code>3</code> 種</summary><ul id="53b4a628-e48e-4f13-899e-72746005d95a" class="toggle"><li><details open=""><summary> Direct-Mapped cache</summary><ul id="6e56f1df-b21d-46bc-bd1d-d03ab1d917bb" class="bulleted-list"><li>主記憶體的區塊只能放入快取中的某一特定區塊</li></ul><p id="cda535d2-dce1-4af0-b974-91ef90bec265" class=""><a href="https://www.youtube.com/watch?v=pSarQQTJbDA">https://www.youtube.com/watch?v=pSarQQTJbDA</a></p></details></li></ul><ul id="c085654f-cfa0-4882-b3d9-b94ff638a140" class="toggle"><li><details open=""><summary>Fully associative-mapped cache</summary><ul id="6c79ac56-8bb4-437c-b89a-723ea9e3c8e4" class="bulleted-list"><li> 主記憶體區塊可以放置於快取中的任一位置</li></ul><ul id="c8fff462-1689-41e6-9e7c-3b996464ea86" class="bulleted-list"><li>找尋資料時必須搜尋快取中的全部資料</li></ul><p id="6fd4923f-01e8-48a4-8360-424da660388f" class=""><a href="https://www.youtube.com/watch?v=Pg6bqkekAXY">https://www.youtube.com/watch?v=Pg6bqkekAXY</a></p></details></li></ul><ul id="c94b2d13-8222-4000-ad77-1de3f9fd0ce0" class="toggle"><li><details open=""><summary>n-way set associative-mapped cache </summary><ul id="c8322b4e-1e16-431e-a9c1-2a78586a08f4" class="bulleted-list"><li> 用位址將區塊對映到快取位置，並非對映到單一區塊，而是一些區塊的集合</li></ul><p id="045b8517-b987-4cd7-9ba7-6262f5c7123a" class=""><a href="https://www.youtube.com/watch?v=isbdr73Ymug">https://www.youtube.com/watch?v=isbdr73Ymug</a></p><p id="08f89bb1-532b-412f-a1e3-3de1319aef63" class="">
+</p></details></li></ul></details></li></ul><h2 id="ce33452f-b798-4b3b-8924-96809bacf853" class="">Endianness (位元組順序)</h2><hr id="7433cef1-064e-410f-93b7-08d3ecb85b3c"/><ul id="2f7c895d-1e56-4e3c-9385-261a94e3d5cb" class="bulleted-list"><li>資料在記憶體中的放置順序</li></ul><ul id="77efb9b2-3bdd-4c31-a541-5be91573f238" class="bulleted-list"><li>有兩種位元組順序 : 大端序、小端序</li></ul><ul id="16cf3f40-e874-467a-8ea5-d144a9725e2f" class="toggle"><li><details open=""><summary>Big-Endian</summary><ul id="87dc6cb2-ec7e-4076-8e6a-64c844949f61" class="bulleted-list"><li> 最高位的位元組放在最低的記憶體位址</li></ul><figure id="a64a6d41-d2f3-4db8-b2d8-c86b92b95c61" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Untitled%201.png"><img style="width:816px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Untitled%201.png"/></a></figure><p id="d59bae2a-ff7b-4fbd-8083-6ba40759ea36" class="">
+</p></details></li></ul><ul id="131fe485-a340-46c1-b8ca-b71f8db0498d" class="toggle"><li><details open=""><summary>LIttle-Endian</summary><ul id="1328ae24-c05c-4179-a1a2-9a434d58afa5" class="bulleted-list"><li> 最高位的位元組放在最高的記憶體位址上</li></ul><figure id="298dc320-2fbf-4fd8-aabc-a49f2298a3a5" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Untitled%202.png"><img style="width:816px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5/Untitled%202.png"/></a></figure></details></li></ul><p id="85374b0f-0786-4071-b324-8a9be635f968" class="">
+</p><h2 id="9284a705-a8f7-4899-a467-03b81a06a9e9" class="">O.S. 介紹</h2><hr id="16baea0e-3c21-4189-825c-dd6d7b838503"/><ul id="f1f60e67-3fe4-40f9-9a2d-59ca3193ba59" class="bulleted-list"><li> user 和 hardware 之間的溝通介面</li></ul><ul id="35ab213a-d421-4d3d-b8c6-b96c46f5a9cf" class="bulleted-list"><li>保護系統的正常運作，防止危害系統的動作發生</li></ul><h2 id="db605288-e9a3-48e4-99c7-7358b22dacab" class=""> 電腦開機程序</h2><hr id="d60dcbb6-6b54-4896-972d-6871241ed345"/><ul id="1200230c-a9ca-498d-b213-8d70245993ea" class="bulleted-list"><li> A small section of memory is made of ROM and holds a small program called the bootstrap program. 當開機時，電腦會開始跑bootstrap 這個程式，藉由這段程式可以找到系統的核心程式並將他載入記憶體，然後開始執行核心程式</li></ul><figure id="a2b4bd19-1bb4-488c-9513-34a9533b3cfb" class="image"><a href="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5%201.png"><img style="width:614px" src="Computer%20Science%20f26e8ca9859648edbb562f638cb86ff5%201.png"/></a></figure><p id="efc5845c-4ee7-4544-8d97-b54aa839d4d1" class="">
+</p></div></article></body></html>

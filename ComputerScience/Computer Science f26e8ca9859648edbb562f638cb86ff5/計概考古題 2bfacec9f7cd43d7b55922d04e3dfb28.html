@@ -1,0 +1,642 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>計概考古題</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2bfacec9-f7cd-43d7-b559-22d04e3dfb28" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👌🏼</span></div><h1 class="page-title">計概考古題</h1></header><div class="page-body"><hr id="a54999cf-376e-4b64-8242-800149484160"/><h2 id="ad62e012-8404-41e8-b64f-edbb2d69b924" class="block-color-blue_background">政大考題方向 </h2><hr id="30ad46b0-8245-4d05-9eec-4d1f9d128d42"/><ul id="926c4ce6-cf8b-4d0f-b811-a63544c5a131" class="bulleted-list"><li>106 : Database (JOIN)、網路、作業系統、資安、演算法、程式、程式語言</li></ul><h2 id="6af960eb-92ff-41a6-a98e-092936ce9c61" class="block-color-blue_background">台聯大考題方向 </h2><hr id="9eb4afbc-4d5d-4a94-9458-20c8356f897d"/><ul id="012e429d-6ca3-424b-81c2-92d9cb626b45" class="bulleted-list"><li>106 : 程式題、程式語言、資料結構、網路、資安、作業系統、ADT</li></ul><ul id="8bf2fe74-c543-4aca-a860-f13be105d14d" class="bulleted-list"><li>105 : 程式、程式語言、資安、邏輯閘、網路、ADT</li></ul><ul id="0541dd34-580b-466e-8c82-c9eb95343b9e" class="bulleted-list"><li>104 : 作業系統、程式語言、資安、檔案結構、資料結構</li></ul><ul id="b62ee1c3-80fd-4376-b344-078feaf4f625" class="bulleted-list"><li>103 : VLIW、recursion、程式語言、程式、作業系統、雲端</li></ul><ul id="3763822c-9c12-40bd-bfe4-07d7d4f4c1f7" class="bulleted-list"><li>102 : </li></ul><ul id="779ca168-0f6e-4fbe-93da-581aea2ca31b" class="bulleted-list"><li>101 : shift operation、sign-and-magnitude</li></ul><hr id="56341a4d-29b7-4e0f-982d-5f70b7d10c2e"/><h2 id="b9d69015-1829-4722-864a-3b4bbe8bfe61" class="block-color-blue_background">台綜大考題方向 </h2><ul id="1f393f90-2dba-4e37-bafc-6804d34cdf45" class="bulleted-list"><li>106 : 資料庫、演算法、程式、網路、資料結構、電腦架構</li></ul><ul id="67bdea71-8bc5-42ff-ab37-d6c201c8172b" class="bulleted-list"><li>105 : 軟體工程、排列組合、網路、程式(指標)、資料庫、資料結構、資安、程式語言</li></ul><hr id="6a69358c-6759-4c57-9b20-c0c14bae2f78"/><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="65fabf2a-493c-4c9b-86a9-4e75e3a7fa3f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">考前看學長姐給的補充</div></figure><ul id="2069f6a7-42d8-42eb-aef5-79e492c162d3" class="toggle"><li><details open=""><summary> <a href="https://drive.google.com/drive/u/0/folders/1-2h69zvxp4R7CsvSLGkQTWFNKy9eCAC-">https://drive.google.com/drive/u/0/folders/1-2h69zvxp4R7CsvSLGkQTWFNKy9eCAC- </a></summary><ul id="bafa310c-31a8-4267-9e8a-957417180d99" class="bulleted-list"><li> 103台聯大</li></ul></details></li></ul><h2 id="5d6d9a9d-f07a-495f-bf99-604394d1c0fc" class="block-color-red">考古檢討 </h2><hr id="4077d283-8bd4-4f03-93bd-8308fa8d4f45"/><ul id="a9395830-1b9d-4e34-9796-eb411f2b3da9" class="toggle"><li><details open=""><summary>台聯大106</summary><ul id="af6aa616-112a-4b2a-992e-eb9679ef7fb9" class="toggle"><li><details open=""><summary>22題</summary><ul id="0a72accf-e5ff-4c9c-9755-b2ed44010208" class="toggle"><li><details open=""><summary>D</summary><figure id="17039b51-bfad-47e9-80db-d44cc59d224f" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/linked_list.png"><img style="width:517px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/linked_list.png"/></a></figure><p id="43dc765b-743d-48de-8f82-408da22b3a2d" class="">
+</p></details></li></ul></details></li></ul></details></li></ul><ul id="bd1aa865-e033-416c-83d7-d8675d3a91c3" class="toggle"><li><details open=""><summary>台聯大105</summary><ul id="5b479966-6330-44e8-b444-9e31e69f621e" class="toggle"><li><details open=""><summary>第3題</summary><ul id="ddd5caf6-a2c7-4c8d-828a-c53d20954992" class="toggle"><li><details open=""><summary>logic gate</summary><figure id="a888bb07-ff15-4e32-9016-46ec43f47ee5" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/_2021-05-09_215749.png"><img style="width:661px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/_2021-05-09_215749.png"/></a></figure><p id="8745ea26-7a63-47ca-9213-c0d40f72a254" class="">
+</p></details></li></ul><ol id="a85d0a56-98a1-4d8e-b052-619a45be050c" class="numbered-list" start="1"><li>畫出真值表比較好解</li></ol><ol id="08853284-8dba-4f7d-a938-fe9e34f255fa" class="numbered-list" start="2"><li>帶值進去算</li></ol></details></li></ul><ul id="117f5f07-f413-4e2a-82c8-543bcb05c613" class="toggle"><li><details open=""><summary>第8題</summary><ul id="894bfe0d-33db-4c7c-9aad-20be842f3f00" class="toggle"><li><details open=""><summary>D</summary><ul id="22928830-eea7-4173-a7eb-273bbb594bd1" class="bulleted-list"><li>TELNET (TErminaL NETwork) : a remote logging protocol</li></ul><ul id="13f293f5-eb6e-4a22-aea0-9f362f095518" class="bulleted-list"><li>Although TELNET requires a logging name and password, it is
+vulnerable to hacking because it sends all data including the password in plaintext  ( <code>not encrypted</code>)</li></ul></details></li></ul></details></li></ul><ul id="a7823965-981d-4bb6-a2bc-bd1159d9242c" class="toggle"><li><details open=""><summary>第22題</summary><ul id="0f3f5fab-3a90-436d-b37b-8e594bc594d3" class="toggle"><li><details open=""><summary>E</summary><p id="c7512b12-679c-43cc-ab3c-d140a9576294" class="">halting problem : 用一個程式去測另一個程式是否停止(無解)</p></details></li></ul></details></li></ul></details></li></ul><ul id="414de295-16be-45d7-b50b-d2fe6c80c368" class="toggle"><li><details open=""><summary>台聯大104</summary><ul id="895ed330-3fcf-4081-8457-80a74b7cf69b" class="toggle"><li><details open=""><summary>17題</summary><ul id="130be67a-d91e-4828-afb2-2e355240b402" class="bulleted-list"><li>Passive Object : It is activated when it receives a message from other object ( work when being hit)</li></ul><ul id="30d99840-c16d-4ded-9e01-ea655b67bc13" class="bulleted-list"><li>Active Object : It can change its state by itself and send a message to other object if necessary</li></ul><figure id="0502686c-a94a-4a79-a6d5-4708c50524b5" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/45B079A5-5F5C-4860-A357-C7A741728C22.jpeg"><img style="width:3024px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/45B079A5-5F5C-4860-A357-C7A741728C22.jpeg"/></a></figure><p id="44341df7-8f02-4613-9f31-14768523ac71" class="">
+</p></details></li></ul><p id="2669e185-b561-4416-9a86-1dfb9a6cc40d" class="">
+</p></details></li></ul><ul id="a7227d30-0efa-403a-bb5a-d66d2713be48" class="toggle"><li><details open=""><summary>台聯大103</summary><ul id="84d98a7a-ee29-445b-9e00-b7ed93bd092c" class="toggle"><li><details open=""><summary>VLIW (very long instruction word)  </summary><ul id="5d8fa6d1-fe6f-429c-849b-3ba849251c79" class="bulleted-list"><li>以instruction 為單位，並在 compile 階段決定執行順序</li></ul><ul id="e2bacd0b-cfba-413b-91b4-7116379639e1" class="bulleted-list"><li>用控制器讓多個 CPU 達平行運算</li></ul><ul id="f1ddf182-31f4-403e-af34-89f6d11ebc14" class="bulleted-list"><li>VLIW processor 同時執行多個指令</li></ul><ul id="aa469bfb-c090-4b80-b7b3-cf4ba32b247a" class="bulleted-list"><li>VLIW 處理器相比其他多數的 <code>超純量處理器</code> 提供了更加強大的處理能力但是更少的硬體複雜性，但 <code>編譯器</code> 的複雜性提高</li></ul></details></li></ul><ul id="606c10ee-8f37-494e-891d-a9f30e304eda" class="toggle"><li><details open=""><summary>第11題</summary><figure id="83fc4210-c294-42d7-acc6-e546876e95a0" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/recursion.png"><img style="width:635px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/recursion.png"/></a></figure><p id="518c3d9e-27fd-469f-97c2-4f9772596f20" class="">
+</p></details></li></ul></details></li></ul><ul id="a334c492-0b53-4835-b937-98e0aff54fb1" class="toggle"><li><details open=""><summary>台聯大102</summary><ul id="1b1fc261-9be9-4910-bc29-577dfd40b51a" class="toggle"><li><details open=""><summary>第13題</summary><figure id="472d6dfd-90a2-4905-9997-00efaa579169" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/pointer.png"><img style="width:317px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/pointer.png"/></a></figure><p id="5904eb64-9055-46dd-9e19-5318acf8dd08" class="">
+</p></details></li></ul></details></li></ul><ul id="fa5edc20-4f74-4264-87b1-07419907b3e7" class="toggle"><li><details open=""><summary>台聯大101</summary><ul id="3decf92f-ba1a-4c69-89ce-6085fe3d8ba8" class="toggle"><li><details open=""><summary>第37題</summary><figure id="ef4c6214-eaa9-4a23-bcf5-2c86c4d8e021" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/00B2ABF9-A1FA-4D58-AF9E-70265B59E5FE.jpeg"><img style="width:4032px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/00B2ABF9-A1FA-4D58-AF9E-70265B59E5FE.jpeg"/></a></figure></details></li></ul></details></li></ul><ul id="85efc29b-ed97-40bc-a33f-d5db677b5dcb" class="toggle"><li><details open=""><summary>台聯大100</summary><ul id="96ea5a40-8719-40e0-901f-412331a1dc6f" class="toggle"><li><details open=""><summary>第10題</summary><ul id="3cf92d7a-08b6-4ea7-b597-dbe499c03678" class="bulleted-list"><li><a href="https://openhome.cc/Gossip/CppGossip/OverrideLAOperator.html">https://openhome.cc/Gossip/CppGossip/OverrideLAOperator.html</a></li></ul><ul id="249ec2f9-3bb9-411d-ac9c-f4436716d989" class="bulleted-list"><li>通常重載 &lt;&lt; 運算子時，會使用friend函式，這是因為重載 &lt;&lt; 函式時，它不是一個成員函式，理由在於 &lt;&lt; 左邊不是物件，而是一個輸出串流，由於 &lt;&lt; 函式不是成員函式，若要能存取資料成員，則該資料成員必須設定為public，使用friend函式來進行重載的話，則不用受此限制</li></ul></details></li></ul></details></li></ul><hr id="7e1d9880-402f-4539-a431-45a66ebaebd1"/><ul id="3421908b-2ea6-419b-9bcd-abdb937babcf" class="toggle"><li><details open=""><summary>台綜大105</summary><ul id="ffa1f0fc-844a-4d29-a84a-98597f1080ae" class="toggle"><li><details open=""><summary>A06</summary><ul id="76c0ed95-2806-4ad0-9246-40d5a7cdf6e0" class="toggle"><li><details open=""><summary>第17題</summary><ul id="4a149edb-4972-4bf8-9a72-6b7893944e95" class="bulleted-list"><li>lvalue、rvalue 是 C++ 對運算式（expression）的分類方式，一個粗略的判別方式，是看看 &amp; 可否對運算式取址，若可以的話，運算式是 lvalue，否則是個 rvalue</li></ul><ul id="ca00182b-947b-4b03-83c7-b87ccd43bbdd" class="bulleted-list"><li>另一個白話點的判別方式是，lvalue 運算式的結果會是個有名稱的物件，例如 a，rvalue 的結果是暫時性存在於記憶體，例如 a + b</li></ul><p id="e347de1d-2cae-4903-b4b0-38c2a8a4b332" class="">
+</p></details></li></ul><ul id="714626e1-5eb0-4cff-bd22-e57b7911b486" class="toggle"><li><details open=""><summary>第18題</summary><ul id="e2b5c61b-954c-492c-9b5b-4492fc228b7d" class="toggle"><li><details open=""><summary>解法</summary><figure id="028afbbb-432c-4061-be69-71a3bd1500c9" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/dynamic_allocate.png"><img style="width:576px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/dynamic_allocate.png"/></a></figure><p id="0d71c560-70e6-4948-b62a-01d1583fa77f" class="">
+</p></details></li></ul></details></li></ul><ul id="45457deb-12b8-49f4-9a69-bbd1d30d93f4" class="toggle"><li><details open=""><summary>第2題</summary><p id="78fc5b17-e3c5-4e7c-8de1-01e48231f0e5" class="">10個指令選5個，不重複排列
+也可以想成C10取5(找5個不重複的指令出來)再乘5!(不同順序)</p></details></li></ul></details></li></ul><ul id="ca093255-6f3a-44f8-8212-cc595688f46d" class="toggle"><li><details open=""><summary>A12</summary><ul id="89173065-bb08-400a-ac23-ca24cafcca3f" class="toggle"><li><details open=""><summary>第4題</summary><ul id="3882adb0-47a3-4e78-8fd8-6feae68717b9" class="toggle"><li><details open=""><summary>A</summary><ul id="3402fd8c-59ab-41e0-ba38-307880aef184" class="bulleted-list"><li>DDS : 是協助進行商業級或組織級決策活動的資訊系統</li></ul></details></li></ul><ul id="d116d9e5-1121-477c-a6fa-005b2b957711" class="toggle"><li><details open=""><summary>B</summary><ul id="dc4dd0cc-e319-4e73-ae55-20b95325cd93" class="bulleted-list"><li>expert system : 核心是 Inference engine，the engine 利用knowledge base 與 fact database 來解決專家才能解決的複雜問題</li></ul></details></li></ul><ul id="65ffefc1-6d4b-44ff-bde1-8f281f237c2d" class="toggle"><li><details open=""><summary>D</summary><p id="ae90b73a-5302-4073-8ad0-c76125794747" class="">MIS : 以人主導，利用電腦硬體、軟體和網路裝置，進行資訊收集以提高組織的經營效率</p></details></li></ul></details></li></ul><ul id="1b95292f-baee-456f-bc48-294e120f7b41" class="toggle"><li><details open=""><summary>第5題</summary><ul id="e2621825-05ad-4ba8-8525-15000d92b65a" class="bulleted-list"><li>database model : logical design of data, The model also 解釋各個資料間的關係 </li></ul><ul id="31b07106-1fe2-44b2-ad8e-b10368ead6ea" class="bulleted-list"><li>report writer : 為一軟體，依一報表的布局描述產生並列印報表。可為單獨程式或為資料庫管理系統（DBMS）或檔案管理器的一部分。為第一個用以產生電腦輸出而不需寫輸出程式的軟體</li></ul><p id="5517a5fe-3a4f-4bd6-9459-e718a63e8fb9" class="">
+</p></details></li></ul><ul id="1898de11-85ae-4860-8924-7e783e17e579" class="toggle"><li><details open=""><summary>第9題</summary><ul id="0e162e6d-c785-43e5-a88c-f750f1b863a3" class="toggle"><li><details open=""><summary>PAN (Personal Area Network) </summary><ul id="38415822-6ec5-4cef-84fd-408fa8f7d526" class="bulleted-list"><li>Example : 無線滑鼠、smartphone、USB、無線影印機</li></ul></details></li></ul><ul id="95277603-d58e-44f8-8ca1-cd6fadbe1eeb" class="toggle"><li><details open=""><summary>範圍關係</summary><figure id="3ade6187-6685-45fb-83fe-a95f00131303" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled.png"><img style="width:1920px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled.png"/></a></figure></details></li></ul><ul id="ae89ec8c-6448-4a94-b14f-41ab2b3d063b" class="toggle"><li><details open=""><summary>BAN (Body Area Network) </summary><ul id="5771b435-6e56-4632-8f75-bc1bfcdc8cdc" class="bulleted-list"><li>是由可穿戴或可嵌入設備組成的網絡</li></ul></details></li></ul></details></li></ul><ul id="65d530eb-e69d-4862-a888-a002d9773ee7" class="toggle"><li><details open=""><summary>第10題</summary><ul id="0f9dcc3e-0a37-4f24-bb42-95b4904ef8e2" class="bulleted-list"><li>data cap : 為limit由 ISP 對於使用者的流量限制 (有一個固定時間) </li></ul><ul id="92bea171-8b5b-4339-8219-fa4ac563fa24" class="bulleted-list"><li>bandwidth throttling : 由 ISP 有意的降低網路速度</li></ul><ul id="9e23e00c-c446-4ad6-aabe-852b6a4c01d4" class="bulleted-list"><li>Bluebugging : Bluebugging利用某些較舊（大約在2004年）藍牙設備的固件中的安全漏洞來訪問該設備及其命令。此攻擊在不通知用戶的情況下使用設備的命令，從而使攻擊者可以訪問數據，撥打電話，竊聽電話，發送消息以及利用設備提供的其他服務或功能</li></ul></details></li></ul><ul id="1e754621-5332-44f4-8801-c03603c66d96" class="toggle"><li><details open=""><summary>第13題</summary><ul id="32d9cb71-207d-47f6-8136-55ac410cc6db" class="bulleted-list"><li>Snapshot database : 提供特定時間點的靜態檢視，她是唯讀的資料庫，經常被使用在報表用途，由於資料靜止在指定的時間點，可以有效避免新交易造成報表間的數字差異</li></ul></details></li></ul><ul id="c11bdb8a-a9ea-420c-a373-04713a654274" class="toggle"><li><details open=""><summary>第14題</summary><ul id="0c5fd8d3-0e98-4b4e-b5e5-e61c4e097564" class="bulleted-list"><li>Spyware : to <code>monitor</code> activity on your computer</li></ul><ul id="c9670a84-65c5-4c3d-ac82-dea82e119f52" class="bulleted-list"><li>Trojan horse : backdoor to your computer、to <code>control</code> activity</li></ul></details></li></ul><ul id="0af6d413-fe57-4c4f-b1ea-7c8b42ad4301" class="toggle"><li><details open=""><summary>第23題</summary><ul id="592c72c4-5bd1-4c37-b84a-21484298cec6" class="bulleted-list"><li><a href="https://www.geeksforgeeks.org/differences-between-tcp-and-udp/">https://www.geeksforgeeks.org/differences-between-tcp-and-udp/</a></li></ul><p id="3ab85d84-7a1d-4a45-a292-a3b200c37169" class="">
+</p></details></li></ul></details></li></ul><ul id="a0a9b623-48d1-44ea-8b19-00f661f68bd8" class="toggle"><li><details open=""><summary>c03 </summary><p id="2e4f92ee-2b99-4774-844c-7436639e94a4" class="">第</p></details></li></ul><ul id="ca8355e4-eaef-4ace-b21d-586583bba61f" class="toggle"><li><details open=""><summary>A13</summary><ul id="246a163a-1eaa-4a8e-8b6d-54895213a6dd" class="toggle"><li><details open=""><summary>第1題</summary><p id="5e2f449f-4189-47c8-8763-676e19bf54e9" class="">Decompiler : 與編譯器的功能相反，顧名思義，就是把已編譯好的程式還原到未編繹的狀態，只侷限在某些語言上如 Java</p></details></li></ul><ul id="e5938fad-3985-495c-bfd2-efc8b75bf02e" class="toggle"><li><details open=""><summary>第8題</summary><ul id="50ff8dfd-1d67-4395-9a0c-a9de1c34376a" class="bulleted-list"><li>Centralized Database (CDB) : 在一個地方如:server CPU、desktop、central computer 維護且儲存資料庫的資料</li></ul><ul id="fc85567e-9466-408c-97a6-b529450caa62" class="bulleted-list"><li>Data independence : 這跟 CDB 有關係，即 user applications 不該看到資料庫的細節等，每筆資料都做自己的處理</li></ul></details></li></ul><ul id="346ef2de-900d-420a-b9ad-ab8bce34a58b" class="toggle"><li><details open=""><summary>第16題</summary><figure id="b7fd7a53-65fd-4cf3-8847-156dd3e2a64d" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/80012.jpg"><img style="width:1530px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/80012.jpg"/></a></figure></details></li></ul></details></li></ul><ul id="5d634fab-dcca-4970-9f1b-10ddb48f1ebb" class="toggle"><li><details open=""><summary>C05</summary><ul id="aab0f6fe-c88e-4f37-84ae-251ea2f1177d" class="toggle"><li><details open=""><summary>第12題</summary><p id="4d7837b4-9a7b-416a-ad07-3c5001278216" class="">Repeater</p><ol id="38a419c9-0c35-4016-afb9-adf88e7b974f" class="numbered-list" start="1"><li> 用在數位傳輸</li></ol><ol id="a4bcb738-808d-4bda-b022-935ba08d8935" class="numbered-list" start="2"><li> 接受訊號並&quot;去除雜訊&quot;後，然後重新產生增強的訊號</li></ol><ol id="280b11f6-877a-4bad-a3f0-9400771e6d9a" class="numbered-list" start="3"><li> 不會放大訊號，而是將衰減後的數位訊號中的二進位資料 0 和 1 恢復其形式</li></ol><ol id="93fe8b85-67c8-4a27-98b8-47ee13250c76" class="numbered-list" start="4"><li> 連接同一個網路的不同區段，以延長網路傳輸的距離，但無法連接不同的網路</li></ol><p id="23c5577d-a131-41ef-a374-f55ca97ee231" class="">Amplifier</p><ol id="9968d077-71fe-4576-9377-a7c91c6c94bd" class="numbered-list" start="1"><li> 用在類比傳輸</li></ol><ol id="230d9683-2c55-4a96-bdf8-16fb078fa6c7" class="numbered-list" start="2"><li> 增強訊號強度，但會將收到的雜訊也會一起放大</li></ol></details></li></ul></details></li></ul></details></li></ul><hr id="b1d7da49-6d01-48eb-b94f-5d5273570d63"/><ul id="43943f28-515b-4b47-8751-950fa0e3116b" class="toggle"><li><details open=""><summary>政大106</summary><ul id="407f4d53-a262-4336-865c-951ac9a6d87e" class="toggle"><li><details open=""><summary>第4題</summary><ol id="173abce5-ce18-432c-937d-9d9204125c9d" class="numbered-list" start="1"><li>電源開啟，BIOS 會在 ROM 上執行</li></ol><ol id="0978e9ac-a47c-4a0c-870b-0122c28e58d6" class="numbered-list" start="2"><li>做開機自我測試 (POST) : 測試和初始化CPU、RAM...</li></ol><ol id="3ce51cee-9577-493c-9627-ccdd5e4b1631" class="numbered-list" start="3"><li>執行 bootstrap 程式，這段程式會把 disk 中的 kernel 載入memory，開始執行</li></ol><ol id="925f88bc-4b2e-4dde-8f19-c03ac3063197" class="numbered-list" start="4"><li>執行MBR (是電腦開機後存取硬碟時所必須要讀取的首個磁區)  </li></ol></details></li></ul><ul id="c8a0b5dd-7e99-45f6-aa4a-6d8031a4c8f7" class="toggle"><li><details open=""><summary>第9題</summary><ul id="53f309d3-380e-470a-8921-1aaa40a8b091" class="bulleted-list"><li><a href="https://ithelp.ithome.com.tw/articles/10190568">https://ithelp.ithome.com.tw/articles/10190568</a></li></ul></details></li></ul></details></li></ul><hr id="55f8defd-fc69-4336-bbd3-56bc641933e3"/><ul id="8b7931f6-3a76-4166-b101-0c8cdf1cd16e" class="toggle"><li><details open=""><summary>成大104</summary><ul id="0725b3d6-b2df-41f6-ae37-14466a1cdb55" class="toggle"><li><details open=""><summary>第4題</summary><ul id="9b4c0ea9-ba0b-4e82-8d4a-af6728e3c17c" class="bulleted-list"><li>Metcalfe&#x27;s Law (梅特卡夫定律) : 一個網路的價值等於該網路內的節點數的平方，而且該網路的價值與聯網的使用者數的平方成正比。定律指出一個網路的使用者數目越多，那麼整個網路和該網路內的每台電腦的價值也就越大</li></ul></details></li></ul><ul id="173c6cd2-3796-478f-a63b-c8d07f13cfc6" class="toggle"><li><details open=""><summary>非選題</summary><ul id="2c8998e4-d70e-4c0f-a736-b6baf366a27e" class="toggle"><li><details open=""><summary>第(B)題</summary><p id="b1ac8ba6-c37b-4da4-b04a-a97d1426ea92" class="">ITS : 將先進的資訊科技、電腦技術等整合運用於交通運輸管理體系</p><p id="44e31dd3-ac19-40c6-a895-03f141c9e1d3" class="">ER 模型 (ER model) : 描述實體與實體間的關係及實體本身的屬性</p><p id="be0bcd0d-3c6b-4278-8060-4c2ca42caf73" class="">ERD (ER diagram) : 使用圖形化的方式呈現 ER模型</p><p id="4000c78f-b3ef-450e-aa5a-a6aefafd30d6" class="">全雙工傳輸 : 允許二台裝置間同時進行雙向資料傳輸</p><p id="bae36b6d-629e-407b-bd71-ddfbcc92d6e9" class="">雙工 : 兩台通訊裝置之間，允許有雙向的資料傳輸 (可分為半雙工、全雙工) </p></details></li></ul><ul id="3d430ef3-21af-4ad1-b9a0-74f26cf3f017" class="toggle"><li><details open=""><summary>第4題</summary><figure id="1ea16fc5-c62b-4962-b435-7dd90717898b" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%201.png"><img style="width:812px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%201.png"/></a></figure><p id="aaf0c9c6-2a19-4550-ae03-f0933c595a6f" class="">
+</p></details></li></ul></details></li></ul></details></li></ul><ul id="bbf0512e-2417-4bce-a896-9c650ec7e88c" class="toggle"><li><details open=""><summary>成大103</summary><ul id="47a325af-f410-4373-a7ef-a46f0ce8a24f" class="toggle"><li><details open=""><summary>第7題</summary><ul id="76a883e4-0387-4c8d-8ee5-86b9b443a59b" class="bulleted-list"><li><a href="https://zh.wikipedia.org/wiki/%E7%A1%AC%E7%9B%98%E7%9B%98%E7%89%87">https://zh.wikipedia.org/wiki/硬盘盘片</a></li></ul></details></li></ul><ul id="9dbf59c8-53c1-4b11-afce-66189a93fd02" class="toggle"><li><details open=""><summary>第3題簡答題</summary><figure id="8ea02286-adf0-490f-8094-ee03e03b1fb5" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/1DC48D10-B0FB-44EC-A242-F3261D162291.jpeg"><img style="width:2538px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/1DC48D10-B0FB-44EC-A242-F3261D162291.jpeg"/></a></figure></details></li></ul><ul id="c921cc21-5732-4b15-9b4b-35c3fbdd7793" class="toggle"><li><details open=""><summary>第6題簡答題</summary><p id="230d70b2-daea-4097-a2e4-a2591769f697" class="">Pseudo Code </p><figure id="62b95fd2-4317-454b-93c8-5dd60b0a3630" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%202.png"><img style="width:947px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%202.png"/></a></figure><p id="ec2e4d47-49f2-4c82-93fd-e68d285c4fc2" class="">Implementation</p><figure id="09e52cde-a0e7-4d42-8af8-65fa841a46e3" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%203.png"><img style="width:538px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%203.png"/></a></figure></details></li></ul></details></li></ul><hr id="e1b68ab9-cd8f-4353-aab2-74c12397737a"/><ul id="5921b53d-9e4c-4d03-95e6-06f147b11270" class="toggle"><li><details open=""><summary>中興103</summary><ul id="5e123dd0-0c3d-4e25-b71b-63a5de6600a0" class="toggle"><li><details open=""><summary>非選第2題</summary><figure id="9d44a862-676f-4ffc-ae22-0b5abe57433c" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%204.png"><img style="width:611px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%204.png"/></a></figure></details></li></ul><ul id="4ee4a5cf-7ff9-48d7-b1df-5247ff2520d0" class="toggle"><li><details open=""><summary>非選第3題</summary><figure id="f433c23c-4168-43c3-b7f6-5f0912bbd21f" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%205.png"><img style="width:591px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%205.png"/></a></figure></details></li></ul></details></li></ul><ul id="06f72541-c6ad-4d1e-af83-1063c702964e" class="toggle"><li><details open=""><summary>中興100</summary><ul id="7023efc6-ed9c-40af-a16b-5b0b2b85bd3f" class="toggle"><li><details open=""><summary>第17題</summary><ul id="1aeea56d-885e-46a4-8394-587d5fc826e0" class="bulleted-list"><li>Java applet : 在Web環境下，執行於客戶端的Java程式組件，Java run independent of the HTML、手機的程式</li></ul><ul id="6f7c165a-d826-48e1-9efc-5e3685b540ad" class="bulleted-list"><li>JavaScript : 最常見的是在HTML文件內，且可提供單靠HTML無法達到的網頁互動，必須透過瀏覽器來執行</li></ul></details></li></ul><ul id="2b29220b-02b7-4ad3-9ecf-caa62a554339" class="toggle"><li><details open=""><summary>第18題</summary><ul id="3f0be5f2-961b-48d3-8de1-e66e049d7e05" class="bulleted-list"><li>Coupling : how tightly two modules are bound to each other，we want them to be loosely coupled</li></ul><ul id="74f4d412-5656-42ef-a0d9-7e8a6439cd09" class="bulleted-list"><li>Cohesion : how closely the modules in a system are related</li></ul><ul id="fecb91e4-6cc9-46c1-ad4a-0e46ec12a5a9" class="bulleted-list"><li>Interoperability : capability of sending data to other systems</li></ul></details></li></ul></details></li></ul><hr id="6c781b3d-3725-4f33-b588-6fe15d608e58"/><ul id="714d260a-6c81-44eb-b0a2-94209b7f75ff" class="toggle"><li><details open=""><summary>中正103</summary><ul id="5f335dc8-c118-4ed3-99f5-ad9b3b407f6c" class="toggle"><li><details open=""><summary>第6題</summary><ul id="800cae1c-9bbf-4c5f-8d51-53c636128085" class="toggle"><li><details open=""><summary>True Color</summary><ul id="bf02ddde-df3f-40d6-8e1b-abf31f7d7aca" class="bulleted-list"><li>用 24bits 呈現一個 pixel (RGB 各 8bits) </li></ul></details></li></ul><ul id="24cb4a6e-039e-4894-ac20-2d58d6ad06cb" class="toggle"><li><details open=""><summary>Indexed color (palette color)</summary><ul id="6a94698f-6ef1-4530-827c-84096b9ca73d" class="bulleted-list"><li>只有用 true color 裡的一部分顏色 (256種)，所以原本 true color 要 24bits 呈現一個 pixel，現在用 8bits 就可以呈現顏色</li></ul></details></li></ul><ul id="91630e57-7770-4e70-a13f-4b68310f2970" class="bulleted-list"><li>JPEG 用 True-Color scheme 有壓縮</li></ul><ul id="bdc3865c-3ced-40b7-b2c9-d99a500ec77c" class="bulleted-list"><li>GIF 用 Indexed Color scheme 有壓縮 (LZW 壓縮演算法)</li></ul><figure id="c89d87df-2323-4af5-874e-222197261494" class="image"><a href="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%206.png"><img style="width:517px" src="%E8%A8%88%E6%A6%82%E8%80%83%E5%8F%A4%E9%A1%8C%202bfacec9f7cd43d7b55922d04e3dfb28/Untitled%206.png"/></a></figure></details></li></ul><ul id="b490d87f-fa26-4edd-a47a-0381723dbf51" class="toggle"><li><details open=""><summary>第12題</summary><ul id="588d83df-246a-4d2e-80b2-146f7f718278" class="toggle"><li><details open=""><summary>CGI</summary><ul id="9d8a6b2b-38ff-4fe7-a397-2d32cc4430d6" class="bulleted-list"><li>這種程式是在server上實現動態頁面提供了一種通用的協定</li></ul></details></li></ul><ul id="1580e1cc-0b1b-40d2-b128-a270320c9cc5" class="toggle"><li><details open=""><summary>JSP </summary><ul id="6e5e5322-206d-4081-a52b-f16a0706f474" class="bulleted-list"><li>JSP部署於網路伺服器上，可以回應客戶端傳送的請求，並根據請求內容動態地生成HTML、XML或其他格式文件的Web網頁</li></ul></details></li></ul><ul id="ea464d48-1c6f-4d03-ad22-2664b0108464" class="toggle"><li><details open=""><summary>ASP</summary><ul id="38975cfc-5782-4752-bfea-a6fea11e7ec5" class="bulleted-list"><li>動態伺服器網頁 (Active Server Pages)，讓不同的使用者能有不同的畫面</li></ul></details></li></ul></details></li></ul></details></li></ul><hr id="7d8e9b28-4df1-4a23-a354-7848046febfc"/><ul id="134bfd45-01ba-4a90-9f63-456a7d80d3af" class="toggle"><li><details open=""><summary>中山103</summary><ul id="accc0270-949c-4f5b-8372-cb6817c0f159" class="toggle"><li><details open=""><summary>B Short Answer</summary><ul id="630277f2-a9fd-438b-be90-00315592a0e3" class="bulleted-list"><li>call by reference : call by reference 是 C++ 才有的功能，它對變數產生的作用與 call by address 類似，call by address 的指標內容為指向的位址，該指標仍然有記憶體位置，但是 call by reference 不會額外產生記憶體位址來指向某個變數，可以把它當作某個變數的別名</li></ul></details></li></ul></details></li></ul><p id="43b99b78-1288-4bc6-bdb1-aa529cafcd5e" class="">
+</p></div></article></body></html>

@@ -1,0 +1,151 @@
+body{
+    background-color: white;
+}
+.menu{
+    height: 100vh;
+    width: 300px;
+    background-color: #7C7C7C;
+    float: left;
+}
+.menu .title span{
+    /*1em 為一般字體大小 等同百分比 */
+    font-size: 2em;
+    color: #ffffff;
+    margin-left: 20px;
+}
+.menu .title .min_pic{
+    /*把層級關係也考慮進來
+    url only use relative address*/
+    background: url('../images/thumbnail.jpg') no-repeat;
+    background-size: 84px auto;
+    height: 84px;
+    width: 84px;
+    border-radius: 50px;
+    display: inline-block;
+}
+.menu ul li{
+    font-size: 1.3em;
+    font-weight: 300;
+    padding: 10px 30px;
+    color: #ffffff;
+    transition: 0.25s; /*滑鼠移過去時，延遲0.25秒後在變hover的屬性*/
+}
+a:link{
+    text-decoration: none;
+}
+.menu ul li:hover{
+    background-color: #e29e9e;
+    color: #4a4a4a;
+}
+.title{
+    /*padding 是內距
+      margin 是外距
+    */
+    padding: 20px 15px;
+    background-color: #4a4a4a;
+}
+
+img{
+    width:100px;
+    border-radius: 50px;
+    float: left;
+    margin-right: 10px;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.menu ul li{
+    text-decoration: none;
+    color: white;
+}
+.menu .link{
+    /*https://mocationer.com/css-position-relative-absolute/
+    有細講absolute、relative的概念
+    */
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.menu .link div{
+    /*因為三張圖片顯示範圍與區塊模式都一樣，所以統一寫在div標籤上*/
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border: 1px solid #ffffff; /*調整邊框的屬性 三個值分別為 線條粗細、線條樣式、線條顏色*/
+    padding: 10px;
+    border-radius: 50px;
+    margin: 10px 10px;
+}
+.menu .link .fb{
+    background: url('../images/facebook.png') 10px no-repeat;
+    background-size: 20px 20px;
+}
+.menu .link .ig{
+    background: url('../images/instagram.png') 10px no-repeat;
+    background-size: 20px auto;
+}
+.menu .link .github{
+    background: url('../images/github.png') 10px no-repeat;
+    background-size: 20px auto;
+}
+.menu .link .youtube{
+    background: url('../images/Youtube.png') 10px no-repeat;
+    background-size: 20px auto;
+}
+.content{
+    width:100vw;
+    height: 100vh;
+}
+.content .banner{
+    width: 100%;
+    height: 300px;
+    background: url('../images/star.JPG') 43px no-repeat;
+    background-size: cover;
+}
+.content .banner div{
+    color: white;
+    font-size: 1.5em;
+    display: inline-block;
+    vertical-align: top;
+}
+.div{
+    margin-top: 80px;
+    margin-left: 100px;
+}
+.div span{
+    font-size: 0.5em;
+    vertical-align: center;
+    margin-left: 26px;
+}
+.content .banner .picture{
+    background: url('../images/myself.png') no-repeat;
+    background-size: 150px auto;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    border-radius: 150px;
+    margin-top: -18px;
+}
+.content .news{
+    width: 50%;
+    margin: 30px auto;
+    height: 300px;
+    font-size: 2em;
+}
+.content .news ul{
+    margin-top: 20px;
+    font-size: 20px;
+    text-indent: -1.5em;
+    line-height: 1.5;
+    padding: 1em 1em 1em 2em;
+}
+i{
+    width: 1em;
+    margin: 0;
+    padding: 0;
+    text-indent: 0em;
+}

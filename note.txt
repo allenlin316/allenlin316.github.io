@@ -1,0 +1,14 @@
+預設 .col-佔欄數
+手機 橫 .col-sm
+
+平板 直 .col-md
+平板 橫 .col-lg
+
+桌機    .col-xl
+
+第25天(詳細的bootstrap)
+breadcrumb
+jumbotron
+Navbar
+pagination
+list group

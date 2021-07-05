@@ -1,0 +1,633 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Ch6-Computer Networks &amp; Internet</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bb9dc9ca-0da5-46da-a7e1-95ef53243820" class="page sans"><header><h1 class="page-title">Ch6-Computer Networks &amp; Internet</h1></header><div class="page-body"><ul id="ab0621e2-2d88-442f-9077-c0329614664d" class="toggle"><li><details open=""><summary>OSI </summary><figure id="62583f3f-0817-4e4d-8c36-67ba5cd3dcc3" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/_2021-05-05_172250.png"><img style="width:144px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/_2021-05-05_172250.png"/></a></figure><figure id="936af281-c134-4ffd-99e1-8011257eb839" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/network.png"><img style="width:602px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/network.png"/></a></figure><p id="2b84f3b1-9301-4cb6-91aa-da1198e927f8" class="">
+</p></details></li></ul><ul id="6af6f6a5-e02a-4551-9e07-b63a12dc7e29" class="toggle"><li><details open=""><summary>TCP/IP</summary><figure id="6cac8f38-418f-4247-b2a6-d17dcccfd24d" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP-1.png"><img style="width:528px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP-1.png"/></a></figure><figure id="6d20912c-5d6b-4294-a012-bdaf88ef0085" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP-2.png"><img style="width:192px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP-2.png"/></a></figure></details></li></ul><ul id="56776baa-b5de-41ea-8f54-ce668093bc97" class="toggle"><li><details open=""><summary>範圍關係</summary><figure id="d6e6d6e5-1dcf-46ef-a22f-52c7ad68dc5e" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/Untitled.png"><img style="width:1920px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/Untitled.png"/></a></figure></details></li></ul><h2 id="5396e446-f8d1-4cc8-beb7-25e128258023" class="">JavaScript </h2><hr id="883102bd-bb56-47c5-a048-5474d6230ed8"/><p id="9be2632e-7e38-479b-a64e-60dca90d4324" class="">JavaScript : 用來呈現網頁動態效果的程式語言，如 : 我們在電商網站進行購物時，把商品加入購物車時，購物車就會出現「商品已進入購物車」的訊息提醒效果</p><h2 id="ce1703f6-f690-428c-9b33-3af9d5fce073" class="">網路硬體</h2><hr id="bc8286ad-2c27-4c5f-832c-f0664a3febd7"/><ul id="abc38285-e05e-482f-8baa-635764e22d1c" class="toggle"><li><details open=""><summary>Switch </summary><ul id="d1037d1c-ea0d-4366-96d4-772221884225" class="bulleted-list"><li>在 data-link layer 使用 MAC 位址轉發資料，引入路由功能，可以在 network layer 轉發資料</li></ul><ul id="38911b2d-a5bf-468f-a016-810493f103a0" class="bulleted-list"><li>只會將資料轉發到需要接收的裝置與 HUB 不同</li></ul></details></li></ul><ul id="f043a52a-b6f6-4805-9523-68917c30765b" class="toggle"><li><details open=""><summary>Bridge (橋接器) (網橋)</summary><ul id="70ade691-99f6-44ae-a38e-a6bb0f5369db" class="bulleted-list"><li>將網路的多個網段在資料鏈路層（OSI模型第2層）連接起來（即橋接）</li></ul><ul id="4590f7fd-8f2c-44ad-8e7c-686f8cf6069e" class="bulleted-list"><li>橋接器有別於路由器。路由器允許多個網路之間的獨立通信，但又保持區隔，而橋接器則是將兩個獨立的網路連接起來，就如同單一網路</li></ul></details></li></ul><ul id="2c0b5bed-84bb-4cb8-a3c3-0fc3a8391fd8" class="toggle"><li><details open=""><summary>Gateway (閘道器)</summary><ul id="53eb636c-2207-435b-9dfe-70adb88d2548" class="bulleted-list"><li>連接兩個異質網路</li></ul><ul id="fc5bee63-26fb-43f2-b1f9-ee021f4c6dc6" class="bulleted-list"><li>為應用層的裝置</li></ul></details></li></ul><h2 id="19e37825-8e1c-4b63-8850-de30f06262f3" class="">Overview</h2><hr id="5a02ee3a-e389-44a2-b78b-cc7e72fa5f36"/><p id="11317e07-c585-418e-a5a5-5eb4c1509ecc" class="">Network : 設備間可以互相連接及溝通</p><p id="b07a0d29-36a4-4a02-8341-84c8776b96c8" class="">Internet : 兩個以上的 network 連接在一起，可以互相溝通</p><p id="8a444fc2-9c8f-438e-86ff-1d552f80abf1" class="">Protocol : 指在網路上一種可以彼此溝通的模式</p><p id="5d06c2d5-f51c-4290-9d1b-dcd91e7060c3" class="">Router : 一個網路連接到下一個網路</p><p id="95797777-eee9-4b09-9c05-41cc3c422969" class="">modem : 改變 data 的形式</p><p id="11dfc046-fc2d-435f-b0d6-48a967d4e6d9" class="">switch : 把設備連接在一起</p><ul id="84bcefca-15c3-4810-b35a-10d5a22cb0fa" class="toggle"><li><details open=""><summary>WAN (Wide Area Network)</summary><ul id="2c14842f-a672-438d-810b-bac7259041dd" class="toggle"><li><details open=""><summary>point-to-point WAN </summary></details></li></ul><ul id="a9ddb5a1-0cc3-44a4-9e09-bedfb1174f2c" class="toggle"><li><details open=""><summary>Switched WAN</summary></details></li></ul></details></li></ul><ul id="f4dc1779-206f-466a-bd21-64c6bc979ecd" class="toggle"><li><details open=""><summary>Addressing &amp; packet names</summary><ul id="7864e41e-0537-45bc-b7a0-97e83054034c" class="bulleted-list"><li>要建立雙方連接需要 : source address、destination address </li></ul><ul id="81f4579e-2676-4821-af43-0f503e7ec938" class="bulleted-list"><li>Application Layer : 是透過names (e.g.  google.com)</li></ul><ul id="225529d8-ee9b-4d90-b39e-ea187d8228a4" class="bulleted-list"><li>Transport Layer : 利用port number，只要運行的程式向系統提出訪問網路的申請，那麼系統就可以從這些Port號中分配一個供該程式使用</li></ul><ul id="bf96649a-1597-4669-ba0b-47aede581381" class="bulleted-list"><li>Network Layer : 網路位置 ( the connection of a device to the Internet) </li></ul><ul id="8aa275cc-2821-4e8e-8f01-f68f2d71a90d" class="bulleted-list"><li>Data-link layer : 由 MAC address</li></ul><figure id="268bbb38-2a1d-4eb1-95c2-5a268ecded54" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP.png"><img style="width:752px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP.png"/></a></figure><p id="2c2b7371-ad9b-413d-a74b-62f33df70076" class="">
+</p></details></li></ul><h2 id="23c1db73-6f3f-429b-8a8c-af85f7b75020" class="">Application Layer</h2><hr id="2033202b-e3e0-4b5f-b8c6-dbe267c79676"/><ul id="45528846-86fc-4bfd-9315-60799ab88992" class="bulleted-list"><li>logical conection 來連接 (假想兩方連接只要一個send、一個receive)</li></ul><ul id="8ed222c7-6a84-4c19-b107-43cdec3ff017" class="toggle"><li><details open=""><summary>Client-server paradigm</summary><ul id="f53bb599-6146-4fca-bfb2-98083c8c8b4e" class="bulleted-list"><li>HTTP(port 80)、FTP、SMTP、SSH、WWW</li></ul><ul id="a5a7a1b1-802c-4c95-841e-cdc1e9e99867" class="toggle"><li><details open=""><summary>WWW v.s. HTTP </summary><ul id="1057dc26-a480-471c-b4d3-e7e669677193" class="bulleted-list"><li>hypertext (超連結) : 這個概念在 Internet 之前就出現了</li></ul><ul id="97251487-b126-478b-a192-649edf3c64f5" class="bulleted-list"><li>web page : 為一個 file with name &amp; address</li></ul><ul id="c2c50dee-bdb3-46ed-b2b4-d734028041d4" class="bulleted-list"><li>Simple web page : 沒有任何連結到其他 web pages</li></ul><ul id="d1a8e9c9-e2b7-4dc7-893b-482181f6ea1a" class="bulleted-list"><li>Composite web page : 有一個以上的連結到其搭 web pages</li></ul></details></li></ul></details></li></ul><ul id="86d8cde9-ba4f-402e-bc73-b1b01bcf655a" class="toggle"><li><details open=""><summary>Web client (browser) (瀏覽器)</summary><ol id="3e777342-8552-4f4b-b2b4-52a25ca7103c" class="numbered-list" start="1"><li>controller : 利用 client 的 program 去取得網站的東西</li></ol><ol id="9610a70a-f454-43e8-b26e-3530b1a29f8a" class="numbered-list" start="2"><li>client protocols : HTTP、FTP、SMTP</li></ol><ol id="20228606-317b-4013-a810-6f5e3a83b160" class="numbered-list" start="3"><li>interpreters : controller 利用任何的直譯器( JavaScript、HTML、Java) 呈現網站</li></ol></details></li></ul><ul id="1ff7ecbf-b574-46f3-b3a7-57b459809f29" class="toggle"><li><details open=""><summary>URL (Uniform resource locator)</summary><ol id="305c609b-1913-4ad3-918e-ec4e7cd7a3c3" class="numbered-list" start="1"><li>Protocol : 首先先告訴瀏覽器我們需要哪一種的 client-server application</li></ol><ol id="443f14a4-b10d-4534-b770-826f6441c337" class="numbered-list" start="2"><li>Host : IP address of the server</li></ol><ol id="9535a10b-6c46-47bf-9fd0-39814628bfd2" class="numbered-list" start="3"><li>Port : 16-bit integer，只要運行的程式向系統提出訪問網路的申請，那麼系統就可以從這些Port號中分配一個供該程式使用</li></ol><ol id="0bdd81f4-abad-4688-8195-d243918c2b34" class="numbered-list" start="4"><li>Path : location and the name of the file，格式依作業系統不同<figure id="602bac7e-4ac3-41ac-b0f3-9cfec697992a" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP%201.png"><img style="width:595px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCPIP%201.png"/></a></figure></li></ol></details></li></ul><ul id="f9fd6611-945c-4ba7-bd5a-3f16e2a6434b" class="toggle"><li><details open=""><summary>FTP (File transfer protocol)</summary><ul id="295f6b66-5f7b-4a99-acb5-fb29d3cd16ac" class="bulleted-list"><li>當FTP開始，Control connection 會開始連線</li></ul><ul id="2e940e4e-4d77-4c85-baad-0f4dea3b3f2f" class="bulleted-list"><li>Data connection 資料傳送結束就會關掉</li></ul><ul id="0b730ac8-95bc-46d9-81a9-43f2d6ceb3b0" class="bulleted-list"><li>FTP 關掉，control connection 才會斷掉</li></ul></details></li></ul><ul id="91bc3e7e-4a2c-438a-b566-8017138d7787" class="toggle"><li><details open=""><summary>SMTP</summary><ol id="7d5f9b59-02c2-4bd1-81bd-da23ff99172b" class="numbered-list" start="1"><li>User Agent (UA) : Allen透過UA將郵件寄給MTA</li></ol><ol id="877e1d4c-2eb8-4a34-8401-d37898f21d17" class="numbered-list" start="2"><li>Mail Transfer Agent (MTA) : Allen&#x27;s MTA 寄給 Bob 的 MTA</li></ol><ol id="d8779c2b-1206-4171-88e5-b2d19d711ce6" class="numbered-list" start="3"><li>Message Access Agent (MAA) : MAA 把 MTA 的訊息 pull 下來</li></ol></details></li></ul><ul id="27ae8b0c-4a5f-4de9-8c78-93dd7eb0daf7" class="toggle"><li><details open=""><summary>TELNET</summary><ul id="76fc937e-92a3-467b-b60a-6c69dea22dd6" class="bulleted-list"><li> remote logging</li></ul><ul id="c0fc10e2-6a77-47ff-9ff7-7976b670a655" class="bulleted-list"><li>所有的 password、logging name 都沒被加密的傳回去</li></ul></details></li></ul><ul id="ccb8ba0c-d7cb-4259-94cc-bf8afaf58ba7" class="toggle"><li><details open=""><summary>SSH (Secure Shell)</summary><ul id="c9ed6196-3220-406a-8c29-9cb00f71fa55" class="toggle"><li><details open=""><summary>SSL/TLS v.s. SSH</summary><p id="47381d16-51d4-4036-93e9-67f92312bd18" class="">有 CA 的參與也是 SSL/TLS 與 SSH 最大的差異。另外一個差異是 SSL/TLS 是被使用在資料傳輸，而 SSH 是用來執行指令（通常就是用來登入遠端電腦）</p></details></li></ul><ul id="253578c2-7c9c-4c6f-95ca-b283e60830ea" class="bulleted-list"><li>SSH-1 被 SSH-2 取代</li></ul><ul id="f6b1ee8a-b84a-4b92-8d0c-f24956dd241a" class="bulleted-list"><li>SSH 目的是要取代 TELNET</li></ul></details></li></ul><ul id="1bc9abf4-d4cf-4158-a7c7-9d38b49b1809" class="toggle"><li><details open=""><summary>DNS </summary><ul id="39702f60-1745-4ddc-a3e8-29201322c00e" class="bulleted-list"><li> 由 tree 建構而成</li></ul><ol id="933e48d0-816e-4060-b208-c13f127af6f5" class="numbered-list" start="1"><li>Generic domains : 對應到申請者性質是什麼 (com、edu、gov) </li></ol><ol id="22fd7378-9b9d-492b-ae8d-3fb7d9b2a8ad" class="numbered-list" start="2"><li>Country domains : 國家的縮寫</li></ol><ol id="9f5461e7-690f-466e-8143-7ee4077e70d8" class="numbered-list" start="3"><li>Inverse domain : 原本可以透過IP 位址，找到相對應的主機，但現在太多網路，所以已經不太行找到了 </li></ol><p id="1d591d99-af18-4e3b-9940-b60c658afc63" class="">
+</p></details></li></ul><h2 id="d2a1f17c-e1ba-4ca9-a0b2-38caee84030b" class="">Transport Layer</h2><hr id="0ef5d5c3-51ad-4bee-9bfa-716ec52942b1"/><ul id="69ef008d-794b-4065-aa35-53d5b9eed00d" class="toggle"><li><details open=""><summary>Process-to-process communication </summary><ul id="b7ff83cf-b011-4a3d-9678-e31178190253" class="bulleted-list"><li>A process 為應用層跑程式時會用到傳輸層的服務</li></ul></details></li></ul><ul id="4f748c7b-3371-47ae-b956-15fd6aca46a5" class="toggle"><li><details open=""><summary>Port numbers</summary><ul id="45453a39-bdd2-4eed-a4a1-0a3fc9c76461" class="bulleted-list"><li>整數範圍 : 0~65535(16 bits)</li></ul><ul id="c4985f0f-1a78-4ad5-987a-ac0aa5b7f7c0" class="bulleted-list"><li>local host 與 remote host 透過 <code>IP</code> 聯繫，透過 <code>port numbers</code> 建立 processes</li></ul><ul id="9a88423e-4f8f-4019-aad5-849cfcdb191f" class="bulleted-list"><li>client 有 <code>ephemeral port</code> (臨時埠) (號碼大於1023)</li></ul><ul id="b7b26671-bc18-4a40-a472-f82efa1d6627" class="bulleted-list"><li>server 有 <code>well-known port</code> (統一的埠號)  </li></ul></details></li></ul><ul id="b09e009e-3ff8-45a9-9249-1dae5e84823c" class="toggle"><li><details open=""><summary>UDP (User Datagram Protocol) </summary><ul id="816178c7-a323-4999-b593-3adf47b9b8aa" class="bulleted-list"><li>connectionless、unreliable </li></ul><ul id="905bb863-51ec-4629-bd9e-e91ba13f9e59" class="bulleted-list"><li>8 bytes fixed-size header</li></ul><ul id="3e53e880-0036-4067-9538-018f85e3425b" class="bulleted-list"><li>e.g. : DNS、DHCP、VoIP</li></ul><figure id="9453d856-6854-4c92-8447-af24598e5465" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/UDP_.png"><img style="width:606px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/UDP_.png"/></a></figure></details></li></ul><ul id="62dbb849-7239-419a-8a51-556793f504bf" class="toggle"><li><details open=""><summary>TCP (Transmission Control Protocol) </summary><ul id="7a5c75bf-6489-4c7e-ab54-15d01b3eb22c" class="bulleted-list"><li>connection-oriented、reliable protocol</li></ul><ul id="67abd046-235c-48bb-8819-d8d0ae1c1248" class="bulleted-list"><li>它利用 sequence numbers to define the order of the <code>segment</code></li></ul><ul id="524586b5-9cd0-4eed-b248-75e197f861a0" class="bulleted-list"><li>Segment : TCP groups a number of bytes together into a packet 稱之</li></ul><ul id="9837eb1d-e4f0-480c-a836-80816a2cd3e1" class="bulleted-list"><li>TCP 在 每一個 segment 前面加上 header(20~60 bytes)，再給 network layer 做傳輸</li></ul><ul id="04a2a9a3-d40e-4ac1-962e-4cd4b44ba151" class="bulleted-list"><li>這些 segments 都被封裝在 IP-datagram 裡</li></ul><ul id="ab222bdd-3102-4a15-98c9-53bb9e8a6a8d" class="bulleted-list"><li>e.g. : HTTP、HTTPS、FTP、SMTP、Telnet</li></ul><figure id="fd348784-ac75-49c1-af77-92f45a8ac21c" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCP_segment_.png"><img style="width:764px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/TCP_segment_.png"/></a></figure></details></li></ul><ul id="dafaae6d-da86-4eea-abfe-bb4ca5ea334e" class="toggle"><li><details open=""><summary>GeeksforGeeks links</summary><ul id="eedabe1b-33e9-42ca-9533-5acb63e7fdc2" class="bulleted-list"><li><a href="https://www.geeksforgeeks.org/differences-between-tcp-and-udp/">https://www.geeksforgeeks.org/differences-between-tcp-and-udp/</a></li></ul></details></li></ul><h2 id="123c4e10-b4d7-494a-9595-750f24ae439a" class="">Network Layer</h2><hr id="8823b813-c8b3-4ad7-bd50-e1a1f40d9ec6"/><ul id="292a50e9-4039-40cd-be63-b5267b2987db" class="bulleted-list"><li>host-to-host delivery </li></ul><ul id="e7455ea4-c7b9-46fd-9f4d-d914c44ab33a" class="bulleted-list"><li>傳輸層的 payload 可能會被封裝到 network-layer 不同的封包裡</li></ul><ul id="9fc1f13e-e24b-4675-9451-5946a29ec242" class="toggle"><li><details open=""><summary>Packet delivery </summary><ol id="cb4f27ed-2f52-4e59-a3f5-de2bf2ea1452" class="numbered-list" start="1"><li>Unreliable : 封包可能會不見、壞掉</li></ol><ol id="246a8ad6-bd86-4b5e-b679-34d741aaf730" class="numbered-list" start="2"><li>connectionless : network layer 對每個封包處理都是獨立的，即由同一個 transport layer 來的 payload 可能到達 destination 的順序不一樣<figure id="af405fee-6423-4902-9d1f-0ca4a55dcbaa" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/packet_travel.png"><img style="width:611px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/packet_travel.png"/></a></figure></li></ol></details></li></ul><ul id="5699c33a-5b53-4457-8a3b-076e9b10eb0d" class="toggle"><li><details open=""><summary>IPv4 (Internet Protocol Version 4) </summary><ul id="65a01091-bc51-4f78-b847-7a05e3bb287b" class="toggle"><li><details open=""><summary>Address notation (base 2、base 256、base 16)</summary><figure id="e42833b5-a83b-46e1-8f6d-d75ea1189c2d" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/address_notation.png"><img style="width:604px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/address_notation.png"/></a></figure><p id="781d435d-d86a-4f83-a0c2-d71bb4ca1232" class="">
+</p></details></li></ul></details></li></ul><ul id="fa2de330-fe41-476b-8d6c-8f2b88c54565" class="toggle"><li><details open=""><summary>IPv6 (Internet Protocol Version 6) </summary><figure id="cc6002a0-f08e-491c-ac2a-664d0b82a05d" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/IPV6.png"><img style="width:607px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/IPV6.png"/></a></figure><p id="982e084b-c159-44fc-8b59-fd41f5f8ac3d" class="">
+</p></details></li></ul><h2 id="5d730bfd-c3a3-4cfe-b7a4-b98a33918fed" class="">Data-Link Layer</h2><hr id="0b7a501e-ee19-43a3-bf7e-f0dfe53f9763"/><ul id="fd09044b-68b2-4f20-9739-bd2bda849bb6" class="bulleted-list"><li>Node-to-node </li></ul><ul id="76a0bf89-a8c3-4db5-951e-8f0623d97748" class="toggle"><li><details open=""><summary>Nodes &amp; links</summary><ul id="5652804b-8361-443a-aca4-bacadc6a3de4" class="bulleted-list"><li>Node : two end hosts、routers 為nodes</li></ul><ul id="efa01962-3c6d-45a6-bc97-8a9fa1fa7588" class="bulleted-list"><li>Link : networks 在兩個 nodes 間稱為 links<figure id="6eb3eb2b-3f77-44f4-9656-051f458ae2ad" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/nodelink.png"><img style="width:617px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/nodelink.png"/></a></figure></li></ul></details></li></ul><ul id="a40f8055-c50f-4ac3-849a-1e5132312d37" class="toggle"><li><details open=""><summary>Ethernet frame (Wired LANS)</summary><ul id="d1bf91f7-4eb0-4826-8482-d9599b68b1a3" class="bulleted-list"><li>一堆 bits 被整合成一個 frame 傳送 (dest. add.、source add.、data type、data、CRC) <figure id="ead93de9-6adc-451c-8097-0f3b0d15ad2f" class="image"><a href="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/ethernet.png"><img style="width:616px" src="Ch6-Computer%20Networks%20&amp;%20Internet%20bb9dc9ca0da546daa7e195ef53243820/ethernet.png"/></a></figure></li></ul></details></li></ul><ul id="f9c6b564-c184-4712-b412-3eb5990ae179" class="toggle"><li><details open=""><summary>Wireless Ethernet &amp; Bluetooth</summary><ul id="02e717e2-286a-468f-9fd0-bc0e7fca2bb7" class="bulleted-list"><li>Bluetooth : 它是 ad hoc network (無線臨時網路)，是一種分散式無線網路系統，它不需要依賴一個既存的網路架構，它每一個節點，都有能力轉送網路封包給其他節點</li></ul></details></li></ul><ul id="2dbe6b07-9a59-4485-b571-20437221608d" class="toggle"><li><details open=""><summary>DSL (Digital subscriber line)</summary><ul id="ed283168-15c3-45b7-92cc-4ffef26b1270" class="bulleted-list"><li>over the existing telephone 可以支援更快速的連接</li></ul><ul id="0b367399-51e0-481c-8825-15aba41f7819" class="bulleted-list"><li>ADSL (asymmetric) : downstream direction (Internet → resident) 速度大於 upstream (resident→Internet)，使用 ADSL 的人可以同時使用 data &amp; voice channel  </li></ul></details></li></ul><ul id="3a233d79-61c4-4e36-8c66-f7af6d1b7574" class="toggle"><li><details open=""><summary>WiMAX (Worldwide Interoperability for Microwave Access) </summary><ul id="550698cb-961c-498c-9a3d-ec753be55552" class="bulleted-list"><li>高速無線資料網路的標準</li></ul><ul id="ffb3c12c-7c1c-4168-8fbc-27f3f57af54a" class="bulleted-list"><li>主要用於都會網路</li></ul><ul id="b95aa39c-b57c-44f7-9176-dbd02712fe9d" class="bulleted-list"><li>wireless version of DSL or Cable connection </li></ul><ul id="f25811c8-a7d7-4e9c-b590-eb36eef78065" class="bulleted-list"><li>可以想成大型 WIFI</li></ul></details></li></ul><h2 id="41dd8bf5-b3b7-406f-b5c3-778006116eb4" class="">Physical Layer</h2><hr id="b6e213b2-eb20-43f9-91bf-abeb753c3859"/><ul id="ba910d3d-ad09-497f-9dc3-c3c1b8a5e6d8" class="bulleted-list"><li>Node-to-node 但它是交換電的訊號</li></ul><ul id="8fc21abc-7213-4ebb-9b73-a0579aacfd02" class="bulleted-list"><li>把 data-link layer 的 bits 轉換成 electromagnetic signals </li></ul><ul id="374b83b7-3d91-443b-9f8a-e30e29941377" class="toggle"><li><details open=""><summary>Guided media</summary><ul id="2d7d8576-7a4c-47c9-8000-cdf8afe30307" class="bulleted-list"><li>Twisted-pair cable (雙絞線) : DSL (電話線) </li></ul><ul id="63f88d83-b571-4403-bdf1-4a82a4b72d21" class="bulleted-list"><li>Coaxial cable (同軸電纜) : 之前TV是用這個，不過最近被光纖取代</li></ul><ul id="599c40da-2c67-443c-a6f7-0ce7898113b8" class="bulleted-list"><li>Fiber-optic cable (光纖) : 骨幹網可以看到它的存在，因為頻寬 cost-effective </li></ul></details></li></ul></div></article></body></html>
