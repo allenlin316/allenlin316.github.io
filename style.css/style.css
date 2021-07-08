@@ -1,0 +1,25 @@
+.jumbotron {
+    background: url('/images/meVlogging.JPEG') no-repeat center center /cover;
+    margin-bottom: 0;
+    color: white;
+}
+
+.navbar {
+    background-color: #071b34;
+}
+
+.home-page {
+    padding: 30px 20px;
+}
+
+.context {
+    padding: 20px;
+}
+
+.main-footer {
+    background-color: #ccc;
+    color: white;
+    padding: 5px;
+    position: relative;
+    bottom: 0;
+}

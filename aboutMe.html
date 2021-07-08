@@ -1,27 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>About Me</title>
-    <div style="background-color: rgb(192, 110, 110); padding: 10px; color: white;">
-        <ul>
-            <li><a href="index.html" style="margin-left: 10px;">back to home Page</a></li>
-        </ul>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    </div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css/style.css">
 
-    <a href="images/myself.png">
-        <img src="images/myself.png" alt="I'm Allenator">
-    </a>
-
+    <title>About Me-Allen</title>
 </head>
 
 <body>
 
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">Allen's Website</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="/ComputerScience/Computer Science f26e8ca9859648edbb562f638cb86ff5.html">CS Note</a>
+                </li>
+                <li class="nav-item about-tag active">
+                    <a class="nav-link" href="aboutMe.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Context-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h1 style="margin-top: 50px;">關於我</h1>
+                <p>
+                    >>>我是林品安，目前就讀嘉義大學資訊工程學系。在2016-2017我以親善大使的身分前往美國交換一年，擁有優秀的外語溝通能力。程式方面，大一上有做過單機遊戲設計、物件導向程式設計，暑假期間正在持續開發自己的網站與持續培養程式解題能力。
+                </p>
+                <h2>專長</h2>
+                <ul>
+                    <li>程式應用(Arduino、C++、HTML、CSS、Qt)</li>
+                    <li>空拍機攝影</li>
+                    <li>文書處理(PowerPoint、Word)</li>
+                    <li>剪輯影片(Premiere Pro)</li>
+                </ul>
+                <h2>興趣</h2>
+                <ul>
+                    <li>經營 YouTube 頻道</li>
+                    <li>Markdown 語法製作筆記</li>
+                    <li>網站開發</li>
+                    <li>git 版本控制</li>
+                    <li>魔術、吉他、游泳、籃球</li>
+                </ul>
+                <h2>學習經歷 - 程式方面</h2>
+                <ul>
+                    <li>IDEX 新加坡科展銅牌</li>
+                    <li>單機遊戲製作 (Qt 跨平台的圖形化介面框架)</li>
+                    <li>使用 PHP 連接 MySQL 驗證帳密正確性</li>
+                    <li>透過 DVWA 實作 SQLinjection、XSS</li>
+                    <li>C++ 解題 (UVa Online Judge)</li>
+                    <li>完成 AI 線上課程(Microsoft Learn、AWS educate、DIGI Talent)</li>
+                    <li>AWS DeepRacer 無人自走車設計</li>
+                    <li>高中畢業影片製作</li>
+                </ul>
+                <h2>學習經歷 - 英文方面</h2>
+                <ul>
+                    <li>代表高中參加教育部新南向活動</li>
+                    <li>擔任台灣外交大使與美國文化交流</li>
+                    <li>參加美國游泳校隊</li>
+                    <li>擔任扶輪社交換生活動主席</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="item">
+                    <img src="/images/flags.JPG" class="img-fluid img-thumbnail"
+                        alt="friends wave their own country flags"
+                        style="width: 100%; display: block; margin-top: 100px;">
+                    <img src="/images/科展銅牌.JPG" class="img-fluid img-thumbnail" alt="science fair won the bronze"
+                        style="width: 100%; display: block; margin-top: 50px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
