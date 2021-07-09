@@ -1,6 +1,11 @@
 # Allen's Website
 [Click here to my Website](https://allenlin316.github.io/)
 
+## Developing (還在開發中)
+* 英文小說分享頁面
+* 交換生經驗分享的內容
+
+   
 ## Tools
 * Bootstrap ( v4.6.0.)
 * CSS
