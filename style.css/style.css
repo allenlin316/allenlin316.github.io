@@ -4,6 +4,11 @@
     color: white;
 }
 
+.lead{
+    line-height: 1em;
+    text-indent: 0;
+}
+
 .navbar {
     background-color: #071b34;
 }
@@ -15,7 +20,10 @@
 .context {
     padding: 20px;
 }
-
+p{
+    line-height: 2em;
+    text-indent: 2em;
+}
 .main-footer {
     background-color: #ccc;
     color: white;
