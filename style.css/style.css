@@ -12,34 +12,46 @@
 .navbar {
     background-color: #071b34;
 }
+
+.list-group{
+    margin-bottom: 20px;
+}
+
 body{
     position: relative;
 }
+
 .home-page {
     padding: 30px 20px;
 }
+
 .content {
     padding: 20px;
 }
+
 p{
     line-height: 2em;
     text-indent: 2em;
 }
+
 table{
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
 }
+
 table, th, td{
     border: 1px solid black;
     text-align: center;
 }
+
 #quote-ul{
     background-color: #d9edf7;
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 6px;
 }
+
 .main-footer {
     background-color: #ccc;
     color: white;
@@ -47,3 +59,4 @@ table, th, td{
     position: relative;
     bottom: 0;
 }
+
