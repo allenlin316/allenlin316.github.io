@@ -1,3 +1,6 @@
+[![hackmd-github-sync-badge](https://hackmd.io/YDVAdaDFS5OgBrVQydfkVQ/badge)](https://hackmd.io/YDVAdaDFS5OgBrVQydfkVQ)
+![狀態:開發中](https://img.shields.io/badge/status-developing-orange)   
+
 # Allen's Website
 [Click here to my Website](https://allenlin316.github.io/)
 
