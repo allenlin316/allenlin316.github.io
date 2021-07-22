@@ -13,11 +13,17 @@
     <link rel="stylesheet" href="style.css/style.css">
 
     <title>English book sharing</title>
+    <style>
+        html {
+            /* prevent content get covered by the fixed navbar */
+            scroll-padding-top: 70px;
+        }
+    </style>
 </head>
 
-<body data-spy="scroll" data-target="#list-group-spy" data-offset="0">
+<body data-spy="scroll" data-target="#list-group-spy" data-offset="50">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,7 +46,7 @@
     </nav>
 
     <!-- content -->
-    <div class="container content">
+    <div class="container content" style="margin-top: 50px;">
         <div class="row">
             <div class="col-12 col-md-3">
                 <div class="list-group">
@@ -120,13 +126,22 @@
                         <li>fishy : 可疑的</li>
                     </ul>
                 </div>
+                <button type="button" class="collapsible-btn">TOC</button>
+                <ul class="toc-collapse-content">
+                    <li><a href="#title">TO KILL A Mockingbird</a></li>
+                    <li><a href="#character">Characters</a></li>
+                    <li><a href="#quote">Quote</a></li>
+                    <li><a href="#vocabulary">Vocabulary</a></li>
+                </ul>
             </div>
             <div class="col-12 col-md-2">
-                <div class="list-group" id="list-group-spy" style="position: fixed;">
-                    <a href="#title" class="list-group-item">TO KILL A Mockingbird </a>
-                    <a href="#character" class="list-group-item">Characters</a>
-                    <a href="#quote" class="list-group-item">Quote</a>
-                    <a href="#vocabulary" class="list-group-item">Vocabulary</a>
+                <div class="toc" style="position: fixed;">
+                    <div class="list-group" id="list-group-spy">
+                        <a href="#title" class="list-group-item active">TO KILL A Mockingbird</a>
+                        <a href="#character" class="list-group-item">Characters</a>
+                        <a href="#quote" class="list-group-item">Quote</a>
+                        <a href="#vocabulary" class="list-group-item">Vocabulary</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,7 +149,8 @@
 
 
 
-
+    <!-- for collapsible-btn use -->
+    <script der src="script.js/script.js"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
