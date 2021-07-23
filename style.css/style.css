@@ -37,25 +37,29 @@ body{
     /* rules for small screens */
     .collapsible-btn{
         display: block;
-        float: right;
+        position: fixed;
+        background-color: #e6e6e6;
         bottom: 10px;
-        color: rgb(0, 0, 0);
-        cursor: pointer;
-        padding: 15px;
-        border: 1px solid #ccc;
-        text-align: left;
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    .fa-bars{
+        font-size: 2em;
+        color: #868686;
     }
 }
 
-.active, .collapsible-btn:hover{
-    background-color: rgb(211, 211, 211);
-}
-
-.toc-collapse-content{
-    top: auto;
-    bottom: 100%;
-    display: none;
-    padding: 5px 15px;
+#toc-collapse-content{
+    position: fixed;
+    bottom: 55px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px;
+    /* align-items: center;
+    justify-content: center; */
+    padding-right: 25px;
+    padding-top: 5px;
+    border-radius: 4px;
     line-height: 2em;
 }
 
