@@ -86,6 +86,16 @@ table, th, td{
     border-radius: 6px;
 }
 
+#moreVoc{
+    display: none;
+}
+
+blockquote{
+    border-left: .25em solid #ddd;
+    padding: 0.5em;
+    color: #777;
+}
+
 .main-footer {
     background-color: #ccc;
     color: white;
