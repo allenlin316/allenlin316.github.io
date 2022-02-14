@@ -5,8 +5,8 @@
 [Click here to my Website](https://allenlin316.github.io/)
 
 ## Developing (還在開發中)
-* 英文小說分享頁面
-
+* Google Search Console (讓 Google 找到我的網站)
+* Git Note (我自己學 Git 的重點整理)
    
 ## Tools
 * Bootstrap ( v4.6.0.)
