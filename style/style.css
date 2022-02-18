@@ -98,3 +98,21 @@ blockquote{
     bottom: 0;
 }
 
+mark{
+    background-color: rgb(224, 224, 224);
+    border-radius: 4px;
+    color: red;
+}
+
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.bd-callout-primary {
+    border-left-color: #2a60b8;
+}

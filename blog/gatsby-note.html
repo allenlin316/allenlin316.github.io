@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <title>Gatsby Note</title>
+</head>
+
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">Allen's Website</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item about-tag active">
+                    <a class="nav-link" href="/blog/index.html">Blog</a>
+                </li>
+                <li class="nav-item about-tag">
+                    <a class="nav-link" href="/blog/about-me.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page content-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Gatsby Note</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Posted on Feb 18, 2022 by Allen</div>
+                        <!-- Post categories-->
+                        <a class="badge badge-secondary" href="#!">Self-learning</a>
+                        <a class="badge badge-secondary" href="#!">SSG</a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <!--什麼是 React?--->
+                        <h2 id="reactComp">什麼是 React?</h2>
+                        <hr>
+                        <p>React 是一個 JS 的函式庫，Gatsby 用它來創造 UI，好處是可以把 UI 切成一個一個可以 <mark>重複利用</mark> 的 components </p>
+                        <!--React Component?-->
+                        <h2 class="mt-5">React Component?</h2>
+                        <hr>
+                        <p>是一個函式會 return React element，而 React element 是一個物件 React 用來渲染 DOM</p>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#react" aria-expanded="false" aria-controls="react">示意圖</button>   
+                        <div class="collapse" id="react">
+                            <img class="rounded float-left" src="/images/react-component.png" alt="react-component-img" style="width:100%;">
+                        </div>
+                        <!--React Component 的重要元素-->
+                        <h2 class="mt-5">React Component 的重要元素</h2>
+                        <hr>
+                        <ol style="line-height: 40px;">
+                            <li>Import React from the react package, so that you can use JSX inside your  <mark>.js</mark> file.</li>
+                            <li>Define your component. It should be a function that returns a JSX element.</li>
+                            <li>Export your component, so that it can be used by other parts of your site.</li>
+                        </ol>
+                        <!--重複出現的 component-->
+                        <h2 class="mt-5">重複出現的 component</h2>
+                        <hr>
+                        <p>在 <mark>src/components</mark> 底下創一個 layout.js 檔案，讓 components 可以共用</p>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#repeatComp" aria-expanded="false" aria-controls="repeatComp">component with children 範例 code</button>
+                        <ul class="collapse" id="repeatComp">
+                           <li>src/components/layout.js</li>
+                               <img class="rounded" src="/images/component-layout.png" alt="">
+                            <li>src/pages/index.js</li>
+                            <img class="rounded" src="/images/react-index.png" alt="">
+                        </ul>
+                        <!--GraphQL 拿資料-->
+                        <h2 class="mt-5" id="graphqlID">GraphQL 拿資料</h2>
+                        <hr>
+                        <p>用 Gatsby - GraphiQL (localhost:8000/__graphql) 試跑指令，確保 result data 是自己要的</p>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#graphql" aria-expanded="false" aria-controls="graphql">流程示意圖</button>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#dataInSite" aria-expanded="false" aria-controls="dataInSite">取得資料步驟</button>
+                        <ul class="collapse" id="graphql">
+                            <li>source → data layer → components</li>
+                            <img class="rounded float-left" src="/images/graphql.png" alt="graphql image" style="width:100%;">
+                        </ul>
+                        <ol class="collapse" id="dataInSite">
+                            <li>Add a source plugin to add data into the GraphQL data layer.</li>
+                            <li>Use GraphiQL to design a query that responds with the data you want from the data layer.</li>
+                            <li>Add the query into your component.</li>
+                            <ul>
+                                <li>Use page queries for page components.</li>
+                                <li>Use <mark>useStaticQuery</mark> for “building block” components.</li>
+                            </ul>
+                            <li>Use the data from the response in your component.</li>
+                        </ol>
+                        <!--Transform data to use MDX-->
+                        <h2 class="mt-5" id="mdx">Transform data to use MDX</h2>
+                        <hr>
+                        <p>MDX : 是一個融合了 MarkDown 與 JSX 的格式。可以用 JSX (javascript extension) 到 markdown content，可以 import components, 像是互動式表格，如下面例子</p>
+                        <img class="rounded" src="/images/MDX.png" alt="mdx image">
+                        <!--File System Route API-->
+                        <h2 class="mt-5" id="routeAPIID">File System Route API</h2>
+                        <hr>
+                        <ul>
+                            <li>在 Gatsby，我們把每個網站寫在 <mark>src/pages</mark> 底下，但當我們想要每一項產品都有自己的頁面，我們總不能一直重複地把每一項產品的網頁寫在 <mark>src/pages</mark> 底下吧，因此，我們可以利用 Route API</li>
+                            <li>Route API 會動態的新增 page 在 <mark>src/pages</mark> 底下</li>
+                        </ul>
+                        <div class="bd-callout bd-callout-primary">
+                            <h5>Slug</h5>
+                            <p>a unique identifier for the resource</p>
+                        </div>   
+                        <div class="collapse" id="routeAPI">
+                            <img class="rounded float-left" src="/images/routeAPI.png" alt="routeAPI image" style="width:100%;">
+                        </div>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#routeAPI" aria-expanded="false" aria-controls="routeAPI">Route API 示意圖</button>
+                    </section>
+                </article>
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+                <!-- Categories widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Categories</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#reactComp">React</a></li>
+                                    <li><a href="#mdx">MDX</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#graphqlID">GraphQL</a></li>
+                                    <li><a href="#routeAPIID">Route API</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Note</div>
+                    <div class="card-body">React 真的很好用，不過概念滿複雜的</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Bootstrap use-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CJ793J955W');
+    </script>
+</body>
+
+</html>
