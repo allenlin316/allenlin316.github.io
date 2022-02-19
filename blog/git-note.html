@@ -14,6 +14,13 @@
     <title>Git Note</title>
 </head>
 
+<style>
+    img{
+        float: left;
+        width: 100%;
+    }
+</style>
+
 <body>
 
     <!-- NavBar -->
@@ -49,21 +56,186 @@
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">Git Note</h1>
                         <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Posted on January 1, 2021 by Allen</div>
+                        <div class="text-muted fst-italic mb-2">Posted on Feb 19, 2022 by Allen</div>
                         <!-- Post categories-->
                         <a class="badge badge-secondary" href="#!">Self-learning</a>
                         <a class="badge badge-secondary" href="#!">Version control</a>
                     </header>
-                    <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                        <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                        <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                        <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                        <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                        <!--什麼是 Git ?-->
+                        <h2 class="mt-5">什麼是 Git ?</h2>
+                        <hr>
+                        <ul>
+                            <li>是一個分散式的版本控制系統 (Version Control System)</li>
+                            <li>有點像玩超級馬力歐，闖關一個地圖時會過好幾個旗子(紀錄目前走到的位置)，Git 就是扮演這個角色，當你編輯檔案時，今天編輯明天修改內容，Git 可以幫你把編輯修改的內容存起來</li>
+                        </ul>
+                        <!--為何使用 ?-->
+                        <h2 class="mt-5">為何使用 ?</h2>
+                        <hr>
+                        <ul>
+                            <li>原始方法可能會用日期寫在檔名上 track 檔案的修改，但你能知道檔案間差在哪嗎，或者是跟同事朋友共同編輯檔案時，檔案不見或覆蓋掉時，要怎麼知道最後是誰用的</li>
+                            <li>Git 幫助我們追蹤檔案之間的差異，包括誰在什麼時候加進來、什麼時候被修改或刪除</li>
+                            <li><mark>目前業界最流行的版控</mark></li>
+                        </ul>
+                        <!--優點-->
+                        <h2 class="mt-5">優點</h2>
+                        <hr>
+                        <ol>
+                            <li>免費、開源</li>
+                            <li>速度快、檔案體積小 : Git 特別的設計，在於它並不是記錄版本的差異，而是記錄檔案內容的 <mark>快照</mark> (snapshot)，它可以讓 Git 在非常快速的切換版本</li>
+                            <li>分散式系統 : 即使沒有網路可以連上共同的伺服器，可以在自己電腦本機運作，等有網路時再同步就可以</li>
+                        </ol>
+                        <!--運作方式-->
+                        <h2 class="mt-5" id="operation">運作方式</h2>
+                        <hr>
+                        <p> <mark>git add file1.txt</mark> → file1 就會從本機 copy 一份到 staging area</p>
+                        <p> <mark>git commit -m "upload file1"</mark> → file1 就會從 staging area 上傳到 repository</p>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#git-workflow" aria-controls="git-workflow">架構示意圖</button>
+                        <div class="collapse mt-3" id="git-workflow">
+                            <img class="rounded float-left" src="/images/git-note/git-workflow.png" alt="git-workflow-img" style="width:100%;">
+                        </div>
+                        <div class="bd-callout bd-callout-primary">
+                            <h5>SHA-1</h5>
+                            <p>Secure Hash Algorithm 1 的縮寫</p>
+                            <p>是一種雜湊演算法，計算之後的結果通常會以 40 個十六進位的數字方式呈現</p>
+                            <p>Git 裡所有物件的編號都是由這個產生的</p>
+                        </div>
+                        <!--基本指令-->
+                        <h2 class="mt-5" id="basic-cmd">基本指令</h2>
+                        <hr>
+                        <p>初始設定 (後來除非需要，不然不用改)</p> 
+                        <ul>
+                            <li>git config —global user.name “&lt;user name&gt;”</li>
+                            <li>git config —global user.email &lt;user email&gt;</li>
+                            <li>git config —global core.editor &lt;想要用的文字編輯器 e.g. code(vs code)&gt;</li>
+                        </ul>
+                        <!--collapse card-->
+                        <div class="accordion" id="git-cmd" style="width: 80%;">
+                            <div class="card">
+                              <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    git status -s
+                                  </button>
+                                </h2>
+                              </div>
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#git-cmd">
+                                <div class="card-body">
+                                  <li>直接顯示 staging area 跟 local directory 的狀態</li>
+                                  <li>M : modified、A : added</li>
+                                  <li>由左到右為 : staging area → local directory</li>
+                                  <a href="/images/git-note/git-status.png"><img class="rounded m-3" src="/images/git-note/git-status.png" alt="git-status image"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    git ls-files
+                                  </button>
+                                </h2>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#git-cmd">
+                                <div class="card-body">
+                                    查看 staging area 的資料有哪些
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    git log —oneline
+                                  </button>
+                                </h2>
+                              </div>
+                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#git-cmd">
+                                <div class="card-body">
+                                  <p>呈現所有 commit 的 ID 與訊息</p>
+                                  <a href="/images/git-note/git-log.png"><img class="rounded m-3" src="/images/git-note/git-log.png" alt="git-log image"></a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                        git restore —staged &lt;file&gt;
+                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#git-cmd">
+                                  <div class="card-body">
+                                    <p>把 staging area 的資料返回上一步</p>
+                                    <a href="/images/git-note/git-log.png"><img class="rounded m-3" src="/images/git-note/git-restore.png" alt="git-restore image"></a>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--後悔 commit 這個檔案 - 用 reset 指令-->
+                        <h2 class="mt-5" id="regret">後悔 commit 這個檔案 - 用 <mark>reset</mark> 指令</h2>
+                        <hr>
+                        <ul>
+                            <li>回到上一次的 commit : <mark>git reset HEAD~</mark> 、 <mark>git reset &lt;上一次的 commit SHA-1 值&gt;</mark> </li>
+                            <li>那拆出來的檔案跑去哪了 : 參考 <a href="https://gitbook.tw/chapters/using-git/reset-commit">Reset</a> 模式</li>
+                            <li>如果沒有記得 SHA-1、又想要回到很久之前的 commit ，就可以透過 <mark>Reflog</mark> 或 <mark>git log -g</mark> 查看 SHA-1 的值 (HEAD 移動，Git 就會在 Reflog 裡記上一筆)</li>
+                        </ul>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#orig-head">ORIG_HEAD</button>
+                        <ul class="collapse" id="orig-head">
+                            <li class="mt-3">為 <mark>.git</mark> 目錄下的檔案，當我們做出危險動作時(merge、reset、)幫我們紀錄 HEAD 資訊，讓你隨時可以跳回危險動作之前的狀態</li>
+                            <img class="rounded m-3" src="/images/git-note/orig-head.png" alt="orig-head image">
+                        </ul>
+                        <!--使用 branch -->
+                        <h2 class="mt-5">使用 branch</h2>
+                        <hr>
+                        <ul>
+                            <li>git branch &lt;branch name&gt; : 創一個新的 branch</li>
+                            <li>git checkout &lt;branch name&gt; : 切換 branch</li>
+                            <li>git merge &lt;branch name&gt; : 現在 head 所在的 branch 與 &lt;branch name&gt; 合併</li>
+                        </ul>
+                        <div class="bd-callout bd-callout-warning">
+                            <h5>注意</h5>
+                            <p>分支只是一個指向某個 Commit 的指標，刪除這個指標並不會造成那些 Commit 消失</p>
+                        </div>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#merge-conflict">merge 發生衝突</button>
+                        <ul class="collapse" id="merge-conflict">
+                            <li class="mt-3">情況 : 當兩個分支對同一個檔案做修改，修改內容不一樣時，最後合併會發生衝突</li>
+                            <li>解決辦法</li>
+                            <ol>
+                                <li>使用 GUI 看雙方的檔案哪些不一樣，雙方溝通直接在檔案上面做更改，把最後的檔案再做 <mark>git add</mark> </li>
+                                <li>使用 <mark>git checkout --ours &lt;file name&gt;</mark> ，如果是使用對方的分支則用 —theirs</li>
+                                <img class="rounded m-3" src="/images/git-note/merge-conflict.png" alt="merge-conflict">
+                                <p>U : file is Unmerged</p>
+                            </ol>
+                        </ul>
+                        <!--使用 tag (不會移動的分支)-->
+                        <h2 class="mt-5" id="tag">使用 tag (不會移動的分支)</h2>
+                        <hr>
+                        <ul>
+                            <li>是一個指向某一個 Commit 的指標</li>
+                            <li>lightweight tag (輕量標籤 - 沒有任何其他資訊)</li>
+                            <ul><li> <mark>git tag &lt;tag name&gt; &lt;commit SHA-1&gt;</mark> </li></ul>
+                            <li>annotated tag (有附註標籤)</li>
+                            <ul>
+                                <li> <mark>git tag <tag name> <commit SHA-1> -a -m "message"</mark> </li>
+                                    <li>可以看到誰在什麼時候打了這張標籤 (利用 <mark>git show &lt;tag name&gt;</mark> )</li>
+                            </ul>
+                            <li>刪除 : <mark>git tag -d &lt;tag name&gt;</mark> </li>
+                        </ul>
+                        <!--Git v.s. GitHub-->
+                        <h2 class="mt-5">Git v.s. GitHub</h2>
+                        <hr>
+                        <p>一個是工具、一個是網站</p>
+                        <a href="#">GitHub Note</a>
+                        <!--Reference-->
+                        <h2 class="mt-5">Reference</h2>
+                        <hr>
+                        <ul>
+                            <li><a href="https://gitbook.tw/">為你自己學 Git</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=8JJ101D3knE&t=3202s">Git Tutorial for Beginners: Learn Git in 1 Hour</a></li>
+                        </ul>
                     </section>
                 </article>
             </div>
@@ -76,16 +248,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">Web Design</a></li>
-                                    <li><a href="#!">HTML</a></li>
-                                    <li><a href="#!">Freebies</a></li>
+                                    <li><a href="#operation">運作方式</a></li>
+                                    <li><a href="#tag">使用 tag</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-6">
                                 <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">JavaScript</a></li>
-                                    <li><a href="#!">CSS</a></li>
-                                    <li><a href="#!">Tutorials</a></li>
+                                    <li><a href="#regret">後悔 commit</a></li>
+                                    <li><a href="#basic-cmd">基本指令</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -94,7 +264,9 @@
                 <!-- Side widget-->
                 <div class="card mb-4">
                     <div class="card-header">Note</div>
-                    <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    <div class="card-body">
+                        <p>真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理</p>
+                    </div>
                 </div>
             </div>
         </div>

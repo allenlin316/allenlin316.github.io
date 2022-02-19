@@ -100,7 +100,8 @@ blockquote{
 
 mark{
     background-color: rgb(224, 224, 224);
-    border-radius: 4px;
+    border-radius: 3px;
+    padding: 0;
     color: red;
 }
 
@@ -115,4 +116,8 @@ mark{
 
 .bd-callout-primary {
     border-left-color: #2a60b8;
+}
+
+.bd-callout-warning{
+    border-left-color: #e70000;
 }
