@@ -55,66 +55,89 @@
     </nav>
 
     <!-- cover photo -->
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container">
             <h1 class="display-4">Allen's Blog</h1>
             <p class="lead">Never Give up on learning</p>
         </div>
     </div>
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-6 col-md-8">
-                <div class="card" style="width: 100%; height:90%">
-                    <div class="card-body">
-                      <small class="text-muted">Feb 19, 2022</small>
-                      <h5 class="card-title" id="git-note">Git Note</h5>
-                      <p class="card-text">真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理</p>
-                      <a href="/blog/git-note.html" class="btn btn-primary mt-2">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                      Category
-                    </div>
-                    <div class="card-body">
-                      <div class="row">
-                          <div class="col-sm-6">
-                              <ul class="list-unstyled">
-                                  <li><a href="#git-note">Git Note</a></li>
-                              </ul>
-                          </div>
-                          <div class="col-sm-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#gatsby-note">Gatsby Note</a></li>
+            <!-- Page content-->
+            <div class="container">
+                <div class="row">
+                    <!-- Blog entries-->
+                    <div class="col-lg-8">
+                        <!-- Featured blog post-->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="small text-muted">Feb 19, 2022</div>
+                                <h2 class="card-title" id="git-note">Git Note</h2>
+                                <p class="card-text">真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理
+                                </p>
+                                <a class="btn btn-primary" href="/blog/git-note.html">Read more</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="small text-muted">Feb 18, 2022</div>
+                                        <h3 class="card-title" id="gatsby-note">Gatsby Note</h3>
+                                        <p class="card-text">Static Site Generator(SSG)，以 React 為基底的 framework</p>
+                                        <a class="btn btn-primary" href="/blog/gatsby-note.html">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="small text-muted">Feb 20, 2022</div>
+                                        <h3 class="card-title" id="github-note">GitHub Note</h3>
+                                        <p class="card-text">利用 GitHub 分享自己的程式碼，把我的網站架在 GitHub 上</p>
+                                        <a class="btn btn-primary" href="/blog/github-note.html">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pagination-->
+                        <nav aria-label="Pagination">
+                            <hr class="my-0" />
+                            <ul class="pagination justify-content-center my-4">
+                                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                                <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                             </ul>
+                        </nav>
+                    </div>
+                    <!-- Side widgets-->
+                    <div class="col-lg-4">
+                        <!-- Categories widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">Categories</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><a href="#git-note">Git Note</a></li>
+                                            <li><a href="#github-note">GitHub Note</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><a href="#gatsby-note">Gatsby Note</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <!-- Side widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">Note</div>
+                            <div class="card-body">喜歡分享一些我做的小專案以及學到的知識</div>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header">Postscript</div>
-                        <div class="card-body">
-                            <p class="card-text">still developing</p>
-                        </div>
-                </div>
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-6 col-md-4">
-                <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                      <small class="text-muted">Feb 18, 2022</small>
-                      <h5 class="card-title" id="gatsby-note">Gatsby Note</h5>
-                      <p class="card-text">Static Site Generator(SSG)，以 React 為基底的 framework</p>
-                      <a href="/blog/gatsby-note.html" class="btn btn-primary mt-2">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
     
 </body>

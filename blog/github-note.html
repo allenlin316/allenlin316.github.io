@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <title>Git Note</title>
+</head>
+
+<style>
+    img{
+        float: left;
+        width: 100%;
+    }
+</style>
+
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">Allen's Website</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item about-tag active">
+                    <a class="nav-link" href="/blog/index.html">Blog</a>
+                </li>
+                <li class="nav-item about-tag">
+                    <a class="nav-link" href="/blog/about-me.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page content-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">GitHub Note</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Posted on Feb 20, 2022 by Allen</div>
+                        <!-- Post categories-->
+                        <a class="badge badge-secondary" href="#!">Self-learning</a>
+                        <a class="badge badge-secondary" href="#!">GitHub</a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <!--上傳到 GitHub 方式-->
+                        <h2 class="mt-5">上傳到 GitHub 方式</h2>
+                        <hr>
+                        <div class="accordion" id="github-upload">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                      HTTPS
+                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#github-upload">
+                                  <ul class="card-body ml-3">
+                                     <li>不用額外設定任何東西，只是首次用的時候會要你登入 GitHub 帳密</li>
+                                     <li>上傳時選擇 HTTPS 方式</li> 
+                                  </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      SSH
+                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#github-upload">
+                                  <ol class="card-body ml-3">
+                                     <li> <mark>ssh-keygen</mark></li>
+                                     <li>回答問題後，打入你想要設定的密碼 (private key)</li>
+                                     <li>到 GitHub settings 裡設定 public key</li>
+                                     <ul>
+                                         <li>想要每一份專案都用同一個 key 就到使用者設定裡設定</li>
+                                         <li>想要每一個專案都不同，就到每個專案裡設定</li>
+                                     </ul>
+                                     <li>上傳時選擇 SSH 方式</li> 
+                                  </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <!--創建一個 Repository 名詞解釋-->
+                        <h2 class="mt-5" id="repository">創建一個 Repository 名詞解釋</h2>
+                        <hr>
+                        <ul>
+                            <li>
+                                <mark>git remote add origin https://github.com/s1092923/s1092923.github.io.git</mark>
+                            </li>
+                            <ul>
+                                <li>git remote : 跟遠端有關的操作</li>
+                                <li>add : 加入一個遠端的節點</li>
+                                <li>origin : 代名詞，指的是後面那串 GitHub 伺服器的位置</li>
+                            </ul>
+                            <li><mark>git push -u origin main</mark></li>
+                            <ul>
+                                <li>-u : upstream，每個分支可以設定一個 upstream，它就會追蹤某個分支 (通常是遠端 server 上的)</li>
+                            </ul>
+                        </ul>
+                        <!--下載更新 Pull-->
+                        <h2 class="mt-5">下載更新 Pull</h2>
+                        <hr>
+                        <p>origin/master : local master 分支的 upstream</p>
+                        <div class="bd-callout bd-callout-primary">
+                            <h5>git pull</h5>
+                            <p>git pull = git fetch + git merge</p>
+                        </div>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#git-fetch">git fetch + git merge 示意圖</button>
+                        <ul class="collapse mt-3" id="git-fetch">
+                            <li>git fetch 後如下</li>
+                            <img class="rounded m-3" src="/images/github-note/git-fetch.png" alt="git-fetch image">
+                            <li>git merge 後如下</li>
+                            <img class="rounded m-3" src="/images/github-note/git-merge.png" alt="git-merge image">
+                        </ul>
+                        <!--下載別人的專案檔 clone-->
+                        <h2 class="mt-5" id="clone">下載別人的專案檔 clone</h2>
+                        <hr>
+                        <p>使用 HTTPS 或 SSH 都是一樣</p>
+                        <p><mark>git clone &lt;連結&gt;</mark> ，可以存成不同的目錄名稱，只要在連結後加上你要的名稱</p>
+                        <!--Pull Request-->
+                        <h2 class="mt-5" id="pull-request">Pull Request</h2>
+                        <hr>
+                        <ul>
+                            <li>Pull Request (PR) : 先從原作者那邊把專案 fork 過來用，把自己想改的都處理完後，丟一個 pull request 回去給原作者，告訴原作者你的想法，要不要採納就要看原作者</li>
+                            <li>原作者的專案進度比自己 fork 過來的前進很多了怎麼辦?</li>
+                            <ul>
+                                <li>加上一個原作者的 <mark>遠端節點</mark> ，利用 git remote add &lt;自己取名字或 origin&gt; &lt;原作者 HTTPS&gt;</li>
+                                <li>git fetch &lt;自己取名字或 origin&gt; : 抓到原作者最新的內容，但還是領先本地的分支</li>
+                                <li>git merge &lt;自己取的名字或 origin&gt;/main : 就會把最新的內容與本地的合併了 </li>
+                                <li>git push origin main : 這樣一來 GitHub 上的就會是最新進度了</li>
+                                <li><mark>git remote -v</mark> : 會看到目前專案的遠端節點有誰</li>
+                            </ul>
+                        </ul>
+                        <!--我遇過的問題-->
+                        <h2 class="mt-5" id="issue">我遇過的問題</h2>
+                        <hr>
+                        <p>背景 : 我學習這些 git 指令常常會在本機用兩個 GitHub 帳號實作專案的 pull request 及其他處理</p>
+                        <ol>
+                            <li><span class="text-danger">問題 : github push failed (remote : Permission to userA/repo.git denied to userB)</span><br>原因 : 因為你第一次登入 userB 的時候，系統會把 github.com 的用戶連結指向 userB，因此每次做都會讀取到 userB 的用戶資料
+                                解決 : 進入 <mark>控制台 > 使用者帳戶 > 管理您的認證 > Windows認證 > 一般認證</mark> ，找到 <mark>git:https://github.com</mark> ，把它刪除</li>
+                        </ol>
+                        <!--Reference-->
+                        <h2 class="mt-5">Reference</h2>
+                        <hr>
+                        <ul>
+                            <li><a href="https://gitbook.tw/">為你自己學 Git</a></li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+                <!-- Categories widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Categories</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#repository">創 Repository</a></li>
+                                    <li><a href="#clone">clone</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#pull-request">Pull Request</a></li>
+                                    <li><a href="#issue">遇過的問題</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Note</div>
+                    <div class="card-body">
+                        <p>透過 GitHub 讓我可以在上面分享我做的一些小專案，並架設我自己的網站</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Bootstrap use-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CJ793J955W');
+    </script>
+</body>
+
+</html>
