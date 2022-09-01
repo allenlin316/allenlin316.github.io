@@ -17,12 +17,7 @@
 
 
     <title>English book sharing</title>
-    <style>
-        html {
-            /* prevent content get covered by the fixed navbar */
-            scroll-padding-top: 70px;
-        }
-    </style>
+
 </head>
 
 <body data-spy="scroll" data-target="#list-group-spy" data-offset="100">
@@ -50,18 +45,13 @@
 
     <!-- content -->
     <div class="container content" style="margin-top: 50px;">
-        <div class="row">
-            <div class="col-12 col-md-3">
-                <div class="list-group">
-                    <a href="/" class="list-group-item list-group-item-action" aria-current="true">
-                        交換生經驗分享
-                    </a>
-                    <a href="EnglishBook.html" class="list-group-item list-group-item-action active">英文小說分享</a>
-                    <a href="/blog/git-note.html" class="list-group-item list-group-item-action">Git 版控筆記</a>
-                </div>
-            </div>
-            <div class="col-12 col-md-7">
+        <div class="row">            
+            <div class="col-12 col-md-9">
                 <h1 id="title" style="font-size: 2em;">TO KILL A Mockingbird</h1>
+                <div class="text-muted fst-italic mb-2">Posted on Aug 10, 2021 by Allen</div>
+                <!-- Post categories-->
+                <a class="badge badge-secondary" href="#!">American literature</a>
+                <a class="badge badge-secondary" href="#!">Racial inequality</a>
                 <hr class="solid">
                 <h2 id="character">Characters</h2>
                 <hr class="solid">
@@ -281,7 +271,7 @@
                 </div>
             </div>
             <!-- larger screen's table of content -->
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="toc" style="position: fixed;">
                     <div class="list-group" id="list-group-spy">
                         <a href="#title" class="list-group-item">TO KILL A Mockingbird</a>
