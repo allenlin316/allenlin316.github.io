@@ -6,7 +6,6 @@
 
 ## Developing (還在開發中)
 * Google Search Console (讓 Google 找到我的網站)
-* Git Note (我自己學 Git 的重點整理)
    
 ## Tools
 * Bootstrap ( v4.6.0.)
@@ -18,6 +17,12 @@
 * I like to share my awesome happy life with you
 * If you are curious about anything feel free to contact me
           
-![](https://i.imgur.com/c0eYMSc.jpg)
+![](https://i.imgur.com/kN8REUq.png)
+
+## My Blog Page
+* I share some of my favorite books and some notes I took when I learned new knowledge here
+
+![](https://i.imgur.com/nv7viHq.png)
+
 
 ###### tags: `My_Website`
