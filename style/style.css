@@ -96,16 +96,16 @@ mark{
 }
 
 .fa{
-    font-size: 20px;
     text-align: center;
     text-decoration: none;
     margin-bottom: 10px;
 }
 
 .icon{
-    width: 35px;
+    color: white;
+    height: 100%;
     padding: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .icon:hover {
@@ -114,27 +114,22 @@ mark{
     opacity: 0.7;
 }
 
-.fa-facebook{    
-    background: #3B5998;
-    color: white;    
+.fa-facebook-official{    
+    background: #3B5998;  
 }
 
 .fa-github{
     background: black;
-    color: white;
 }
 
 .fa-linkedin{
     background: #007bb5;
-    color: white;
 }
 
 .fa-instagram{
     background: #ba1f1f;
-    color: white;
 }
 
-.fa-youtube{
+.fa-youtube-play{   
     background: #bb0000;
-    color: white;
 }
