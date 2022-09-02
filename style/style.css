@@ -34,38 +34,6 @@ body{
     padding: 20px;
 }
 
-.collapsible-btn{
-    display: none;
-}
-
-@media only screen and (max-width: 739px) {
-    /* rules for small screens */
-    .collapsible-btn{
-        display: block;
-        position: fixed;
-        background-color: #e6e6e6;
-        bottom: 10px;
-        padding: 2px;
-        border-radius: 5px;
-    }
-
-    .fa-bars{
-        font-size: 2em;
-        color: #868686;
-    }
-}
-
-#toc-collapse-content{
-    position: fixed;
-    bottom: 55px;
-    background-color: #ffffff;
-    box-shadow: 0 6px 12px;
-    padding-right: 25px;
-    padding-top: 5px;
-    border-radius: 4px;
-    line-height: 2em;
-}
-
 table{
     width: 100%;
     padding: 20px;

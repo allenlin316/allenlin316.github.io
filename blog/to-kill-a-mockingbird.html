@@ -52,6 +52,7 @@
                 <!-- Post categories-->
                 <a class="badge badge-secondary" href="#!">American literature</a>
                 <a class="badge badge-secondary" href="#!">Racial inequality</a>
+                <a href="#" class="badge badge-secondary">Harper Lee</a>
                 <hr class="solid">
                 <h2 id="character">Characters</h2>
                 <hr class="solid">
@@ -245,27 +246,23 @@
                     </blockquote>
                 </div>
                 <!-- small screen's table of content -->
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <button type="button" class="collapsible-btn" data-toggle="collapse"
-                                    data-target="#toc-collapse-content">
-                                    <i class="fas fa-bars collapsible-btn"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="toc-collapse-content" class="panel-collapse collapse">
-                            <ul>
-                                <li><a href="#title">TO KILL A Mockingbird</a></li>
-                                <li><a href="#character">Characters</a></li>
-                                <li><a href="#courtroom">In the Courtroom</a></li>
-                                <li><a href="#quote">Quote</a></li>
-                                <li><a href="#idiom">Idiom</a></li>
-                                <li><a href="#allusion">Allusion</a></li>
-                                <li><a href="#vocabulary">Vocabulary</a></li>
-                                <li><a href="#plot">Plot</a></li>
-                            </ul>
+                <div class="fixed-bottom m-3">
+                    <button type="button" class="d-block d-md-none btn btn-secondary" data-toggle="collapse"
+                        data-target="#toc-collapse-content">
+                        <i class="fa fa-bars text-white" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div id="toc-collapse-content" class="collapse position-fixed shadow" style="bottom: 70px;">
+                    <div class="card card-body p-0">
+                        <div class="list-group-flush rounded">
+                            <a href="#title" class="list-group-item">TO KILL A Mockingbird</a>
+                            <a href="#character" class="list-group-item">Characters</a>
+                            <a href="#courtroom" class="list-group-item">In the Courtroom</a>
+                            <a href="#quote" class="list-group-item">Quote</a>
+                            <a href="#idiom" class="list-group-item">Idiom</a>
+                            <a href="#allusion" class="list-group-item">Allusion</a>
+                            <a href="#vocabulary" class="list-group-item">Vocabulary</a>
+                            <a href="#plot" class="list-group-item">Plot</a>
                         </div>
                     </div>
                 </div>
