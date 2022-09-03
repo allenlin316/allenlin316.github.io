@@ -9,23 +9,68 @@
 
 <url>
   <loc>https://allenlin316.github.io/</loc>
-  <lastmod>2022-02-14T16:09:11+00:00</lastmod>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://allenlin316.github.io/blog/about-me.html</loc>
-  <lastmod>2022-02-14T16:09:11+00:00</lastmod>
+  <loc>https://allenlin316.github.io/blog/index.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://allenlin316.github.io/blog/EnglishBook.html</loc>
-  <lastmod>2022-02-14T16:09:11+00:00</lastmod>
+  <loc>https://allenlin316.github.io/blog/about-me.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog/spain-STEP.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog/github-note.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://allenlin316.github.io/blog/git-note.html</loc>
-  <lastmod>2022-02-14T16:09:11+00:00</lastmod>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog/gatsby-note.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog/atomic-habits.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog/to-kill-a-mockingbird.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog/us-exchange.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog-categories/foreign-country-blog.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog-categories/reading.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://allenlin316.github.io/blog-categories/cs-note.html</loc>
+  <lastmod>2022-09-02T15:54:17+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
