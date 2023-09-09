@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <title>智慧家庭 - 自動瓦斯警報與通風系統</title>
+</head>
+
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">Allen's Website</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item about-tag active">
+                    <a class="nav-link" href="/blog/index.html">Blog</a>
+                </li>
+                <li class="nav-item about-tag">
+                    <a class="nav-link" href="/blog/about-me.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page content-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">智慧家庭 - 自動瓦斯警報與通風系統</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Posted on Nov 10, 2022 by Allen</div>
+                        <!-- Post categories-->
+                        <a class="badge badge-secondary" href="#!">Embedded System</a>
+                        <a class="badge badge-secondary" href="#!">ESP32</a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <h2>專案隊員</h2>
+                        <hr>
+                        <ul>
+                            <li>徐文献 (負責蒐集資料與設計整體外觀)</li>
+                            <li>林品安 (負責設計程式)</li>
+                        </ul>
+                        <!--動機-->
+                        <h2 class="mt-5">開發動機</h2>
+                        <hr>
+                        <ul>
+                            <li>鄰近冬天，新聞媒體上時常出現室內中毒事件，常常是因為使用暖爐或熱水器而導致昏迷的事件，這對很多家庭都是不可忽視的潛在危機。利用嵌入式系統來設計一套簡易的自動瓦斯警報與自動通風系統，來模擬現實家庭室內空氣瓦斯的檢測，並在濃度過高時採取通風與警報系統。將利用 ESP32 開發版連接偵測元件，來進行開發完成此次專案的成品。
+                            </li>
+                        </ul>
+                        <!--設計方法-->
+                        <h2 class="mt-5" id="design">設計方法</h2>
+                        <hr>
+                        <ul>
+                            <li>元件</li>
+                            <ul>
+                                <li>開發板: ESP32*1</li>
+                                <li>瓦斯感測器: MQ2*1</li>
+                                <li>顯示臨界值濃度: 共陽(陰)七段顯示器*1</li>
+                                <li>顯示瓦斯目前濃度: OLED 模組*1</li>
+                                <li>開啟窗戶的伺服馬達: SG90*1</li>
+                                <li>調整臨界值按鈕: 按鈕*2</li>
+                            </ul>
+                            <div>
+                                <li>架構示意圖</li>
+                                <div class="d-flex flex-row w-80">
+                                    <a class="m-1" href="/images/esp32-house/structure-1.png"><img class="rounded img-thumbnail" src="/images/esp32-house/structure-1.png" alt="structure design 1"></a>
+                                    <a class="m-1" href="/images/esp32-house/structure-2.png"><img class="rounded img-thumbnail" src="/images/esp32-house/structure-2.png" alt="structure design 2"></a>
+                                </div>
+                            </div>
+                            <li>流程圖</li>
+                            <img class="rounded m-1" height="5%" src="/images/esp32-house/流程圖.png" alt="流程圖">
+                            <div>
+                                <li>外觀感測器布建</li>
+                                <div class="d-flex flex-row">
+                                    <img class="rounded img-thumbnail m-1" src="/images/esp32-house/外觀-1.jpg" alt="外觀結構-1">
+                                    <img class="rounded img-thumbnail m-1" src="/images/esp32-house/外觀-2.jpg" alt="外觀結構-2">
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <img class="rounded img-thumbnail m-1" src="/images/esp32-house/外觀-3.jpg" alt="外觀結構-3">
+                                    <img class="rounded img-thumbnail m-1" src="/images/esp32-house/外觀-4.jpg" alt="外觀結構-4">
+                                </div>
+                            </div>
+                        </ul>
+                        <!--程式概念解說-->
+                        <h2 class="mt-5" id="steps">房屋施工與感測器布建</h2>
+                        <hr>
+                        <ol>
+                           <li>先布建感測器，感測器一般值利用瓦斯濃度測試為 0~100，而上限值會到達 300 多。我們透過除以 33 把濃度分成 10 個等級。</li>
+                           <li>裝設 OLED 顯示器當成顯示幕前瓦斯濃度等級顯示器</li>
+                           <li>裝設馬達當成窗戶開啟的動力</li>
+                           <li>裝設 LED 指示燈，作成濃度超過的警報燈號</li>
+                           <li>裝設 7 段式顯示器，顯示使用者設定的瓦斯警報臨界值</li>
+                        </ol>
+                        <!--DEMO 影片-->
+                        <h2 class="mt-5" id="demo">DEMO 影片</h2>
+                        <hr>
+                        <video width="960" height="540" controls>
+                            <source src="/images/esp32-house/DEMO.mp4" type=video/mp4>
+                        </video>
+                        <h2 class="mt-5" id="code">重要程式解說</h2>
+                        <hr>
+                        <ul>
+                            <div class="d-flex flex-row">
+                                <div class="mr-5">
+                                    <li>宣告函式庫與初值設定(OLED顯示...)</li>
+                                    <a href="/images/esp32-house/程式宣告.jpg"><img class="rounded img-thumbnail" src="/images/esp32-house/程式宣告.jpg" alt="程式宣告截圖"></a>
+                                </div>
+                                <div>
+                                    <li>顯示目前濃度</li>
+                                    <a href="/images/esp32-house/程式顯示濃度.jpg"><img class="rounded img-thumbnail" src="/images/esp32-house/程式顯示濃度.jpg" alt="程式顯示濃度截圖"></a>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row mt-4">
+                                <div class="mr-5">
+                                    <li>初始化設定</li>
+                                    <a href="/images/esp32-house/初始化設定.jpg"><img class="rounded img-thumbnail" src="/images/esp32-house/初始化設定.jpg" alt="程式初始化截圖"></a>
+                                </div>
+                                <div>
+                                    <li>調整臨界值</li>
+                                    <a href="/images/esp32-house/調整臨界值.jpg"><img class="rounded img-thumbnail" src="/images/esp32-house/調整臨界值.jpg" alt="程式臨界值截圖"></a>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row mt-4">
+                                <div class="mr-5">
+                                    <li>判斷瓦斯濃度安全性</li>
+                                    <a href="/images/esp32-house/判斷瓦斯濃度安全性.jpg"><img class="rounded img-thumbnail" src="/images/esp32-house/判斷瓦斯濃度安全性.jpg" alt="程式瓦斯濃度截圖"></a>
+                                </div>
+                            </div>
+                        </ul>
+                        <!--Reference-->
+                        <h2 class="mt-5">Reference</h2>
+                        <hr>
+                        <ul>
+                            <li><a href="https://www.books.com.tw/products/0010888478">[趙英傑] - 超圖解 ESP32 深度實作</a></li>
+                            <li><a href="https://atceiling.blogspot.com/2020/12/arduino103-u8g2.html">使用 u8g2 程式庫製作自訂中文字</a></li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+                <!-- Categories widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Categories</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">                                    
+                                    <li><a href="#demo">DEMO 影片</a></li>
+                                    <li><a href="#steps">房屋感測器布建</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#code">重要程式解說</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Note</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>唯一比較大的問題是，馬達、 OLED 顯示器、7段式顯示器都已經接好，但把 LED 接上時會讓 MQ2 感測的值飆漲且下不來，我們發現是因為 LED 沒有給電阻。</li>
+                            <li>MQ2 會因為過熱而導致功能失常，需要冷機。</li>
+                            <li>利用 ESP32 上的 BOOT 鍵可以解決程式無法燒錄進 ESP32 的問題。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Bootstrap use-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CJ793J955W');
+    </script>
+</body>
+
+</html>
