@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <title>淺談 Docker 技術</title>
+</head>
+
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">Allen's Website</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item about-tag active">
+                    <a class="nav-link" href="/blog/index.html">Blog</a>
+                </li>
+                <li class="nav-item about-tag">
+                    <a class="nav-link" href="/blog/about-me.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page content-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">淺談 Docker 技術</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Posted on June 26, 2023 by Allen</div>
+                        <!-- Post categories-->
+                        <a class="badge badge-secondary" href="#!">Self-learning</a>
+                        <a class="badge badge-secondary" href="#!">Container</a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <!--什麼是 Git ?-->
+                        <h2 class="mt-5">什麼是 Docker ?</h2>
+                        <hr>
+                        <ul>
+                            <li>一個開源平台 (Build and Ship any Application Anywhere)</li>
+                            <li>讓開發者在虛擬環境中，開發、部署和管理任何的應用程式</li>
+                            <li>輕量化，提供應用程式獨立的測試環境</li>
+                        </ul>
+                        <!--為何使用 ?-->
+                        <h2 class="mt-5">為何使用 ?</h2>
+                        <hr>
+                        <ul>
+                            <li>跨平台可攜性</li>
+                            <ul><li>Docker 允許應用程式和其相依性以容器的形式打包，並在不同的環境中運行</li></ul>
+                            <li>快速部署和擴展</li>
+                            <ul><li>部署速度非常快，因為它們只包含應用程式所需的最小元件，不需要像虛擬機一樣啟動整個作業系統</li></ul>
+                            <li>更有效率的虛擬化</li>
+                            <ul><li>不需要額外的虛擬化支援，它是核心層級的虛擬化，因此可以實作更高的效能和效率</li></ul>
+                            <li>更簡單的管理</li>
+                            <ul><li>自動化並且有效率的管理</li></ul>
+                            <li>資源隔離和安全性</li>
+                            <ul><li>供了嚴格的資源隔離，確保容器之間相互隔離，並防止容器對主機系統造成干擾</li></ul>
+                        </ul>
+                        <!--虛擬機與容器比較-->
+                        <h2 class="mt-5" id="difference">容器與虛擬機差在哪裡?</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h3>虛擬機 (VM)</h3>
+                                <ul style="line-height: 2em;">
+                                    <li>體積龐大且耗能高的軟體套件</li>
+                                    <li>VM 會模擬底層的主機資源（CPU、RAM、Storage），將資源分配給上層的應用程式使用</li>
+                                    <li>每個 VM 包含作業系統、應用程式、必要的二進製文件和系統函式庫的完整副本</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-7"><img class="rounded img-thumbnail" src="/images/docker-note/virtual-machine.jpg" alt="virtual machine architecture"></div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-5">
+                                <h3>容器 (Container)</h3>
+                                <ul style="line-height: 2em;">
+                                    <li>開發者將想測試的應用程式與 Dependency（相依性資源）封裝於容器進行測試</li>
+                                    <li>容器不會模擬系統底層的基礎架構，因此需耗費的資源也相對較低</li>
+                                    <li>每個容器都獨立運行且彼此之間不會互相影響</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-7"><img class="rounded img-thumbnail" src="/images/docker-note/docker-architecture.jpg" alt="docker architecture"></div>
+                        </div>
+                        <table class="table table-striped mt-4">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">功能</th>
+                                <th scope="col">Virtual Machine</th>
+                                <th scope="col">Container</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">虛擬化的目標</th>
+                                <td>作業系統</td>
+                                <td>應用系統</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">占硬碟容量</th>
+                                <td>高</td>
+                                <td>低</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">啟動</th>
+                                <td>慢</td>
+                                <td>快</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">效能</th>
+                                <td>較慢</td>
+                                <td>接近原生</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">耗費資源</th>
+                                <td>高</td>
+                                <td>低</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">服務內容</th>
+                                <td>大型專案服務</td>
+                                <td>多使用於微服務中</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        <!--名詞介紹-->
+                        <h2 class="mt-5" id="define">名詞介紹</h2>
+                        <hr>
+                        <p>我們一一來看每一個名詞是什麼意思，再來細說流程</p>
+                        <img class="rounded img-thumbnail" src="/images/docker-note/docker 運作流程圖.png" alt="docker 運作流程圖">
+                        <h3>Image</h3>
+                        <ul>
+                            <li>中文稱為映像檔包含了開發者需要部署的應用程式、作業系統和編譯環境</li>
+                            <li>開發者能透過映像檔建置不同的容器</li>
+                        </ul>
+                        <h3>Container</h3>
+                        <ul>
+                            <li>中文稱為容器容器是映像檔建立出來的實例 (Instance)，我們能將它比喻為一個輕量級的沙盒</li>
+                            <li>Docker 利用容器運行和隔離應用程式，能夠在容器中將應用程式啟動、開始、停止、刪除</li>
+                        </ul>
+                        <h3>Dockerfile</h3>
+                        <ul>
+                            <li>生成映像檔的工具</li>
+                            <li>Dockerfile 是一種簡易的文件檔，裡面包含了建立新映像檔所需的指令</li>
+                        </ul>
+                        <h3>Repository</h3>
+                        <ul>
+                            <li>為一個倉庫是儲存映像檔的地方，使用者可以將自己完成的映像檔上傳至倉庫上儲存</li>
+                            <li>倉庫上也有許多現成的映像檔供用戶存取</li>
+                        </ul>
+                        <h2 class="mt-5">Docker 運作流程</h2>
+                        <hr>
+                        <ul>
+                            <li>整體概念與 Git 指令操作很像</li>
+                            <li>步驟簡單分為以下三個</li>
+                            <ol>
+                                <li>撰寫 Dockerfile</li>
+                                <li>將 Dockerfile 建立成 image</li>
+                                <li>將 image 運行成容器</li>
+                            </ol>
+                        </ul>
+                        <h2 class="mt-5" id="why-docker">為什麼需要 Dockerfile?</h2>
+                        <hr>
+                        <p>假設今天我們要開發的環境需要以下套件，我們來看看 Dockerfile 的威力</p>
+                        <ul>
+                            <li>Ubuntu 18.04</li>
+                            <li>Jupyter notebook</li>
+                            <li>matplotlib</li>
+                        </ul>
+                        <table class="table table-striped mt-4">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">沒有 Dockerfile</th>
+                                <th scope="col">有 Dockerfile</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1. Pull ubuntu 18.04 環境:<br><mark>docker run ubuntu:18.04</mark></td>
+                                <td>
+                                    1. 直接執行 Dockerfile:<br><mark>docker run -it -p 8888:8888 &lt;映像檔&gt; -v &lt;本機路徑&gt;:&lt;container目的位置路徑&gt;</mark><br>
+                                    -it: 使用者可以與容器的終端機互動<br>
+                                    -v: 資料對應 (資料可以同步更新)
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>2. 安裝套件們<br>
+                                    <mark>apt-get update</mark><br>
+                                    <mark>apt-get install python-pip</mark><br>
+                                    <mark>python -m pip install --upgrade pip</mark><br>
+                                    <mark>pip install Jupyter</mark><br>
+                                    <mark>pip install matplotlib</mark>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>3. 啟動 jupyter notebook<br><mark>jupyter notebook --allow-root --no-browser --ip=0.0.0.0</mark></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <h3>Dockerfile?</h3>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <ul>
+                                    <li>文字格式的設定檔(YAML 語法)</li>
+                                    <li>Dockerfile 建置 image 的腳本</li>
+                                </ul>
+                                <ol>
+                                    <li>基礎 image 資訊(<mark>FROM</mark>)：base image</li>
+                                    <li>維護者資訊(<mark>MAINTAINER</mark>)：作者資訊</li>
+                                    <li>工作目錄(<mark>WORKDIR</mark>)</li>
+                                    <li>Image 操作指令(<mark>RUN</mark>)：安裝需要的套件</li>
+                                    <li>綁定容器的PORT(<mark>EXPOSE</mark>)：容器提供服務的通道</li>
+                                    <li>容器啟動後執行的指令(<mark>CMD</mark>)：默認會執行</li>
+                                </ol>
+                            </div>
+                            <div class="col-lg-7">
+                                <img class="rounded img-thumbnail" src="/images/docker-note/dockerfile.jpg" alt="dockerfile">
+                            </div>
+                        </div>
+                        <h2 class="mt-5" id="customize-image">客製 Image 快速建立步驟</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <p>1. 專案所在的資料夾中創建一個 Dockerfile(沒有副檔名喔)</p>
+                                <p>2. 建立 image: <mark>docker build -t &lt;image 標籤資訊&gt; . </mark></p>
+                                <p>3. 查看 image 是否建立成功: <mark>docker images</mark></p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-note/docker build.jpg"><img class="rounded img-thumbnail" src="/images/docker-note/docker build.jpg" alt="docker build"></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <p>4. 執行腳本將容器啟動: <mark>docker run -it -p 8888:8888 -v &lt;本機位置&gt;:&lt;容器位置&gt; &lt;image 名稱&gt;</mark></p>
+                                <p>5. 成功開啟 jupyter notebook 畫面</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-note/docker run.jpg"><img class="rounded img-thumbnail" src="/images/docker-note/docker run.jpg" alt="docker run"></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <p>6. 更新 image: <mark>docker commit -m "註解" &lt;容器 ID&gt; &lt;image 名稱&gt;</mark></p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-note/docker ps.jpg"><img class="rounded img-thumbnail" src="/images/docker-note/docker ps.jpg" alt="docker ps"></a>
+                                <a href="/images/docker-note/docker commit.jpg"><img class="rounded img-thumbnail" src="/images/docker-note/docker commit.jpg" alt="docker commit"></a>
+                            </div>
+                        </div>
+                        <!--Reference-->
+                        <h2 class="mt-5">Reference</h2>
+                        <hr>
+                        <ul>
+                            <li><a href="https://philipzheng.gitbook.io/docker_practice/introduction/why">Docker - 從入門到實踐</a></li>
+                            <li><a href="https://ithelp.ithome.com.tw/articles/10199339">[IT 邦幫忙] - Docker 基本教學</a></li>
+                            <li><a href="https://larrylu.blog/step-by-step-dockerize-your-app-ecd8940696f4">[Medium] - Docker 實戰系列</a></li>
+                            <li><a href="https://hi-founder.com/p/dockerfile-%E6%95%99%E5%AD%B8/">Dockerfile 教學</a></li>
+                            <li><a href="https://ithelp.ithome.com.tw/articles/10196239">[IT 邦幫忙] - Matplotlib 讓資料視覺化</a></li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+                <!-- Categories widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Categories</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#define">名詞介紹</a></li>
+                                    <li><a href="#why-docker">為什麼需要 Dockerfile?</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#difference">容器與虛擬機差在哪裡?</a></li>
+                                    <li><a href="#customize-image">客製 Image 快速建立步驟</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Note</div>
+                    <div class="card-body">
+                        <p>因為進實驗室開始學的一項好用工具，分享給大家，以後就不會有 It works on my machine 的問題了</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Bootstrap use-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CJ793J955W');
+    </script>
+</body>
+
+</html>
