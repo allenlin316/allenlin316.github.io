@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <title>淺談 Docker 技術</title>
+</head>
+
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">Allen's Website</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item about-tag active">
+                    <a class="nav-link" href="/blog/index.html">Blog</a>
+                </li>
+                <li class="nav-item about-tag">
+                    <a class="nav-link" href="/blog/about-me.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page content-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Docker 應用到 Machine Learning</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Posted on June 26, 2023 by Allen</div>
+                        <!-- Post categories-->
+                        <a class="badge badge-secondary" href="#!">Self-learning</a>
+                        <a class="badge badge-secondary" href="#!">Container</a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <!--什麼是 Git ?-->
+                        <h2 class="mt-5">TensorFlow Container 使用</h2>
+                        <hr>
+                        <p>假設我們要開發的環境需要以下套件</p>
+                        <ul>
+                            <li>Ubuntu 20.04</li>
+                            <li>tensorflow</li>
+                            <li>jupyter notebook</li>
+                            <li>matplotlib</li>
+                        </ul>
+                        <table class="table table-striped mt-4">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col"><mark>沒有</mark> Tensorflow Container</th>
+                                <th scope="col"><mark>有</mark> Tensorflow Container</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    1. 抓取 Ubuntu image
+                                </td>
+                                <td>1. 抓取 NVIDIA NGC tensorflow image</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    2. 安裝 python
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    3. 安裝 tensorflow
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    4. 安裝套件
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        <!--什麼是 TensorFlow Containers ?-->
+                        <h2 class="mt-5" id="tensorFlow-container">什麼是 TensorFlow Containers?</h2>
+                        <hr>
+                        <h3>NVIDIA NGC Catalog</h3>
+                        <ul>
+                            <li>TensorFlow image 可以由 NVIDIA NGC 下載，提供了加速工作流程的 GPU 加速軟體</li>
+                            <ul>
+                                <li>性能優化的容器</li>
+                                <li>預先訓練的 AI 模型</li>
+                                <li>特定產業的 SDK</li>
+                            </ul>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <li>以 TensorFlow Container Version 22.10 為例可以於 NGC 中查看自己需要的版本，需要特別注意自己機器的 CUDA 版本可不可以支援</li>
+                                    <ul>
+                                        <li>Ubuntu 20.04</li>
+                                        <li>NVIDIA CUDA 11.8.0</li>
+                                        <li>TensorFlow 1.15.5</li>
+                                        <li>Jupyter notebook</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-7">
+                                    <a href="/images/docker-ml/NGC_container_ver.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/NGC_container_ver.jpg" alt="NGC container version"></a>
+                                </div>
+                            </div>
+                        </ul>
+                        <!--mnist tensorflow 示範-->
+                        <h2 class="mt-5" id="demo">MNIST with TensorFlow DEMO</h2>
+                        <hr>
+                        <p>1. 從 NGC 抓取需要版本的 tensorflow container</p>
+                        <p>2. Run container: <mark>docker run --ipc=host --gpus all -it -p 8888:8888 --rm -v &lt;本機位置&gt;:&lt;容器位置&gt; nvcr.io/nvidia/tensorflow:22.10-tf1-py3</mark></p>
+                        <ul>
+                            <li>--ipc=host: 代表與 host 共用記憶體空間</li>
+                            <li>--gpus all：代表要啟動 CUDA，且取得所有的 host’s GPU</li>
+                            <li>--rm：離開容器自動刪除容器</li>
+                        </ul>
+                        <p>3. 開啟 jupyter notebook: <mark>jupyter notebook --allow-root --no-browser --ip=0.0.0.0</mark></p>
+                        <ul>
+                            <li>--allow-root：系統管理員權限</li>
+                            <li>--no-browser：不要自動開啟瀏覽器</li>
+                            <li>--ip=0.0.0.0：可以從各個 ip 連入</li>
+                        </ul>
+                        <p>4. 檢查是否有啟動 CUDA 加速</p>
+                        <a href="/images/docker-ml/check_cuda.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/check_cuda.jpg" alt="check CUDA on/off"></a>
+                        <a href="/images/docker-ml/check_cuda_on.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/check_cuda_on.jpg" alt="check CUDA on"></a>
+                        <p>5. 透過 GPU 加速訓練模型</p>
+                        <a href="/images/docker-ml/train_model_with_GPU.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/train_model_with_GPU.jpg" alt="train model with GPU"></a>
+                        <h2 class="mt-5" id="docker-hub">Image to docker hub</h2>
+                        <hr>
+                        <h3>什麼是 Docker Hub?</h3>
+                        <ul>
+                            <li>Docker Hub 類似 GitHub</li>
+                            <li>存放各式各樣的 images</li>
+                            <li>開發者可以存取自己的或是公開的 images</li>
+                        </ul>
+                        <h3>Docker Hub 操作步驟</h3>
+                        <p>1. 註冊 docker hub 帳號</p>
+                        <div class="row mt-4">
+                            <div class="col-lg-5">
+                                <p>2. 終端機輸入 docker login (登入帳號密碼)</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-ml/docker_hub_login.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/docker_hub_login.jpg" alt="docker hub login"></a>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-5">
+                                <p>3. 於 docker hub 創建一個 Repository</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-ml/create_repository.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/create_repository.jpg" alt="docker hub create repository"></a>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-5">
+                                <p>4. 查看想要上傳的 image</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-ml/check_image.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/check_image.jpg" alt="check image"></a>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-5">
+                                <p>5. 修改標籤名稱與 docker hub repository 名稱相同</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <a href="/images/docker-ml/modify_image_name.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/modify_image_name.jpg" alt="modify image name"></a>
+                            </div>
+                        </div>
+                        <p class="mt-4">6. push 到 docker hub</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="/images/docker-ml/push_to_hub.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/push_to_hub.jpg" alt="image push to hub"></a>
+                            </div>
+                            <div class="col-lg-6">                                
+                                <a href="/images/docker-ml/push_result.jpg"><img class="rounded img-thumbnail" src="/images/docker-ml/push_result.jpg" alt="image push to hub"></a>
+                            </div>
+                        </div>                                    
+                        <!--Reference-->
+                        <h2 class="mt-5">Reference</h2>
+                        <hr>
+                        <ul>
+                            <li><a href="https://philipzheng.gitbook.io/docker_practice/introduction/why">Docker - 從入門到實踐</a></li>
+                            <li><a href="https://ithelp.ithome.com.tw/articles/10199339">[IT 邦幫忙] - Docker 基本教學</a></li>
+                            <li><a href="https://larrylu.blog/step-by-step-dockerize-your-app-ecd8940696f4">[Medium] - Docker 實戰系列</a></li>
+                            <li><a href="https://hi-founder.com/p/dockerfile-%E6%95%99%E5%AD%B8/">Dockerfile 教學</a></li>
+                            <li><a href="https://ithelp.ithome.com.tw/articles/10196239">[IT 邦幫忙] - Matplotlib 讓資料視覺化</a></li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+                <!-- Categories widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Categories</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#tensorFlow-container">什麼是 TensorFlow Containers?</a></li>
+                                    <li><a href="#docker-hub">Image to docker hub</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#demo">MNIST with TensorFlow DEMO</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Note</div>
+                    <div class="card-body">
+                        <p>透過 NGC 使用 pytorch 或 tensorflow 的 container 很方便，用完後再把更新過後的 image 上傳到 docker hub，這樣以後組員或朋友想要使用就可以快速建立環境</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Bootstrap use-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CJ793J955W');
+    </script>
+</body>
+
+</html>
