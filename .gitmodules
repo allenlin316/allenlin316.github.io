@@ -1,0 +1,3 @@
+[submodule "allen-openclaw"]
+	path = allen-openclaw
+	url = https://github.com/allenlin316/allen-openclaw.git
