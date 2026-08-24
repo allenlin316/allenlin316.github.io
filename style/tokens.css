@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Design tokens — "Kinetic Minimalist" (imported from Stitch, see /imported)
+   Single source of truth for every color, font, size, spacing, radius,
+   shadow and z-index used on the site. Colors are stored as R G B triplets
+   so Tailwind opacity modifiers (e.g. bg-secondary/10) keep working.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: light (values verbatim from imported tailwind.config) ---- */
+  --c-background: 248 249 255;              /* #f8f9ff */
+  --c-on-background: 11 28 48;              /* #0b1c30 */
+  --c-surface: 248 249 255;                 /* #f8f9ff */
+  --c-surface-dim: 203 219 245;             /* #cbdbf5 */
+  --c-surface-bright: 248 249 255;          /* #f8f9ff */
+  --c-surface-container-lowest: 255 255 255;/* #ffffff */
+  --c-surface-container-low: 239 244 255;   /* #eff4ff */
+  --c-surface-container: 229 238 255;       /* #e5eeff */
+  --c-surface-container-high: 220 233 255;  /* #dce9ff */
+  --c-surface-container-highest: 211 228 254;/* #d3e4fe */
+  --c-surface-variant: 211 228 254;         /* #d3e4fe */
+  --c-on-surface: 11 28 48;                 /* #0b1c30 */
+  --c-on-surface-variant: 69 70 77;         /* #45464d */
+  --c-inverse-surface: 33 49 69;            /* #213145 */
+  --c-inverse-on-surface: 234 241 255;      /* #eaf1ff */
+  --c-outline: 118 119 125;                 /* #76777d */
+  --c-outline-variant: 198 198 205;         /* #c6c6cd */
+  --c-surface-tint: 86 94 116;              /* #565e74 */
+  --c-primary: 0 0 0;                       /* #000000 */
+  --c-on-primary: 255 255 255;              /* #ffffff */
+  --c-primary-container: 19 27 46;          /* #131b2e */
+  --c-on-primary-container: 124 131 155;    /* #7c839b */
+  --c-inverse-primary: 190 198 224;         /* #bec6e0 */
+  --c-secondary: 70 72 212;                 /* #4648d4 */
+  --c-on-secondary: 255 255 255;            /* #ffffff */
+  --c-secondary-container: 96 99 238;       /* #6063ee */
+  --c-on-secondary-container: 255 251 255;  /* #fffbff */
+  --c-tertiary: 0 0 0;                      /* #000000 */
+  --c-on-tertiary: 255 255 255;             /* #ffffff */
+  --c-tertiary-container: 0 32 28;          /* #00201c */
+  --c-on-tertiary-container: 0 148 133;     /* #009485 */
+  --c-error: 186 26 26;                     /* #ba1a1a */
+  --c-on-error: 255 255 255;                /* #ffffff */
+  --c-error-container: 255 218 214;         /* #ffdad6 */
+  --c-on-error-container: 147 0 10;         /* #93000a */
+  --c-primary-fixed: 218 226 253;           /* #dae2fd */
+  --c-primary-fixed-dim: 190 198 224;       /* #bec6e0 */
+  --c-on-primary-fixed: 19 27 46;           /* #131b2e */
+  --c-on-primary-fixed-variant: 63 70 92;   /* #3f465c */
+  --c-secondary-fixed: 225 224 255;         /* #e1e0ff */
+  --c-secondary-fixed-dim: 192 193 255;     /* #c0c1ff */
+  --c-on-secondary-fixed: 7 0 108;          /* #07006c */
+  --c-on-secondary-fixed-variant: 47 46 190;/* #2f2ebe */
+  --c-tertiary-fixed: 98 250 227;           /* #62fae3 */
+  --c-tertiary-fixed-dim: 60 221 199;       /* #3cddc7 */
+  --c-on-tertiary-fixed: 0 32 28;           /* #00201c */
+  --c-on-tertiary-fixed-variant: 0 80 71;   /* #005047 */
+
+  /* ---- Elevation ---- */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 30px -10px rgba(0, 0, 0, 0.10);
+
+  /* ---- Glass surfaces ---- */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+
+  /* ---- Z-index scale ---- */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-nav: 50;
+
+  /* ---- Spacing (design-system scale) ---- */
+  --sp-unit: 4px;
+  --sp-gutter: 24px;
+  --sp-margin-mobile: 16px;
+  --sp-section-gap: 80px;
+  --sp-container-max: 1200px;
+}
+
+/* ---- Color: dark. Derived per the imported design-system.md:
+   "Level 0: Slate 950 · Level 1 cards: Slate 900 with subtle borders ·
+   accents shift to lighter indigo/teal." Fixed roles stay mode-independent. */
+html.dark {
+  --c-background: 2 6 23;                   /* #020617 slate-950 */
+  --c-on-background: 226 232 240;           /* #e2e8f0 */
+  --c-surface: 2 6 23;
+  --c-surface-dim: 2 6 23;
+  --c-surface-bright: 30 41 59;             /* #1e293b */
+  --c-surface-container-lowest: 15 23 42;   /* #0f172a slate-900 (cards) */
+  --c-surface-container-low: 19 28 49;      /* #131c31 */
+  --c-surface-container: 23 33 56;          /* #172138 */
+  --c-surface-container-high: 28 39 64;     /* #1c2740 */
+  --c-surface-container-highest: 33 46 74;  /* #212e4a */
+  --c-surface-variant: 33 46 74;
+  --c-on-surface: 226 232 240;
+  --c-on-surface-variant: 148 163 184;      /* #94a3b8 */
+  --c-inverse-surface: 226 232 240;
+  --c-inverse-on-surface: 30 41 59;
+  --c-outline: 100 116 139;                 /* #64748b */
+  --c-outline-variant: 40 51 69;            /* ~white @10% over slate-900 */
+  --c-surface-tint: 129 140 248;
+  --c-primary: 248 250 252;                 /* #f8fafc — headings/buttons */
+  --c-on-primary: 15 23 42;
+  --c-primary-container: 51 65 85;          /* #334155 */
+  --c-on-primary-container: 203 213 225;    /* #cbd5e1 */
+  --c-inverse-primary: 19 27 46;
+  --c-secondary: 129 140 248;               /* #818cf8 indigo-400 */
+  --c-on-secondary: 30 27 75;               /* #1e1b4b */
+  --c-secondary-container: 55 48 163;       /* #3730a3 */
+  --c-on-secondary-container: 224 231 255;  /* #e0e7ff */
+  --c-tertiary: 45 212 191;                 /* #2dd4bf teal */
+  --c-on-tertiary: 0 56 40;
+  --c-tertiary-container: 19 78 72;
+  --c-on-tertiary-container: 153 246 228;
+  --c-error: 255 180 171;                   /* #ffb4ab */
+  --c-on-error: 105 0 5;
+  --c-error-container: 147 0 10;
+  --c-on-error-container: 255 218 214;
+
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  --glass-bg: rgba(15, 23, 42, 0.7);
+}
