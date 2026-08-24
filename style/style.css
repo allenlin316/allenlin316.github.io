@@ -224,6 +224,24 @@ mark {
 .bd-callout-primary { border-left-color: rgb(var(--c-secondary)); }
 .bd-callout-warning { border-left-color: rgb(var(--c-error)); }
 
+/* Insight / quote cards (atomic-habits highlights) */
+.insight-card {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    background-color: rgb(var(--c-surface-container-low));
+    border: 1px solid rgb(var(--c-outline-variant));
+    border-left: 4px solid rgb(var(--c-secondary));
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+}
+
+.insight-card > .material-symbols-outlined {
+    color: rgb(var(--c-secondary));
+    flex-shrink: 0;
+}
+
 /* Collapsible blocks (replacing Bootstrap collapse; native <details>) */
 details.collapse-block {
     margin: 1rem 0;
