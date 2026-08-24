@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Allen 歷年的專案、筆記與經歷時間軸">
+    <meta name="keywords" content="Allen archive, allenlin, 專案時間軸, projects">
+    <title>Archive - Allen's Website</title>
+    <link href="/images/tab_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+    <link rel="stylesheet" href="/style/tokens.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/script/tailwind-config.js"></script>
+    <script defer src="/script/site.js"></script>
+</head>
+
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+
+    <!-- TopNavBar -->
+    <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+        <nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4" aria-label="主選單">
+            <a class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight" href="/">Allen's Website</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/">Home</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/index.html">Blog</a>
+                <a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="/archive.html" aria-current="page">Archive</a>
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <button id="theme-toggle" type="button" aria-label="切換為深色模式" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+            <div class="flex flex-col px-gutter py-4 gap-4">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/">Home</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/index.html">Blog</a>
+                <a class="font-body-md text-body-md text-secondary font-bold" href="/archive.html" aria-current="page">Archive</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-16">
+        <header class="mb-12 border-b border-outline-variant pb-8">
+            <div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-4">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">history</span>
+                <span>Archive</span>
+            </div>
+            <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary">Archive</h1>
+            <p class="font-quote text-quote text-on-surface-variant max-w-2xl mt-4">歷年的專案、筆記與經歷時間軸</p>
+        </header>
+
+        <div data-filter>
+            <!-- Keyword filter -->
+            <div class="mb-12 flex flex-col sm:flex-row sm:items-center gap-3">
+                <label class="relative flex-grow max-w-md">
+                    <span class="sr-only">搜尋 Archive</span>
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-on-surface-variant" aria-hidden="true">search</span>
+                    <input class="search-input" type="search" data-filter-input placeholder="搜尋關鍵字、年份…">
+                </label>
+                <p class="font-label-sm text-label-sm text-on-surface-variant" data-filter-count></p>
+            </div>
+
+<div class="relative pl-6">
+                <div class="timeline-line"></div>
+                <!-- 2024 -->
+                <div class="mb-12 relative" data-filter-group>
+                    <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2024</h3>
+                    <div class="flex flex-col gap-6">
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Socket_Programming_for_SYN_Flood_Mitigation">Socket Programming for SYN Flood Mitigation</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Nov 2024 - Dec 2024</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/malware_classification_FL">Hybrid Malware Classification</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Nov 2024 - Dec 2024</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/BlockInsure/tree/main" target="_blank" rel="noopener">BlockInsure - 去中心化保單網站</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 15, 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2023 -->
+                <div class="mb-12 relative" data-filter-group>
+                    <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2023</h3>
+                    <div class="flex flex-col gap-6">
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/QSSL" target="_blank" rel="noopener">大學部畢業專題製作 - 透過量子自我監督之指紋辨識應用</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 8, 2023</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Android_App" target="_blank" rel="noopener">App 設計 - Android App</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 4, 2023</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Ebook_System" target="_blank" rel="noopener">動態網站設計 - 電子書網站系統</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jan 8, 2023</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/esp32-bang.html">ESP32 飛彈射擊系統</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jan 4, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2022 -->
+                <div class="mb-12 relative" data-filter-group>
+                    <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2022</h3>
+                    <div class="flex flex-col gap-6">
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/esp32-house.html">智慧家庭 - 自動瓦斯警報與通風系統</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Nov 10, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Instagram-Post-Liking-Bot" target="_blank" rel="noopener">動態爬蟲 - Instagram 按讚機器人</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 29, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/spain-STEP.html">西班牙短期營隊</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 2, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/King_of_Knowledge" target="_blank" rel="noopener">網路程式設計期末專題 - 知識王遊戲</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 12, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/ncyu_autoFill_form" target="_blank" rel="noopener">動態爬蟲 - 嘉義大學回饋表單自動填寫</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">May 26, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/allenlin316.github.io" target="_blank" rel="noopener">個人網站製作 - GitHub Page</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 20, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/github-note.html">GitHub Note</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 20, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/git-note.html">Git Note</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 19, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/gatsby-note.html">Gatsby Note</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 18, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/atomic-habits.html">課外書分享 - 原子習慣</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 10, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Floppy_Face_Game" target="_blank" rel="noopener">網頁遊戲製作 - Floppy Face Game</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 8, 2022</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Fight_till_the_End" target="_blank" rel="noopener">C# 遊戲專題 - 槍戰遊戲</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jan 11, 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2021 -->
+                <div class="mb-12 relative" data-filter-group>
+                    <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2021</h3>
+                    <div class="flex flex-col gap-6">
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/discord_quiz_bot" target="_blank" rel="noopener">discord quiz bot</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Sep 18, 2021</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/markdown_blog" target="_blank" rel="noopener">前後端整合練習 - Markdown Blog</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Sep 15, 2021</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/to-kill-a-mockingbird.html">課外書分享 - To Kill A Mockingbird</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Aug 10, 2021</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/BMI_Web_Version" target="_blank" rel="noopener">前端網站練習 - 線上 BMI 計算機</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 25, 2021</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/simple_memo_design" target="_blank" rel="noopener">前端網站練習 - 線上備忘錄</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 16, 2021</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/English_Typing_Game" target="_blank" rel="noopener">大一期末專題 - English Typing Game</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 20, 2021</p>
+                            </div>
+                        </div>
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Racing_Car_Game" target="_blank" rel="noopener">Qt (C++ 應用程式開發框架)製作單機遊戲</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 19, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2016 -->
+                <div class="mb-12 relative" data-filter-group>
+                    <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2016</h3>
+                    <div class="flex flex-col gap-6">
+                        <div class="relative group" data-filter-item>
+                            <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+                            <div class="pl-8">
+                                <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/us-exchange.html">美國一年交換生經驗分享</a>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Aug 24, 2016</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant py-12 text-center hidden" data-filter-empty>
+                找不到符合的項目，換個關鍵字試試。
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-surface border-t border-outline-variant mt-auto">
+        <div class="max-w-container-max mx-auto px-gutter py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="font-headline-lg text-primary text-sm font-bold tracking-tight">Allen's Website</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">&copy; copyright by Allen</span>
+        </div>
+    </footer>
+
+    <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CJ793J955W');
+    </script>
+</body>
+
+</html>

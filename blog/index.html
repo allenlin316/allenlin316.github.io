@@ -30,7 +30,7 @@
             <div class="hidden md:flex items-center gap-8">
                 <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/">Home</a>
                 <a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="/blog/index.html" aria-current="page">Blog</a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/about-me.html">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/archive.html">Archive</a>
             </div>
             <div class="flex items-center gap-4 text-on-surface-variant">
                 <button id="theme-toggle" type="button" aria-label="切換為深色模式" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
@@ -45,7 +45,7 @@
             <div class="flex flex-col px-gutter py-4 gap-4">
                 <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/">Home</a>
                 <a class="font-body-md text-body-md text-secondary font-bold" href="/blog/index.html" aria-current="page">Blog</a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/about-me.html">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/archive.html">Archive</a>
             </div>
         </div>
     </header>
@@ -57,10 +57,20 @@
             <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-4">Allen's Blog</h1>
             <p class="font-quote text-quote text-on-surface-variant max-w-2xl">Never Give up on learning</p>
         </header>
+        <div data-filter>
+        <!-- Keyword filter -->
+        <div class="mb-10 flex flex-col sm:flex-row sm:items-center gap-3">
+            <label class="relative flex-grow max-w-md">
+                <span class="sr-only">搜尋文章</span>
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-on-surface-variant" aria-hidden="true">search</span>
+                <input class="search-input" type="search" data-filter-input placeholder="搜尋標題、摘要、分類…">
+            </label>
+            <p class="font-label-sm text-label-sm text-on-surface-variant" data-filter-count></p>
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <!-- Main Column: Blog Posts -->
             <div class="lg:col-span-8 flex flex-col gap-8">
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/master-application.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 實習
@@ -73,7 +83,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">中研院資訊所實習，參與了 LLM RAG 2024 TREC 競賽</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/academia_sinica_intern.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/master-application.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 推甄
@@ -86,7 +96,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">研究所推甄經歷，推上了中央、台科大、中興</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/master-application.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -99,7 +109,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">介紹如何訓練模型透過 Docker 及將 docker image 發佈到 docker hub</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/docker-ml.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -112,7 +122,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">介紹 Docker 基本觀念、優勢、指令</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/docker.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -125,7 +135,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">根據超音波感測器偵測並顯示敵方位置，指紋解鎖後發射電磁砲</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/esp32-bang.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -138,7 +148,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">利用 ESP32 打造的智慧家庭，具有自動瓦斯警報與通風系統</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/esp32-house.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/foreign-country-blog.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 國外生活
@@ -151,7 +161,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">為期一週的營隊，與世界各地的學生討論世界議題: 環境、戰爭</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/spain-STEP.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/reading.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 課外書籍分享
@@ -167,7 +177,7 @@
                     <p class="font-body-md text-body-md text-on-surface-variant mb-6">每天進都進步 1%，一年後，你會進步 37 倍；每天都退步 1%，一年後，你會弱化到趨近於 0!你的一點小改變，將會產生複利效應，如滾雪球般，帶來豐碩的人生成果!</p>
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/atomic-habits.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
-                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                     <div class="flex flex-wrap items-center gap-3 mb-4">
                         <a href="/blog-categories/reading.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 課外書籍分享
@@ -184,7 +194,7 @@
                     <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/to-kill-a-mockingbird.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                 </article>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                         <div class="flex flex-wrap items-center gap-3 mb-4">
                             <a href="/blog-categories/foreign-country-blog.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                                 <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 國外生活
@@ -197,7 +207,7 @@
                         <p class="font-body-md text-body-md text-on-surface-variant mb-6">代表台南社團前往美國交換一年，作為台灣的小小外交大使</p>
                         <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/us-exchange.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                     </article>
-                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                         <div class="flex flex-wrap items-center gap-3 mb-4">
                             <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                                 <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -210,7 +220,7 @@
                         <p class="font-body-md text-body-md text-on-surface-variant mb-6">Static Site Generator(SSG)，以 React 為基底的 framework</p>
                         <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/gatsby-note.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                     </article>
-                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                         <div class="flex flex-wrap items-center gap-3 mb-4">
                             <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                                 <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -223,7 +233,7 @@
                         <p class="font-body-md text-body-md text-on-surface-variant mb-6">利用 GitHub 分享自己的程式碼，把我的網站架在 GitHub 上</p>
                         <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/github-note.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
                     </article>
-                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover" data-filter-item>
                         <div class="flex flex-wrap items-center gap-3 mb-4">
                             <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
                                 <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
@@ -262,6 +272,10 @@
                     </div>
                 </div>
             </aside>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant py-12 text-center hidden" data-filter-empty>
+            找不到符合的文章，換個關鍵字試試。
+        </p>
         </div>
     </main>
 

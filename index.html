@@ -34,7 +34,7 @@
             <div class="hidden md:flex items-center gap-8">
                 <a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="/" aria-current="page">Home</a>
                 <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/index.html">Blog</a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/about-me.html">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/archive.html">Archive</a>
             </div>
             <div class="flex items-center gap-4 text-on-surface-variant">
                 <button id="theme-toggle" type="button" aria-label="切換為深色模式" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
@@ -49,285 +49,167 @@
             <div class="flex flex-col px-gutter py-4 gap-4">
                 <a class="font-body-md text-body-md text-secondary font-bold" href="/" aria-current="page">Home</a>
                 <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/index.html">Blog</a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/about-me.html">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/archive.html">Archive</a>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-16 grid grid-cols-1 lg:grid-cols-12 gap-gutter relative">
-        <!-- Left Sidebar (Desktop) / Top Area (Mobile) -->
-        <aside class="lg:col-span-3 flex flex-col gap-8">
-            <!-- Profile Card -->
-            <div class="glass-card rounded-xl p-6 flex flex-col items-center text-center gap-4 kinetic-hover">
-                <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-surface-variant relative group">
-                    <img src="/images/thumbnail.jpg" alt="Allen photo" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Allen LIN</h2>
-                    <p class="font-body-md text-body-md text-on-surface-variant mt-1">Student major in CSIE</p>
-                </div>
-                <div class="flex gap-2 mt-2">
-                    <a href="https://www.facebook.com/profile.php?id=100002661934970" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
+    <main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-16">
+        <!-- About Section (Two Column) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-20">
+            <div class="lg:col-span-7 flex flex-col gap-6">
+                <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary">關於我</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    我是一位熱衷於科技、性格外向的研究生，具備生成式 AI (GenAI)、深度學習 (Deep Learning) 和 DevOps 經驗。
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    我的專案涵蓋大型語言模型 (LLMs) 和電腦視覺 (Computer Vision) 等 AI 領域，以及涉及平行程式 (Parallel Programming) 和區塊鏈 (Blockchain) 的 C++ 開發工作。我渴望學習、樂於團隊合作，並隨時準備好做出實質貢獻。
+                </p>
+                <div class="flex gap-2">
+                    <a href="https://www.facebook.com/profile.php?id=100002661934970" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 2-1.9h1.6V2.1C16.3 2 15.3 2 14.1 2 11.6 2 9.9 3.5 9.9 6.9V10H7v4h2.9v8h3.1z"/></svg>
                     </a>
-                    <a href="https://github.com/allenlin316" target="_blank" rel="noopener" aria-label="GitHub" class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
+                    <a href="https://github.com/allenlin316" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/pinan-lin-8743ba22a/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
+                    <a href="https://www.linkedin.com/in/pinan-lin-8743ba22a/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
                     </a>
-                    <a href="https://www.youtube.com/channel/UCHd7xTXd4EoLJWKyayXceXw" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
+                    <a href="https://www.youtube.com/channel/UCHd7xTXd4EoLJWKyayXceXw" target="_blank" rel="noopener" aria-label="YouTube" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
                     </a>
                 </div>
-            </div>
-            <!-- Note Widget -->
-            <div class="glass-card rounded-xl p-6 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-3 opacity-20">
-                    <span class="material-symbols-outlined text-4xl" aria-hidden="true">push_pin</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant shadow-card hover:shadow-card-hover transition-shadow duration-300">
+                        <h2 class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-widest">技能</h2>
+                        <ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">check_circle</span> Python、C++、JS</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">check_circle</span> LLM、Prompt Engineering、AI Agent</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">check_circle</span> Git、Docker、Kubernetes</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">check_circle</span> 中文（母語）、英語（多益 960/990 金色證書）</li>
+                        </ul>
+                    </div>
+                    <div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant shadow-card hover:shadow-card-hover transition-shadow duration-300">
+                        <h2 class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-widest">證照與獎項</h2>
+                        <ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">arrow_right</span> NVIDIA CUDA C++/Python</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">arrow_right</span> GCP with Gemini &amp; Streamlit</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">arrow_right</span> Google Cybersecurity</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">arrow_right</span> International ICT Innovative Services Awards 2024（銅牌）</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary mt-1" aria-hidden="true">arrow_right</span> IBM Quantum Excellence</li>
+                        </ul>
+                    </div>
                 </div>
-                <h3 class="font-label-sm text-label-sm text-secondary uppercase mb-3 tracking-widest">Note</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant italic border-l-2 border-secondary pl-3">
-                    Keep working on more side project!
-                </p>
             </div>
-        </aside>
+            <div class="lg:col-span-5 flex flex-col gap-6 items-center lg:items-end mt-8 lg:mt-0">
+                <div class="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden border border-outline-variant shadow-card group">
+                    <div class="absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/images/myself.jpg" alt="林品安的個人照">
+                </div>
+                <!-- Note Widget -->
+                <div class="glass-card rounded-xl p-6 relative overflow-hidden w-full max-w-md">
+                    <div class="absolute top-0 right-0 p-3 opacity-20">
+                        <span class="material-symbols-outlined text-4xl" aria-hidden="true">push_pin</span>
+                    </div>
+                    <h2 class="font-label-sm text-label-sm text-secondary uppercase mb-3 tracking-widest">Note</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant italic border-l-2 border-secondary pl-3">
+                        Keep working on more side project!
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Main Content Canvas -->
-        <section class="lg:col-span-9 flex flex-col gap-16">
-            <!-- Hero -->
-            <div class="py-12 border-b border-outline-variant">
-                <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background max-w-3xl leading-tight">My Awesome Life</h1>
-                <p class="font-quote text-quote text-on-surface-variant mt-6 max-w-2xl">Never Give up on learning</p>
+        <!-- Work Experience Table -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8 border-b border-outline-variant pb-4">
+                <span class="material-symbols-outlined text-secondary" aria-hidden="true">work</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">工作經歷</h2>
             </div>
-            <!-- Archives Vertical Timeline -->
-            <div class="flex flex-col gap-12">
-                <div class="flex items-center gap-4 border-b border-outline-variant pb-2">
-                    <span class="material-symbols-outlined text-secondary" aria-hidden="true">history</span>
-                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background">Archives</h2>
-                </div>
-                <div class="relative pl-6">
-                    <div class="timeline-line"></div>
-                    <!-- 2024 -->
-                    <div class="mb-12 relative">
-                        <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2024</h3>
-                        <div class="flex flex-col gap-6">
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Socket_Programming_for_SYN_Flood_Mitigation">Socket Programming for SYN Flood Mitigation</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Nov 2024 - Dec 2024</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="border-b-2 border-outline font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+                            <th class="py-4 px-4">期間</th>
+                            <th class="py-4 px-4">職位 / 單位</th>
+                            <th class="py-4 px-4">說明</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-body-md text-body-md text-on-background divide-y divide-outline-variant">
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap align-top">2025/7 – 現職</td>
+                            <td class="py-4 px-4 font-semibold align-top">R&amp;D, AI Engineer 實習生<br><span class="font-normal text-on-surface-variant text-sm">亞太智能機器 APMIC</span></td>
+                            <td class="py-4 px-4 text-on-surface-variant">
+                                <ul class="flex flex-col gap-2">
+                                    <li>建立了 RAG 流程，用於評估和比較 embeddings、rerankers，和生成模型，使公司能更快地進行模型評估與部署。</li>
+                                    <li>領導實習生團隊，創建了 10K 以上的模型微調 (fine-tuning) 與評估樣本。</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap align-top">2024/7 – 2024/8</td>
+                            <td class="py-4 px-4 font-semibold align-top">研究、軟體工程實習生<br><span class="font-normal text-on-surface-variant text-sm">中央研究院</span></td>
+                            <td class="py-4 px-4 text-on-surface-variant">
+                                <ul class="flex flex-col gap-2">
+                                    <li>榮獲世界 TREC 2024 RAG 競賽第六名。</li>
+                                    <li>開發了評估策略並優化了生成技術。</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Education & Projects Table -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8 border-b border-outline-variant pb-4">
+                <span class="material-symbols-outlined text-secondary" aria-hidden="true">school</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">教育背景與專案</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="border-b-2 border-outline font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+                            <th class="py-4 px-4">期間 / 類別</th>
+                            <th class="py-4 px-4">項目</th>
+                            <th class="py-4 px-4">領域</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-body-md text-body-md text-on-background divide-y divide-outline-variant">
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap align-top">2024/9 – 2026/7</td>
+                            <td class="py-4 px-4 font-semibold align-top">臺灣科技大學 資訊工程所<br><span class="font-normal text-on-surface-variant text-sm">王紹睿・資訊安全與人工智慧實驗室<br>研究方向：大語言模型微調資安</span></td>
+                            <td class="py-4 px-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">LLM</span>
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">資訊安全</span>
                                 </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/malware_classification_FL">Hybrid Malware Classification</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Nov 2024 - Dec 2024</p>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap align-top">創新專案</td>
+                            <td class="py-4 px-4 font-semibold align-top">Network host profiling using FL with Autoencoder<br><span class="font-normal text-on-surface-variant text-sm">利用無監督異常偵測方法建立正常網路主機行為的特徵模型，召回率 (recall) 高達 97.8% 的異常偵測效能。</span></td>
+                            <td class="py-4 px-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">PyTorch</span>
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">Federated Learning</span>
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">Anomaly Detection</span>
                                 </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/BlockInsure/tree/main" target="_blank" rel="noopener">BlockInsure - 去中心化保單網站</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 15, 2024</p>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap align-top">創新專案</td>
+                            <td class="py-4 px-4 font-semibold align-top">Table RAG solution<br><span class="font-normal text-on-surface-variant text-sm">參與產品 PoC 幫忙研發 table RAG，利用 text-to-SQL 自然語言查找文件中的表格資訊。</span></td>
+                            <td class="py-4 px-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">RAG</span>
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">text-to-SQL</span>
+                                    <span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">OCR</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 2023 -->
-                    <div class="mb-12 relative">
-                        <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2023</h3>
-                        <div class="flex flex-col gap-6">
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/QSSL" target="_blank" rel="noopener">大學部畢業專題製作 - 透過量子自我監督之指紋辨識應用</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 8, 2023</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Android_App" target="_blank" rel="noopener">App 設計 - Android App</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 4, 2023</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Ebook_System" target="_blank" rel="noopener">動態網站設計 - 電子書網站系統</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jan 8, 2023</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/esp32-bang.html">ESP32 飛彈射擊系統</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jan 4, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 2022 -->
-                    <div class="mb-12 relative">
-                        <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2022</h3>
-                        <div class="flex flex-col gap-6">
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/esp32-house.html">智慧家庭 - 自動瓦斯警報與通風系統</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Nov 10, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Instagram-Post-Liking-Bot" target="_blank" rel="noopener">動態爬蟲 - Instagram 按讚機器人</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 29, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/spain-STEP.html">西班牙短期營隊</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 2, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/King_of_Knowledge" target="_blank" rel="noopener">網路程式設計期末專題 - 知識王遊戲</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 12, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/ncyu_autoFill_form" target="_blank" rel="noopener">動態爬蟲 - 嘉義大學回饋表單自動填寫</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">May 26, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/allenlin316.github.io" target="_blank" rel="noopener">個人網站製作 - GitHub Page</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 20, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/github-note.html">GitHub Note</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 20, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/git-note.html">Git Note</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 19, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/gatsby-note.html">Gatsby Note</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 18, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/atomic-habits.html">課外書分享 - 原子習慣</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 10, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Floppy_Face_Game" target="_blank" rel="noopener">網頁遊戲製作 - Floppy Face Game</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Feb 8, 2022</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Fight_till_the_End" target="_blank" rel="noopener">C# 遊戲專題 - 槍戰遊戲</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jan 11, 2022</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 2021 -->
-                    <div class="mb-12 relative">
-                        <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2021</h3>
-                        <div class="flex flex-col gap-6">
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/discord_quiz_bot" target="_blank" rel="noopener">discord quiz bot</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Sep 18, 2021</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/markdown_blog" target="_blank" rel="noopener">前後端整合練習 - Markdown Blog</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Sep 15, 2021</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/to-kill-a-mockingbird.html">課外書分享 - To Kill A Mockingbird</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Aug 10, 2021</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/BMI_Web_Version" target="_blank" rel="noopener">前端網站練習 - 線上 BMI 計算機</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 25, 2021</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/simple_memo_design" target="_blank" rel="noopener">前端網站練習 - 線上備忘錄</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jul 16, 2021</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/English_Typing_Game" target="_blank" rel="noopener">大一期末專題 - English Typing Game</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 20, 2021</p>
-                                </div>
-                            </div>
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="https://github.com/allenlin316/Racing_Car_Game" target="_blank" rel="noopener">Qt (C++ 應用程式開發框架)製作單機遊戲</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Jun 19, 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 2016 -->
-                    <div class="mb-12 relative">
-                        <h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2016</h3>
-                        <div class="flex flex-col gap-6">
-                            <div class="relative group">
-                                <div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
-                                <div class="pl-8">
-                                    <a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="/blog/us-exchange.html">美國一年交換生經驗分享</a>
-                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">Aug 24, 2016</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
