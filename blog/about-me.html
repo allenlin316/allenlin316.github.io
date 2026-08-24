@@ -1,152 +1,189 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="About 品安 Allenator 的事蹟">
     <meta name="keywords" content="關於林品安, 嘉義大學林品安, 資訊工程學系, About Allenator">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style/style.css">
-
     <title>About Me-Allen</title>
+    <link href="/images/tab_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+    <link rel="stylesheet" href="/style/tokens.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/script/tailwind-config.js"></script>
+    <script defer src="/script/site.js"></script>
 </head>
 
-<body>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
 
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/">Allen's Website</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item about-tag">
-                    <a class="nav-link" href="/blog/index.html">Blog</a>
-                </li>
-                <li class="nav-item about-tag active">
-                    <a class="nav-link" href="/blog/about-me.html">About</a>
-                </li>
-            </ul>
+    <!-- TopNavBar -->
+    <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+        <nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4" aria-label="主選單">
+            <a class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight" href="/">Allen's Website</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/">Home</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/index.html">Blog</a>
+                <a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="/blog/about-me.html" aria-current="page">About</a>
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <button id="theme-toggle" type="button" aria-label="切換為深色模式" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+            <div class="flex flex-col px-gutter py-4 gap-4">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/">Home</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/index.html">Blog</a>
+                <a class="font-body-md text-body-md text-secondary font-bold" href="/blog/about-me.html" aria-current="page">About</a>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <!--Context-->
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <h1 style="margin-top: 50px;">關於我</h1>
-                <p>
+    <main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-16">
+        <!-- About Section (Two Column) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-20">
+            <div class="lg:col-span-7 flex flex-col gap-6">
+                <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary">關於我</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
                     我是林品安，目前就讀臺灣科技大學資工所。在 2016-2017 我以親善大使的身分前往美國交換一年，回國後持續回社團中服務各國交換生，也接了會長一職。程式方面，大學畢業專題為透過量子自我監督學習辨識指紋，升碩一的暑假擔任了中研院的軟體工程實習生，負責任務是 RAG-based LLMs 競賽與實作。
                 </p>
-                <h2>專長</h2>
-                <ul>
-                    <li>程式應用(C++, Python, Kotlin, C#)</li>
-                    <li>空拍機攝影</li>
-                    <li>網站開發(HTML, JS, PHP)</li>
-                    <li>專案開發工具(Git, Docker, Kubernetes)</li>
-                    <li>影片剪輯(Premiere Pro, LumaFusion)</li>
-                </ul>
-                <h2>興趣</h2>
-                <ul>
-                    <li>經營 YouTube 頻道</li>
-                    <li>Markdown 語法製作筆記(Notion)</li>
-                    <li>網站開發</li>
-                    <li>git 版本控制</li>
-                    <li>魔術、吉他、游泳、籃球</li>
-                </ul>
-                <h2>活動與工作經歷</h2>
-                <table>
-                    <tr>
-                        <th class="bg-dark text-white ">活動經歷</th>
-                        <td>
-                            <ul class="text-left pt-3">
-                                <li>扶輪社交換生會長</li>
-                                <li>西班牙國際營隊</li>
-                                <li>交換學生(美國)</li>
-                                <li>新南向交流隊長</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="bg-dark text-white">工作經歷</th>
-                        <td>
-                            <ul class="text-left pt-3">
-                                <li>中研院軟體工程實習生</li>
-                                <li>程式設計助教</li>
-                                <li>微積分輔導員</li>
-                                <li>iGER OpenEdu 課程管理員</li>
-                                <li>英文家教老師</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-                <h2 class="mt-3">學習經歷</h2>
-                <table class="mb-3">
-                    <tr>
-                        <th class="bg-dark text-white">專案經歷</th>
-                        <td>
-                            <ul class="text-left pt-3">
-                                <li>Android App - 待辦事項</li>
-                                <li>旺萊山 - 鳳梨種類分類</li>
-                                <li>嵌入式系統 - 智慧家庭</li>
-                                <li>網頁自動化 - 嘉義大學調查表</li>
-                                <li>Discord 考試機器人</li>
-                                <li>AWS DeepRacer 無人自走車設計</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="bg-dark text-white">比賽經歷</th>
-                        <td>
-                            <ul class="text-left pt-3">
-                                <li>大專校院資訊應用服務創新競賽 2024 (銅牌)</li>
-                                <li>IDEX 新加坡國際科展(銅牌)</li>
-                                <li>NCPC 電腦軟體設計競賽(決賽)</li>
-                                <li>成大極客挑戰賽(決賽)</li>
-                                <li>ITSA 程式能力競賽(佳作)</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="bg-dark text-white">證書</th>
-                        <td>
-                            <ul class="text-left pt-3">
-                                <li>NVIDIA Fundamentals of Accelerated Computing with CUDA Python & C++</li>
-                                <li>Google GenAI Apps with Gemini & Streamlit</li>
-                                <li>IBM Qiskit Global Summer School (Quantum Excellence)</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="item">
-                    <img src="/images/friends_1.JPG" class="img-fluid img-thumbnail"
-                        alt="friends wave their own country flags"
-                        style="width: 100%; display: block; margin-top: 100px;">
-                    <img src="/images/科展銅牌.JPG" class="img-fluid img-thumbnail" alt="science fair won the bronze"
-                        style="width: 100%; display: block; margin-top: 50px;">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant shadow-card hover:shadow-card-hover transition-shadow duration-300">
+                        <h2 class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-widest">專長</h2>
+                        <ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">check_circle</span> 程式應用(C++, Python, Kotlin, C#)</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">check_circle</span> 空拍機攝影</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">check_circle</span> 網站開發(HTML, JS, PHP)</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">check_circle</span> 專案開發工具(Git, Docker, Kubernetes)</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">check_circle</span> 影片剪輯(Premiere Pro, LumaFusion)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant shadow-card hover:shadow-card-hover transition-shadow duration-300">
+                        <h2 class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-widest">興趣</h2>
+                        <ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">arrow_right</span> 經營 YouTube 頻道</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">arrow_right</span> Markdown 語法製作筆記(Notion)</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">arrow_right</span> 網站開發</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">arrow_right</span> git 版本控制</li>
+                            <li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary" aria-hidden="true">arrow_right</span> 魔術、吉他、游泳、籃球</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="lg:col-span-5 flex flex-col gap-8 justify-start items-center lg:items-end mt-8 lg:mt-0">
+                <div class="relative w-full max-w-md rounded-xl overflow-hidden border border-outline-variant shadow-card group">
+                    <img src="/images/friends_1.JPG" alt="friends wave their own country flags" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="relative w-full max-w-md rounded-xl overflow-hidden border border-outline-variant shadow-card group">
+                    <img src="/images/科展銅牌.JPG" alt="science fair won the bronze" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+        </section>
 
-    <!--Bootstrap use-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+        <!-- Activities & Work Experience Table -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8 border-b border-outline-variant pb-4">
+                <span class="material-symbols-outlined text-secondary" aria-hidden="true">work</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">活動與工作經歷</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[480px]">
+                    <tbody class="font-body-md text-body-md text-on-background divide-y divide-outline-variant">
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <th scope="row" class="py-4 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider whitespace-nowrap align-top w-32">活動經歷</th>
+                            <td class="py-4 px-4">
+                                <ul class="flex flex-col gap-2 text-on-surface-variant">
+                                    <li>扶輪社交換生會長</li>
+                                    <li>西班牙國際營隊</li>
+                                    <li>交換學生(美國)</li>
+                                    <li>新南向交流隊長</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <th scope="row" class="py-4 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider whitespace-nowrap align-top w-32">工作經歷</th>
+                            <td class="py-4 px-4">
+                                <ul class="flex flex-col gap-2 text-on-surface-variant">
+                                    <li>中研院軟體工程實習生</li>
+                                    <li>程式設計助教</li>
+                                    <li>微積分輔導員</li>
+                                    <li>iGER OpenEdu 課程管理員</li>
+                                    <li>英文家教老師</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Learning Experience Table -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8 border-b border-outline-variant pb-4">
+                <span class="material-symbols-outlined text-secondary" aria-hidden="true">school</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">學習經歷</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[480px]">
+                    <tbody class="font-body-md text-body-md text-on-background divide-y divide-outline-variant">
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <th scope="row" class="py-4 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider whitespace-nowrap align-top w-32">專案經歷</th>
+                            <td class="py-4 px-4">
+                                <ul class="flex flex-col gap-2 text-on-surface-variant">
+                                    <li>Android App - 待辦事項</li>
+                                    <li>旺萊山 - 鳳梨種類分類</li>
+                                    <li>嵌入式系統 - 智慧家庭</li>
+                                    <li>網頁自動化 - 嘉義大學調查表</li>
+                                    <li>Discord 考試機器人</li>
+                                    <li>AWS DeepRacer 無人自走車設計</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <th scope="row" class="py-4 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider whitespace-nowrap align-top w-32">比賽經歷</th>
+                            <td class="py-4 px-4">
+                                <ul class="flex flex-col gap-2 text-on-surface-variant">
+                                    <li>大專校院資訊應用服務創新競賽 2024 (銅牌)</li>
+                                    <li>IDEX 新加坡國際科展(銅牌)</li>
+                                    <li>NCPC 電腦軟體設計競賽(決賽)</li>
+                                    <li>成大極客挑戰賽(決賽)</li>
+                                    <li>ITSA 程式能力競賽(佳作)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors duration-200">
+                            <th scope="row" class="py-4 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider whitespace-nowrap align-top w-32">證書</th>
+                            <td class="py-4 px-4">
+                                <ul class="flex flex-col gap-2 text-on-surface-variant">
+                                    <li>NVIDIA Fundamentals of Accelerated Computing with CUDA Python & C++</li>
+                                    <li>Google GenAI Apps with Gemini & Streamlit</li>
+                                    <li>IBM Qiskit Global Summer School (Quantum Excellence)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-surface border-t border-outline-variant mt-auto">
+        <div class="max-w-container-max mx-auto px-gutter py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="font-headline-lg text-primary text-sm font-bold tracking-tight">Allen's Website</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">&copy; copyright by Allen</span>
+        </div>
+    </footer>
 
     <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>

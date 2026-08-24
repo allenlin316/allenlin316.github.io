@@ -1,285 +1,241 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style/style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Git Note</title>
+    <link href="/images/tab_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+    <link rel="stylesheet" href="/style/tokens.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/script/tailwind-config.js"></script>
+    <script defer src="/script/site.js"></script>
 </head>
 
-<style>
-    img{
-        float: left;
-        width: 100%;
-    }
-</style>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
 
-<body>
-
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/">Allen's Website</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item about-tag active">
-                    <a class="nav-link" href="/blog/index.html">Blog</a>
-                </li>
-                <li class="nav-item about-tag">
-                    <a class="nav-link" href="/blog/about-me.html">About</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Page content-->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <!-- Post content-->
-                <article>
-                    <!-- Post header-->
-                    <header class="mb-4">
-                        <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">Git Note</h1>
-                        <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Posted on Feb 19, 2022 by Allen</div>
-                        <!-- Post categories-->
-                        <a class="badge badge-secondary" href="#!">Self-learning</a>
-                        <a class="badge badge-secondary" href="#!">Version control</a>
-                    </header>
-                    <!-- Post content-->
-                    <section class="mb-5">
-                        <!--什麼是 Git ?-->
-                        <h2 class="mt-5">什麼是 Git ?</h2>
-                        <hr>
-                        <ul>
-                            <li>是一個分散式的版本控制系統 (Version Control System)</li>
-                            <li>有點像玩超級馬力歐，闖關一個地圖時會過好幾個旗子(紀錄目前走到的位置)，Git 就是扮演這個角色，當你編輯檔案時，今天編輯明天修改內容，Git 可以幫你把編輯修改的內容存起來</li>
-                        </ul>
-                        <!--為何使用 ?-->
-                        <h2 class="mt-5">為何使用 ?</h2>
-                        <hr>
-                        <ul>
-                            <li>原始方法可能會用日期寫在檔名上 track 檔案的修改，但你能知道檔案間差在哪嗎，或者是跟同事朋友共同編輯檔案時，檔案不見或覆蓋掉時，要怎麼知道最後是誰用的</li>
-                            <li>Git 幫助我們追蹤檔案之間的差異，包括誰在什麼時候加進來、什麼時候被修改或刪除</li>
-                            <li><mark>目前業界最流行的版控</mark></li>
-                        </ul>
-                        <!--優點-->
-                        <h2 class="mt-5">優點</h2>
-                        <hr>
-                        <ol>
-                            <li>免費、開源</li>
-                            <li>速度快、檔案體積小 : Git 特別的設計，在於它並不是記錄版本的差異，而是記錄檔案內容的 <mark>快照</mark> (snapshot)，它可以讓 Git 在非常快速的切換版本</li>
-                            <li>分散式系統 : 即使沒有網路可以連上共同的伺服器，可以在自己電腦本機運作，等有網路時再同步就可以</li>
-                        </ol>
-                        <!--運作方式-->
-                        <h2 class="mt-5" id="operation">運作方式</h2>
-                        <hr>
-                        <p> <mark>git add file1.txt</mark> → file1 就會從本機 copy 一份到 staging area</p>
-                        <p> <mark>git commit -m "upload file1"</mark> → file1 就會從 staging area 上傳到 repository</p>
-                        <button class="btn btn-info" data-toggle="collapse" data-target="#git-workflow" aria-controls="git-workflow">架構示意圖</button>
-                        <div class="collapse mt-3" id="git-workflow">
-                            <img class="rounded float-left" src="/images/git-note/git-workflow.png" alt="git-workflow-img" style="width:100%;">
-                        </div>
-                        <div class="bd-callout bd-callout-primary">
-                            <h5>SHA-1</h5>
-                            <p>Secure Hash Algorithm 1 的縮寫</p>
-                            <p>是一種雜湊演算法，計算之後的結果通常會以 40 個十六進位的數字方式呈現</p>
-                            <p>Git 裡所有物件的編號都是由這個產生的</p>
-                        </div>
-                        <!--基本指令-->
-                        <h2 class="mt-5" id="basic-cmd">基本指令</h2>
-                        <hr>
-                        <p>初始設定 (後來除非需要，不然不用改)</p> 
-                        <ul>
-                            <li>git config —global user.name “&lt;user name&gt;”</li>
-                            <li>git config —global user.email &lt;user email&gt;</li>
-                            <li>git config —global core.editor &lt;想要用的文字編輯器 e.g. code(vs code)&gt;</li>
-                        </ul>
-                        <!--collapse card-->
-                        <div class="accordion" id="git-cmd" style="width: 80%;">
-                            <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    git status -s
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#git-cmd">
-                                <div class="card-body">
-                                  <li>直接顯示 staging area 跟 local directory 的狀態</li>
-                                  <li>M : modified、A : added</li>
-                                  <li>由左到右為 : staging area → local directory</li>
-                                  <a href="/images/git-note/git-status.png"><img class="rounded m-3" src="/images/git-note/git-status.png" alt="git-status image"></a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    git ls-files
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#git-cmd">
-                                <div class="card-body">
-                                    查看 staging area 的資料有哪些
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    git log —oneline
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#git-cmd">
-                                <div class="card-body">
-                                  <p>呈現所有 commit 的 ID 與訊息</p>
-                                  <a href="/images/git-note/git-log.png"><img class="rounded m-3" src="/images/git-note/git-log.png" alt="git-log image"></a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingFour">
-                                  <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                        git restore —staged &lt;file&gt;
-                                    </button>
-                                  </h2>
-                                </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#git-cmd">
-                                  <div class="card-body">
-                                    <p>把 staging area 的資料返回上一步</p>
-                                    <a href="/images/git-note/git-log.png"><img class="rounded m-3" src="/images/git-note/git-restore.png" alt="git-restore image"></a>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--後悔 commit 這個檔案 - 用 reset 指令-->
-                        <h2 class="mt-5" id="regret">後悔 commit 這個檔案 - 用 <mark>reset</mark> 指令</h2>
-                        <hr>
-                        <ul>
-                            <li>回到上一次的 commit : <mark>git reset HEAD~</mark> 、 <mark>git reset &lt;上一次的 commit SHA-1 值&gt;</mark> </li>
-                            <li>那拆出來的檔案跑去哪了 : 參考 <a href="https://gitbook.tw/chapters/using-git/reset-commit">Reset</a> 模式</li>
-                            <li>如果沒有記得 SHA-1、又想要回到很久之前的 commit ，就可以透過 <mark>Reflog</mark> 或 <mark>git log -g</mark> 查看 SHA-1 的值 (HEAD 移動，Git 就會在 Reflog 裡記上一筆)</li>
-                        </ul>
-                        <button class="btn btn-info" data-toggle="collapse" data-target="#orig-head">ORIG_HEAD</button>
-                        <ul class="collapse" id="orig-head">
-                            <li class="mt-3">為 <mark>.git</mark> 目錄下的檔案，當我們做出危險動作時(merge、reset、)幫我們紀錄 HEAD 資訊，讓你隨時可以跳回危險動作之前的狀態</li>
-                            <img class="rounded m-3" src="/images/git-note/orig-head.png" alt="orig-head image">
-                        </ul>
-                        <!--使用 branch -->
-                        <h2 class="mt-5">使用 branch</h2>
-                        <hr>
-                        <ul>
-                            <li>git branch &lt;branch name&gt; : 創一個新的 branch</li>
-                            <li>git checkout &lt;branch name&gt; : 切換 branch</li>
-                            <li>git merge &lt;branch name&gt; : 現在 head 所在的 branch 與 &lt;branch name&gt; 合併</li>
-                        </ul>
-                        <div class="bd-callout bd-callout-warning">
-                            <h5>注意</h5>
-                            <p>分支只是一個指向某個 Commit 的指標，刪除這個指標並不會造成那些 Commit 消失</p>
-                        </div>
-                        <button class="btn btn-info" data-toggle="collapse" data-target="#merge-conflict">merge 發生衝突</button>
-                        <ul class="collapse" id="merge-conflict">
-                            <li class="mt-3">情況 : 當兩個分支對同一個檔案做修改，修改內容不一樣時，最後合併會發生衝突</li>
-                            <li>解決辦法</li>
-                            <ol>
-                                <li>使用 GUI 看雙方的檔案哪些不一樣，雙方溝通直接在檔案上面做更改，把最後的檔案再做 <mark>git add</mark> </li>
-                                <li>使用 <mark>git checkout --ours &lt;file name&gt;</mark> ，如果是使用對方的分支則用 —theirs</li>
-                                <img class="rounded m-3" src="/images/git-note/merge-conflict.png" alt="merge-conflict">
-                                <p>U : file is Unmerged</p>
-                            </ol>
-                        </ul>
-                        <!--使用 tag (不會移動的分支)-->
-                        <h2 class="mt-5" id="tag">使用 tag (不會移動的分支)</h2>
-                        <hr>
-                        <ul>
-                            <li>是一個指向某一個 Commit 的指標</li>
-                            <li>lightweight tag (輕量標籤 - 沒有任何其他資訊)</li>
-                            <ul><li> <mark>git tag &lt;tag name&gt; &lt;commit SHA-1&gt;</mark> </li></ul>
-                            <li>annotated tag (有附註標籤)</li>
-                            <ul>
-                                <li> <mark>git tag <tag name> <commit SHA-1> -a -m "message"</mark> </li>
-                                    <li>可以看到誰在什麼時候打了這張標籤 (利用 <mark>git show &lt;tag name&gt;</mark> )</li>
-                            </ul>
-                            <li>刪除 : <mark>git tag -d &lt;tag name&gt;</mark> </li>
-                        </ul>
-                        <!--Git v.s. GitHub-->
-                        <h2 class="mt-5">Git v.s. GitHub</h2>
-                        <hr>
-                        <p>一個是工具、一個是網站</p>
-                        <a href="#">GitHub Note</a>
-                        <!--Reference-->
-                        <h2 class="mt-5">Reference</h2>
-                        <hr>
-                        <ul>
-                            <li><a href="https://gitbook.tw/">為你自己學 Git</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=8JJ101D3knE&t=3202s">Git Tutorial for Beginners: Learn Git in 1 Hour</a></li>
-                        </ul>
-                    </section>
-                </article>
+    <!-- TopNavBar -->
+    <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+        <nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4" aria-label="主選單">
+            <a class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight" href="/">Allen's Website</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/">Home</a>
+                <a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="/blog/index.html">Blog</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/about-me.html">About</a>
             </div>
-            <!-- Side widgets-->
-            <div class="col-lg-4">
-                <!-- Categories widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Categories</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#operation">運作方式</a></li>
-                                    <li><a href="#tag">使用 tag</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#regret">後悔 commit</a></li>
-                                    <li><a href="#basic-cmd">基本指令</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <button id="theme-toggle" type="button" aria-label="切換為深色模式" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+            <div class="flex flex-col px-gutter py-4 gap-4">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/">Home</a>
+                <a class="font-body-md text-body-md text-secondary font-bold" href="/blog/index.html">Blog</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/about-me.html">About</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-16 grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <!-- Article -->
+        <article class="col-span-1 lg:col-span-8 space-y-10">
+            <header class="space-y-6">
+                <div class="flex flex-wrap gap-2">
+                    <a class="glass-chip text-secondary font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wider" href="#!">Self-learning</a>
+                    <a class="glass-chip text-secondary font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wider" href="#!">Version control</a>
                 </div>
-                <!-- Side widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Note</div>
-                    <div class="card-body">
-                        <p>真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理</p>
+                <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary leading-tight">Git Note</h1>
+                <p class="font-label-sm text-label-sm text-on-surface-variant uppercase border-t border-outline-variant pt-4">Posted on Feb 19, 2022 by Allen</p>
+            </header>
+            <div class="article-body text-on-surface">
+                <!--什麼是 Git ?-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6">什麼是 Git ?</h2>
+                <ul>
+                    <li>是一個分散式的版本控制系統 (Version Control System)</li>
+                    <li>有點像玩超級馬力歐，闖關一個地圖時會過好幾個旗子(紀錄目前走到的位置)，Git 就是扮演這個角色，當你編輯檔案時，今天編輯明天修改內容，Git 可以幫你把編輯修改的內容存起來</li>
+                </ul>
+                <!--為何使用 ?-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6">為何使用 ?</h2>
+                <ul>
+                    <li>原始方法可能會用日期寫在檔名上 track 檔案的修改，但你能知道檔案間差在哪嗎，或者是跟同事朋友共同編輯檔案時，檔案不見或覆蓋掉時，要怎麼知道最後是誰用的</li>
+                    <li>Git 幫助我們追蹤檔案之間的差異，包括誰在什麼時候加進來、什麼時候被修改或刪除</li>
+                    <li><mark>目前業界最流行的版控</mark></li>
+                </ul>
+                <!--優點-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6">優點</h2>
+                <ol>
+                    <li>免費、開源</li>
+                    <li>速度快、檔案體積小 : Git 特別的設計，在於它並不是記錄版本的差異，而是記錄檔案內容的 <mark>快照</mark> (snapshot)，它可以讓 Git 在非常快速的切換版本</li>
+                    <li>分散式系統 : 即使沒有網路可以連上共同的伺服器，可以在自己電腦本機運作，等有網路時再同步就可以</li>
+                </ol>
+                <!--運作方式-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6" id="operation">運作方式</h2>
+                <p> <mark>git add file1.txt</mark> → file1 就會從本機 copy 一份到 staging area</p>
+                <p> <mark>git commit -m "upload file1"</mark> → file1 就會從 staging area 上傳到 repository</p>
+                <details class="collapse-block">
+                    <summary>架構示意圖</summary>
+                    <div class="collapse-body">
+                        <img class="rounded-lg border border-outline-variant w-full" src="/images/git-note/git-workflow.png" alt="git-workflow-img">
+                    </div>
+                </details>
+                <div class="bd-callout bd-callout-primary">
+                    <h5 class="font-bold text-primary mb-2">SHA-1</h5>
+                    <p class="mb-1">Secure Hash Algorithm 1 的縮寫</p>
+                    <p class="mb-1">是一種雜湊演算法，計算之後的結果通常會以 40 個十六進位的數字方式呈現</p>
+                    <p class="mb-0">Git 裡所有物件的編號都是由這個產生的</p>
+                </div>
+                <!--基本指令-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6" id="basic-cmd">基本指令</h2>
+                <p>初始設定 (後來除非需要，不然不用改)</p>
+                <ul>
+                    <li>git config —global user.name “&lt;user name&gt;”</li>
+                    <li>git config —global user.email &lt;user email&gt;</li>
+                    <li>git config —global core.editor &lt;想要用的文字編輯器 e.g. code(vs code)&gt;</li>
+                </ul>
+                <!--collapse card-->
+                <details class="collapse-block">
+                    <summary>git status -s</summary>
+                    <div class="collapse-body">
+                        <ul>
+                            <li>直接顯示 staging area 跟 local directory 的狀態</li>
+                            <li>M : modified、A : added</li>
+                            <li>由左到右為 : staging area → local directory</li>
+                        </ul>
+                        <a href="/images/git-note/git-status.png"><img class="rounded-lg border border-outline-variant my-3" src="/images/git-note/git-status.png" alt="git-status image"></a>
+                    </div>
+                </details>
+                <details class="collapse-block">
+                    <summary>git ls-files</summary>
+                    <div class="collapse-body">
+                        查看 staging area 的資料有哪些
+                    </div>
+                </details>
+                <details class="collapse-block">
+                    <summary>git log —oneline</summary>
+                    <div class="collapse-body">
+                        <p>呈現所有 commit 的 ID 與訊息</p>
+                        <a href="/images/git-note/git-log.png"><img class="rounded-lg border border-outline-variant my-3" src="/images/git-note/git-log.png" alt="git-log image"></a>
+                    </div>
+                </details>
+                <details class="collapse-block">
+                    <summary>git restore —staged &lt;file&gt;</summary>
+                    <div class="collapse-body">
+                        <p>把 staging area 的資料返回上一步</p>
+                        <a href="/images/git-note/git-log.png"><img class="rounded-lg border border-outline-variant my-3" src="/images/git-note/git-restore.png" alt="git-restore image"></a>
+                    </div>
+                </details>
+                <!--後悔 commit 這個檔案 - 用 reset 指令-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6" id="regret">後悔 commit 這個檔案 - 用 <mark>reset</mark> 指令</h2>
+                <ul>
+                    <li>回到上一次的 commit : <mark>git reset HEAD~</mark> 、 <mark>git reset &lt;上一次的 commit SHA-1 值&gt;</mark> </li>
+                    <li>那拆出來的檔案跑去哪了 : 參考 <a href="https://gitbook.tw/chapters/using-git/reset-commit">Reset</a> 模式</li>
+                    <li>如果沒有記得 SHA-1、又想要回到很久之前的 commit ，就可以透過 <mark>Reflog</mark> 或 <mark>git log -g</mark> 查看 SHA-1 的值 (HEAD 移動，Git 就會在 Reflog 裡記上一筆)</li>
+                </ul>
+                <details class="collapse-block">
+                    <summary>ORIG_HEAD</summary>
+                    <div class="collapse-body">
+                        <ul>
+                            <li>為 <mark>.git</mark> 目錄下的檔案，當我們做出危險動作時(merge、reset、)幫我們紀錄 HEAD 資訊，讓你隨時可以跳回危險動作之前的狀態</li>
+                        </ul>
+                        <img class="rounded-lg border border-outline-variant my-3" src="/images/git-note/orig-head.png" alt="orig-head image">
+                    </div>
+                </details>
+                <!--使用 branch -->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6">使用 branch</h2>
+                <ul>
+                    <li>git branch &lt;branch name&gt; : 創一個新的 branch</li>
+                    <li>git checkout &lt;branch name&gt; : 切換 branch</li>
+                    <li>git merge &lt;branch name&gt; : 現在 head 所在的 branch 與 &lt;branch name&gt; 合併</li>
+                </ul>
+                <div class="bd-callout bd-callout-warning">
+                    <h5 class="font-bold text-primary mb-2">注意</h5>
+                    <p class="mb-0">分支只是一個指向某個 Commit 的指標，刪除這個指標並不會造成那些 Commit 消失</p>
+                </div>
+                <details class="collapse-block">
+                    <summary>merge 發生衝突</summary>
+                    <div class="collapse-body">
+                        <ul>
+                            <li>情況 : 當兩個分支對同一個檔案做修改，修改內容不一樣時，最後合併會發生衝突</li>
+                            <li>解決辦法
+                                <ol>
+                                    <li>使用 GUI 看雙方的檔案哪些不一樣，雙方溝通直接在檔案上面做更改，把最後的檔案再做 <mark>git add</mark> </li>
+                                    <li>使用 <mark>git checkout --ours &lt;file name&gt;</mark> ，如果是使用對方的分支則用 —theirs</li>
+                                </ol>
+                            </li>
+                        </ul>
+                        <img class="rounded-lg border border-outline-variant my-3" src="/images/git-note/merge-conflict.png" alt="merge-conflict">
+                        <p>U : file is Unmerged</p>
+                    </div>
+                </details>
+                <!--使用 tag (不會移動的分支)-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6" id="tag">使用 tag (不會移動的分支)</h2>
+                <ul>
+                    <li>是一個指向某一個 Commit 的指標</li>
+                    <li>lightweight tag (輕量標籤 - 沒有任何其他資訊)
+                        <ul><li> <mark>git tag &lt;tag name&gt; &lt;commit SHA-1&gt;</mark> </li></ul>
+                    </li>
+                    <li>annotated tag (有附註標籤)
+                        <ul>
+                            <li> <mark>git tag &lt;tag name&gt; &lt;commit SHA-1&gt; -a -m "message"</mark> </li>
+                            <li>可以看到誰在什麼時候打了這張標籤 (利用 <mark>git show &lt;tag name&gt;</mark> )</li>
+                        </ul>
+                    </li>
+                    <li>刪除 : <mark>git tag -d &lt;tag name&gt;</mark> </li>
+                </ul>
+                <!--Git v.s. GitHub-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6">Git v.s. GitHub</h2>
+                <p>一個是工具、一個是網站</p>
+                <a href="#">GitHub Note</a>
+                <!--Reference-->
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary pt-8 border-t border-outline-variant mt-12 mb-6">Reference</h2>
+                <ul>
+                    <li><a href="https://gitbook.tw/">為你自己學 Git</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=8JJ101D3knE&t=3202s">Git Tutorial for Beginners: Learn Git in 1 Hour</a></li>
+                </ul>
+            </div>
+        </article>
+        <!-- Sidebar -->
+        <aside class="col-span-1 lg:col-span-4 space-y-8 lg:sticky lg:top-24 self-start">
+            <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant shadow-card">
+                <h3 class="font-headline-lg text-xl text-primary mb-4">Categories</h3>
+                <nav class="flex flex-col space-y-3" data-toc>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#operation">運作方式</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#basic-cmd">基本指令</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#regret">後悔 commit</a>
+                    <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#tag">使用 tag</a>
+                </nav>
+            </div>
+            <div class="bg-surface p-6 rounded-xl border border-outline-variant shadow-card relative overflow-hidden">
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">lightbulb</span>
+                    <div>
+                        <h4 class="font-bold text-primary font-body-md mb-2">Note</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm">真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理</p>
                     </div>
                 </div>
             </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-surface border-t border-outline-variant mt-auto">
+        <div class="max-w-container-max mx-auto px-gutter py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="font-headline-lg text-primary text-sm font-bold tracking-tight">Allen's Website</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">&copy; copyright by Allen</span>
         </div>
-    </div>
-
-
-    <!--Bootstrap use-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+    </footer>
 
     <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>

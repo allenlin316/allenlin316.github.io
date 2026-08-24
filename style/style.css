@@ -224,6 +224,45 @@ mark {
 .bd-callout-primary { border-left-color: rgb(var(--c-secondary)); }
 .bd-callout-warning { border-left-color: rgb(var(--c-error)); }
 
+/* Collapsible blocks (replacing Bootstrap collapse; native <details>) */
+details.collapse-block {
+    margin: 1rem 0;
+}
+
+details.collapse-block > summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    background-color: rgb(var(--c-secondary) / 0.1);
+    color: rgb(var(--c-secondary));
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+
+details.collapse-block > summary::-webkit-details-marker { display: none; }
+
+details.collapse-block > summary::before {
+    content: '+';
+    font-weight: 700;
+}
+
+details.collapse-block[open] > summary::before { content: '−'; }
+
+details.collapse-block > summary:hover {
+    background-color: rgb(var(--c-secondary) / 0.2);
+}
+
+details.collapse-block > .collapse-body {
+    margin-top: 1rem;
+}
+
 /* Scrollspy TOC state (script/site.js) */
 .toc-active {
     color: rgb(var(--c-secondary)) !important;
