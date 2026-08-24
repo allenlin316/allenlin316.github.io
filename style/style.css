@@ -1,136 +1,235 @@
+/* ==========================================================================
+   Site theme — Kinetic Minimalist (source: /imported, Stitch)
+   Requires /style/tokens.css to be loaded first.
+   ========================================================================== */
+
+/* ---- Base ---------------------------------------------------------------- */
+
 html {
-    /* prevent content get covered by the fixed navbar */
-    scroll-padding-top: 70px;
+    /* prevent content being covered by the sticky navbar on anchor jumps */
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
 }
 
-.jumbotron {
-    background: url('/images/meVlogging.JPEG') no-repeat center center /cover;
-    margin-bottom: 0;
-    color: white;
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: rgb(var(--c-background));
+    color: rgb(var(--c-on-background));
+    -webkit-font-smoothing: antialiased;
 }
 
-.lead{
-    line-height: 1em;
-    text-indent: 0;
+/* ---- Typography ---------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geist', system-ui, sans-serif;
 }
 
-.navbar {
-    background-color: #071b34;
+/* Long-form reading (design system: measure capped at 720px, generous
+   paragraph rhythm) */
+.article-body {
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
-.list-group{
-    margin-bottom: 20px;
+.article-body p,
+.article-body ul,
+.article-body ol {
+    margin-bottom: 1.5rem;
 }
 
-body{
+.article-body ul { list-style: disc; padding-left: 1.5rem; }
+.article-body ol { list-style: decimal; padding-left: 1.5rem; }
+.article-body li { margin-bottom: 0.375rem; }
+.article-body li > ul,
+.article-body li > ol { margin-top: 0.375rem; margin-bottom: 0.375rem; }
+
+.article-body a {
+    color: rgb(var(--c-secondary));
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--c-secondary) / 0.35);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.article-body a:hover {
+    text-decoration-color: rgb(var(--c-secondary));
+}
+
+/* Material Symbols defaults (imported: FILL 0; .filled variant) */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ---- Interactive states -------------------------------------------------- */
+
+:focus-visible {
+    outline: 2px solid rgb(var(--c-secondary));
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+
+::selection {
+    background-color: rgb(var(--c-secondary-fixed));
+    color: rgb(var(--c-on-secondary-fixed));
+}
+
+/* Nav link underline draw (imported: scaleX left→right, 0.25s) */
+.nav-link {
     position: relative;
 }
 
-.home-page {
-    padding: 30px 20px;
-}
-
-.content {
-    padding: 20px;
-}
-
-table{
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+    height: 2px;
+    background-color: rgb(var(--c-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
 }
 
-table, th, td{
-    border: 1px solid black;
-    text-align: center;
-    padding: 5px;
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
+    transform: scaleX(1);
 }
 
-#quote-ul, #idiom-ul{
-    background-color: #d9edf7;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 6px;
+/* Card lift — single canonical definition (imported code had two variants;
+   this keeps the blog.html easing with the softer post-detail shadow) */
+.kinetic-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease;
 }
 
-#moreVoc{
-    display: none;
+.kinetic-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgb(var(--c-secondary));
 }
 
-blockquote{
-    border-left: .25em solid #ddd;
-    padding: 0.5em;
-    color: #777;
+/* ---- Components (token-based) -------------------------------------------- */
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgb(var(--c-outline-variant));
+    box-shadow: var(--shadow-card);
 }
 
-footer {
-    background-color: #ccc;
-    color: white;
-    padding: 5px;
-    position: relative;
+.glass-chip {
+    background-color: rgb(var(--c-secondary) / 0.1);
+}
+
+.text-highlight {
+    background: linear-gradient(120deg,
+        rgb(var(--c-secondary) / 0.1) 0%,
+        rgb(var(--c-secondary) / 0.1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: 0 88%;
+    transition: background-size 0.2s ease-in-out;
+}
+
+.text-highlight:hover {
+    background-size: 100% 100%;
+}
+
+/* Archives vertical timeline (imported home screen) */
+.timeline-line {
+    width: 2px;
+    background-color: rgb(var(--c-outline-variant));
+    position: absolute;
+    top: 0;
     bottom: 0;
+    left: 11px;
+    z-index: var(--z-base);
 }
 
-mark{
-    background-color: rgb(224, 224, 224);
+.timeline-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(var(--c-secondary));
+    border-radius: 50%;
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    z-index: 1;
+    border: 2px solid rgb(var(--c-surface));
+}
+
+/* ---- Long-form content elements (kept from the old site, re-themed) ------ */
+
+.article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.article-body th,
+.article-body td {
+    border: 1px solid rgb(var(--c-outline-variant));
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+}
+
+.article-body th {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgb(var(--c-on-surface-variant));
+    background-color: rgb(var(--c-surface-container-low));
+}
+
+blockquote {
+    border-left: 4px solid rgb(var(--c-secondary));
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+    color: rgb(var(--c-on-surface-variant));
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+mark {
+    background-color: rgb(var(--c-secondary) / 0.1);
     border-radius: 3px;
-    padding: 0;
-    color: red;
+    padding: 0 0.2em;
+    color: rgb(var(--c-secondary));
+    font-weight: 500;
 }
 
 .bd-callout {
     padding: 1.25rem;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    border: 1px solid #eee;
+    margin: 1.25rem 0;
+    background-color: rgb(var(--c-surface-container-lowest));
+    border: 1px solid rgb(var(--c-outline-variant));
     border-left-width: 0.25rem;
     border-radius: 0.25rem;
 }
 
-.bd-callout-primary {
-    border-left-color: #2a60b8;
-}
+.bd-callout-primary { border-left-color: rgb(var(--c-secondary)); }
+.bd-callout-warning { border-left-color: rgb(var(--c-error)); }
 
-.bd-callout-warning{
-    border-left-color: #e70000;
-}
+/* Old vocabulary toggle on to-kill-a-mockingbird (kept: script/script.js) */
+#moreVoc { display: none; }
 
-.fa{
-    text-align: center;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
-.icon{
-    color: white;
-    height: 36px;
-    width: 36px;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.icon:hover {
-    color: white;
-    text-decoration: none;
-    opacity: 0.7;
-}
-
-.fa-facebook-official{    
-    background: #3B5998;  
-}
-
-.fa-github{
-    background: black;
-}
-
-.fa-linkedin{
-    background: #007bb5;
-}
-
-.fa-instagram{
-    background: #ba1f1f;
-}
-
-.fa-youtube-play{   
-    background: #bb0000;
+#quote-ul, #idiom-ul {
+    background-color: rgb(var(--c-surface-container-low));
+    border: 1px solid rgb(var(--c-outline-variant));
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    border-radius: 0.5rem;
 }
