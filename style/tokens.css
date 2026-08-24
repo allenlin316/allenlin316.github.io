@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Design tokens — "Kinetic Minimalist" (imported from Stitch, see /imported)
+   Design tokens — "Kinetic Minimalist", imported from Stitch
    Single source of truth for every color, font, size, spacing, radius,
    shadow and z-index used on the site. Colors are stored as R G B triplets
    so Tailwind opacity modifiers (e.g. bg-secondary/10) keep working.
@@ -75,7 +75,7 @@
   --sp-container-max: 1200px;
 }
 
-/* ---- Color: dark. Derived per the imported design-system.md:
+/* ---- Color: dark. Derived per the Stitch design system's guidance:
    "Level 0: Slate 950 · Level 1 cards: Slate 900 with subtle borders ·
    accents shift to lighter indigo/teal." Fixed roles stay mode-independent. */
 html.dark {
