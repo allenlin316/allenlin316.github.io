@@ -158,27 +158,38 @@
     })();
 
     /* ---- Scrollspy for tables of contents ----
-       Markup: [data-toc] containing anchor links to in-page headings. */
+       Markup: [data-toc] containing anchor links to in-page headings.
+       Highlights the last heading scrolled past the sticky-nav line, so a
+       section stays marked for its whole length. */
     var toc = document.querySelector("[data-toc]");
-    if (toc && "IntersectionObserver" in window) {
+    if (toc) {
         var links = Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]'));
-        var byId = {};
-        links.forEach(function (link) {
-            byId[decodeURIComponent(link.getAttribute("href")).slice(1)] = link;
-        });
+        var sections = links.map(function (link) {
+            var id = decodeURIComponent(link.getAttribute("href")).slice(1);
+            return { link: link, el: document.getElementById(id) };
+        }).filter(function (s) { return s.el; });
 
-        var spy = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (!entry.isIntersecting) return;
-                links.forEach(function (l) { l.classList.remove("toc-active"); });
-                var link = byId[entry.target.id];
-                if (link) link.classList.add("toc-active");
+        var MARKER = 120; /* just below the sticky navbar */
+        var ticking = false;
+
+        function updateSpy() {
+            ticking = false;
+            var current = null;
+            sections.forEach(function (s) {
+                if (s.el.getBoundingClientRect().top <= MARKER) current = s;
             });
-        }, { rootMargin: "-20% 0px -70% 0px" });
+            if (!current && sections.length) current = sections[0];
+            sections.forEach(function (s) {
+                s.link.classList.toggle("toc-active", s === current);
+            });
+        }
 
-        Object.keys(byId).forEach(function (id) {
-            var target = document.getElementById(id);
-            if (target) spy.observe(target);
-        });
+        window.addEventListener("scroll", function () {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(updateSpy);
+        }, { passive: true });
+
+        updateSpy();
     }
 })();

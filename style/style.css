@@ -80,6 +80,26 @@ h1, h2, h3, h4, h5, h6 {
     color: rgb(var(--c-on-secondary-fixed));
 }
 
+/* Tap targets: 44x44 minimum for chrome/navigation controls. Icon buttons
+   get it everywhere; text links only where a pointer is coarse, so desktop
+   spacing stays as designed. Inline links inside prose are exempt. */
+#theme-toggle,
+#menu-toggle {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+@media (pointer: coarse) {
+    header nav a,
+    #mobile-menu a,
+    [data-toc] a,
+    aside a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
 /* Nav link underline draw (imported: scaleX left→right, 0.25s) */
 .nav-link {
     position: relative;
