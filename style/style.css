@@ -355,7 +355,9 @@ mark {
 #theme-toggle:active, #menu-toggle:active { transform: scale(0.92); }
 
 /* Keyword filter input (blog list & archive) */
-.search-input {
+/* Qualified with `input` so these beat the Tailwind forms plugin's
+   [type="search"] resets, which the CDN injects after this stylesheet. */
+input.search-input {
     width: 100%;
     padding: 0.625rem 0.875rem 0.625rem 2.5rem;
     font-family: 'Inter', system-ui, sans-serif;
@@ -367,16 +369,16 @@ mark {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.search-input::placeholder {
+input.search-input::placeholder {
     color: rgb(var(--c-on-surface-variant));
     opacity: 0.8;
 }
 
-.search-input:hover {
+input.search-input:hover {
     border-color: rgb(var(--c-outline));
 }
 
-.search-input:focus {
+input.search-input:focus {
     outline: none;
     border-color: rgb(var(--c-secondary));
     box-shadow: 0 0 0 3px rgb(var(--c-secondary) / 0.15);
