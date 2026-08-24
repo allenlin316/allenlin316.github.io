@@ -224,6 +224,12 @@ mark {
 .bd-callout-primary { border-left-color: rgb(var(--c-secondary)); }
 .bd-callout-warning { border-left-color: rgb(var(--c-error)); }
 
+/* Scrollspy TOC state (script/site.js) */
+.toc-active {
+    color: rgb(var(--c-secondary)) !important;
+    font-weight: 500;
+}
+
 /* Old vocabulary toggle on to-kill-a-mockingbird (kept: script/script.js) */
 #moreVoc { display: none; }
 

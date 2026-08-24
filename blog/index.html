@@ -1,290 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--for Google site verification-->
     <meta name="google-site-verification" content="LT1ryDkY7V5JYYQnii6FOcR0dvFN8Xs1vspT__W55C4" />
     <meta name="keywords" content="Allen blog, blog, allenator blog, to kill a mockingbird, cs note, reading, exchange life">
     <meta name="description" content="我曾經擔任美國一年的交換生，參加西班牙的短期營隊，喜愛與大家分享我的經驗">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <!-- ico file on the tab -->
-    <link href="/images/tab_icon.ico" rel="shortcut icon" type="image/x-icon" />
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- link to another css file -->
-    <link rel="stylesheet" href="/style/style.css">
-
     <title>Allen's Blog</title>
+    <link href="/images/tab_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+    <link rel="stylesheet" href="/style/tokens.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/script/tailwind-config.js"></script>
+    <script defer src="/script/site.js"></script>
 </head>
 
-<style>
-    .jumbotron{
-        background: none;
-        background-color: #dee2e6;
-        text-align: center;
-        color: black;
-    }
-</style>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
 
-<body>
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/">Allen's Website</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class=" nav-item active">
-                    <a class="nav-link" href="/blog/index.html">Blog</a>
-                </li>          
-                <li class=" nav-item">
-                    <a class="nav-link" href="/blog/about-me.html">About</a>
-                </li>
-            </ul>            
+    <!-- TopNavBar -->
+    <header class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant">
+        <nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4" aria-label="主選單">
+            <a class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight" href="/">Allen's Website</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/">Home</a>
+                <a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="/blog/index.html" aria-current="page">Blog</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="/blog/about-me.html">About</a>
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <button id="theme-toggle" type="button" aria-label="切換為深色模式" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+                <button id="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+            <div class="flex flex-col px-gutter py-4 gap-4">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/">Home</a>
+                <a class="font-body-md text-body-md text-secondary font-bold" href="/blog/index.html" aria-current="page">Blog</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="/blog/about-me.html">About</a>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- cover photo -->
-    <div class="jumbotron jumbotron-fluid mb-5">
-        <div class="container">
-            <h1 class="display-4">Allen's Blog</h1>
-            <p class="lead">Never Give up on learning</p>
-        </div>
-    </div>
-
-            <!-- Page content-->
-            <div class="container">
-                <div class="row">
-                    <!-- Blog entries-->
-                    <div class="col-lg-8">
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">中研院暑期實習</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2024/9/7</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/master-application.html" class="text-muted">實習</a>
-                                <p class="card-text">中研院資訊所實習，參與了 LLM RAG 2024 TREC 競賽</p>
-                                <a href="/blog/academia_sinica_intern.html" class="btn btn-info">Read more</a>
-                            </div>
+    <!-- Main Content -->
+    <main class="flex-grow max-w-container-max mx-auto px-gutter py-16 w-full">
+        <!-- Jumbotron -->
+        <header class="mb-16 border-b border-outline-variant pb-12">
+            <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-4">Allen's Blog</h1>
+            <p class="font-quote text-quote text-on-surface-variant max-w-2xl">Never Give up on learning</p>
+        </header>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Main Column: Blog Posts -->
+            <div class="lg:col-span-8 flex flex-col gap-8">
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/master-application.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 實習
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2024/9/7
                         </div>
-                        <!-- Featured blog post-->
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">113年度 資工推甄經歷</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2023/12/23</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/master-application.html" class="text-muted">推甄</a>
-                                <p class="card-text">研究所推甄經歷，推上了中央、台科大、中興</p>
-                                <a href="/blog/master-application.html" class="btn btn-info">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">Docker 應用到 Machine Learning</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2023/6/16</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                <p class="card-text">介紹如何訓練模型透過 Docker 及將 docker image 發佈到 docker hub</p>
-                                <a href="/blog/docker-ml.html" class="btn btn-info">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">淺談 Docker 技術</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2023/6/16</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                <p class="card-text">介紹 Docker 基本觀念、優勢、指令</p>
-                                <a href="/blog/docker.html" class="btn btn-info">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">ESP32 飛彈射擊系統</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2023/1/4</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                <p class="card-text">根據超音波感測器偵測並顯示敵方位置，指紋解鎖後發射電磁砲</p>
-                                <a href="/blog/esp32-bang.html" class="btn btn-info">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">智慧家庭 - 自動瓦斯警報與通風系統</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2022/11/10</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                <p class="card-text">利用 ESP32 打造的智慧家庭，具有自動瓦斯警報與通風系統</p>
-                                <a href="/blog/esp32-house.html" class="btn btn-info">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">西班牙短期營隊</h5>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <span class="text-muted mr-2">2022/7/2</span>
-                                <i class="fa fa-tag"></i>
-                                <a href="/blog-categories/foreign-country-blog.html" class="text-muted">國外生活</a>
-                                <p class="card-text">為期一週的營隊，與世界各地的學生討論世界議題: 環境、戰爭</p>
-                                <a href="/blog/spain-STEP.html" class="btn btn-info">Read more</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card mb-3 shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">原子習慣</h5>
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span class="text-muted mr-2">2022/2/10</span>
-                                        <i class="fa fa-tag"></i>
-                                        <a href="/blog-categories/reading.html" class="text-muted mr-2">課外書籍分享</a>
-                                        <i class="fa fa-user"></i>
-                                        <span class="text-muted">James Clear(著)、蔡世偉(譯)</span>
-                                        <p class="card-text">每天進都進步 1%，一年後，你會進步 37 倍；每天都退步 1%，一年後，你會弱化到趨近於 0!你的一點小改變，將會產生複利效應，如滾雪球般，帶來豐碩的人生成果!</p>
-                                        <a href="/blog/atomic-habits.html" class="btn btn-info">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card shadow-sm mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">To Kill A Mockingbird</h5>
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span class="text-muted mr-2">2021/8/10</span>
-                                        <i class="fa fa-tag"></i>
-                                        <a href="/blog-categories/reading.html" class="text-muted mr-2">課外書籍分享</a>
-                                        <i class="fa fa-user"></i>
-                                        <span class="text-muted">Harper Lee</span>
-                                        <p class="card-text">在美國時很愛的一本小說，美國人必看的故事，透過小孩的視角看待當時嚴重的種期歧視問題</p>
-                                        <a href="/blog/to-kill-a-mockingbird.html" class="btn btn-info">Read more</a>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card shadow-sm mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">美國一年交換生</h5>
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span class="text-muted mr-2">2016/8/24</span>
-                                        <i class="fa fa-tag"></i>
-                                        <a href="/blog-categories/foreign-country-blog.html" class="text-muted">國外生活</a>
-                                        <p class="card-text">代表台南社團前往美國交換一年，作為台灣的小小外交大使</p>
-                                        <a href="/blog/us-exchange.html" class="btn btn-info">Read more</a>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card shadow-sm mb-3">
-                                    <div class="card-body">                                        
-                                        <h5 class="card-title" id="gatsby-note">Gatsby Note</h5>
-                                        <i class="fa fa-calendar"></i>
-                                        <span class="text-muted mr-2">2022/2/18</span>
-                                        <i class="fa fa-tag"></i>
-                                        <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                        <p class="card-text">Static Site Generator(SSG)，以 React 為基底的 framework</p>
-                                        <a class="btn btn-info" href="/blog/gatsby-note.html">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">                            
-                            <div class="col-md-6">
-                                <div class="card mb-3 shadow-sm">
-                                    <div class="card-body">                                        
-                                        <h5 class="card-title" id="github-note">GitHub Note</h5>
-                                        <i class="fa fa-calendar"></i>
-                                        <span class="text-muted mr-2">2022/2/20</span>
-                                        <i class="fa fa-tag"></i>
-                                        <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                        <p class="card-text">利用 GitHub 分享自己的程式碼，把我的網站架在 GitHub 上</p>
-                                        <a class="btn btn-info" href="/blog/github-note.html">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card mb-3 shadow-sm">
-                                    <div class="card-body">                                        
-                                        <h5 class="card-title" id="git-note">Git Note</h5>
-                                        <i class="fa fa-calendar"></i>
-                                        <span class="text-muted mr-2">2022/2/19</span>
-                                        <i class="fa fa-tag"></i>
-                                        <a href="/blog-categories/cs-note.html" class="text-muted">程式筆記</a>
-                                        <p class="card-text">真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理
-                                        </p>
-                                        <a class="btn btn-info" href="/blog/git-note.html">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                        
-                        <!-- Pagination-->
-                        <nav aria-label="Pagination">
-                            <hr class="my-0" />
-                            <ul class="pagination justify-content-center my-4">
-                                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                                <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                            </ul>
-                        </nav>
                     </div>
-                    <!-- Side widgets-->
-                    <div class="col-lg-4">
-                        <!-- Categories widget-->
-                        <div class="card mb-4">
-                            <div class="card-header">Categories</div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li><a href="/blog-categories/foreign-country-blog.html">國外生活</a></li>
-                                            <li><a href="/blog-categories/cs-note.html">程式筆記</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li><a href="/blog-categories/reading.html">課外書籍分享</a></li>
-                                            <li><a href="/blog-categories/master-application.html">推甄經歷</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/academia_sinica_intern.html">中研院暑期實習</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">中研院資訊所實習，參與了 LLM RAG 2024 TREC 競賽</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/academia_sinica_intern.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/master-application.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 推甄
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2023/12/23
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/master-application.html">113年度 資工推甄經歷</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">研究所推甄經歷，推上了中央、台科大、中興</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/master-application.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2023/6/16
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/docker-ml.html">Docker 應用到 Machine Learning</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">介紹如何訓練模型透過 Docker 及將 docker image 發佈到 docker hub</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/docker-ml.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2023/6/16
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/docker.html">淺談 Docker 技術</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">介紹 Docker 基本觀念、優勢、指令</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/docker.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2023/1/4
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/esp32-bang.html">ESP32 飛彈射擊系統</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">根據超音波感測器偵測並顯示敵方位置，指紋解鎖後發射電磁砲</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/esp32-bang.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2022/11/10
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/esp32-house.html">智慧家庭 - 自動瓦斯警報與通風系統</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">利用 ESP32 打造的智慧家庭，具有自動瓦斯警報與通風系統</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/esp32-house.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/foreign-country-blog.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 國外生活
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2022/7/2
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/spain-STEP.html">西班牙短期營隊</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">為期一週的營隊，與世界各地的學生討論世界議題: 環境、戰爭</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/spain-STEP.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/reading.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 課外書籍分享
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2022/2/10
+                        </div>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">person</span> James Clear(著)、蔡世偉(譯)
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/atomic-habits.html">原子習慣</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">每天進都進步 1%，一年後，你會進步 37 倍；每天都退步 1%，一年後，你會弱化到趨近於 0!你的一點小改變，將會產生複利效應，如滾雪球般，帶來豐碩的人生成果!</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/atomic-habits.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog-categories/reading.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 課外書籍分享
+                        </a>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2021/8/10
+                        </div>
+                        <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">person</span> Harper Lee
+                        </div>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/to-kill-a-mockingbird.html">To Kill A Mockingbird</a></h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">在美國時很愛的一本小說，美國人必看的故事，透過小孩的視角看待當時嚴重的種期歧視問題</p>
+                    <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/to-kill-a-mockingbird.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            <a href="/blog-categories/foreign-country-blog.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 國外生活
+                            </a>
+                            <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2016/8/24
                             </div>
                         </div>
-                        <!-- Side widget-->
-                        <div class="card mb-4">
-                            <div class="card-header">Note</div>
-                            <div class="card-body">喜歡分享我自學的知識與活動的經驗</div>
+                        <h2 class="font-headline-lg text-headline-lg-mobile text-primary mb-3 leading-tight"><a class="hover:text-secondary transition-colors" href="/blog/us-exchange.html">美國一年交換生</a></h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">代表台南社團前往美國交換一年，作為台灣的小小外交大使</p>
+                        <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/us-exchange.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                    </article>
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                            </a>
+                            <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2022/2/18
+                            </div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg-mobile text-primary mb-3 leading-tight" id="gatsby-note"><a class="hover:text-secondary transition-colors" href="/blog/gatsby-note.html">Gatsby Note</a></h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">Static Site Generator(SSG)，以 React 為基底的 framework</p>
+                        <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/gatsby-note.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                    </article>
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                            </a>
+                            <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2022/2/20
+                            </div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg-mobile text-primary mb-3 leading-tight" id="github-note"><a class="hover:text-secondary transition-colors" href="/blog/github-note.html">GitHub Note</a></h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">利用 GitHub 分享自己的程式碼，把我的網站架在 GitHub 上</p>
+                        <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/github-note.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                    </article>
+                    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 kinetic-hover">
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            <a href="/blog-categories/cs-note.html" class="inline-flex items-center gap-1 bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-2 py-1 rounded hover:bg-secondary/20 transition-colors">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">sell</span> 程式筆記
+                            </a>
+                            <div class="flex items-center text-on-surface-variant font-label-sm text-label-sm gap-1">
+                                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">calendar_today</span> 2022/2/19
+                            </div>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg-mobile text-primary mb-3 leading-tight" id="git-note"><a class="hover:text-secondary transition-colors" href="/blog/git-note.html">Git Note</a></h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">真的是一個必學的版本控制，利用 Git 讓我的程式碼變得很好管理</p>
+                        <a class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase hover:gap-3 transition-all duration-300" href="/blog/git-note.html">Read more <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
+                    </article>
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4 flex flex-col gap-8">
+                <!-- Categories Widget -->
+                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6">
+                    <h3 class="font-headline-lg text-[24px] font-semibold text-primary mb-6 border-b border-outline-variant pb-2">Categories</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a class="bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-3 py-1.5 rounded hover:bg-secondary/20 transition-colors" href="/blog-categories/foreign-country-blog.html">國外生活</a>
+                        <a class="bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-3 py-1.5 rounded hover:bg-secondary/20 transition-colors" href="/blog-categories/cs-note.html">程式筆記</a>
+                        <a class="bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-3 py-1.5 rounded hover:bg-secondary/20 transition-colors" href="/blog-categories/reading.html">課外書籍分享</a>
+                        <a class="bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase px-3 py-1.5 rounded hover:bg-secondary/20 transition-colors" href="/blog-categories/master-application.html">推甄經歷</a>
+                    </div>
+                </div>
+                <!-- Note Widget -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-1" aria-hidden="true">info</span>
+                        <div>
+                            <h4 class="font-label-sm text-label-sm uppercase text-secondary mb-2">Note</h4>
+                            <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">喜歡分享我自學的知識與活動的經驗</p>
                         </div>
                     </div>
                 </div>
-            </div>
-    
-    <!-- Optional JavaScript; choose one of the two! -->
+            </aside>
+        </div>
+    </main>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+    <!-- Footer -->
+    <footer class="w-full bg-surface border-t border-outline-variant mt-auto">
+        <div class="max-w-container-max mx-auto px-gutter py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="font-headline-lg text-primary text-sm font-bold tracking-tight">Allen's Website</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">&copy; copyright by Allen</span>
+        </div>
+    </footer>
 
     <!-- Global site tag (gtag.js) - Google Analytics for allenlin316.github.io -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ793J955W"></script>
@@ -295,6 +282,5 @@
 
         gtag('config', 'G-CJ793J955W');
     </script>
-    
 </body>
 </html>
