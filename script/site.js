@@ -157,6 +157,61 @@
         });
     })();
 
+    /* ---- Keyword filter (blog list, archive) ----
+       Markup: a [data-filter] container holding [data-filter-input], any
+       number of [data-filter-item] entries, optional [data-filter-group]
+       wrappers that hide when all their items are filtered out, plus
+       [data-filter-count] and [data-filter-empty] status elements.
+       Matching is a case-insensitive AND over whitespace-separated terms
+       against each item's own text, so titles, excerpts, category labels
+       and dates are all searchable. */
+    document.querySelectorAll("[data-filter]").forEach(function (root) {
+        var input = root.querySelector("[data-filter-input]");
+        if (!input) return;
+
+        var items = Array.prototype.slice.call(root.querySelectorAll("[data-filter-item]"));
+        var groups = Array.prototype.slice.call(root.querySelectorAll("[data-filter-group]"));
+        var empty = root.querySelector("[data-filter-empty]");
+        var count = root.querySelector("[data-filter-count]");
+        var total = items.length;
+
+        var haystacks = items.map(function (item) {
+            return (item.textContent || "").toLowerCase().replace(/\s+/g, " ");
+        });
+
+        function apply() {
+            var terms = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+            var shown = 0;
+
+            items.forEach(function (item, i) {
+                var hit = terms.every(function (t) { return haystacks[i].indexOf(t) !== -1; });
+                item.classList.toggle("hidden", !hit);
+                if (hit) {
+                    shown++;
+                    /* entrance animation may not have run for items that were
+                       hidden when they scrolled past — reveal them directly */
+                    item.classList.add("in");
+                }
+            });
+
+            groups.forEach(function (group) {
+                var visible = group.querySelectorAll("[data-filter-item]:not(.hidden)").length;
+                group.classList.toggle("hidden", visible === 0);
+            });
+
+            if (empty) empty.classList.toggle("hidden", shown !== 0);
+            if (count) {
+                count.textContent = terms.length
+                    ? shown + " / " + total + " 筆符合"
+                    : "共 " + total + " 筆";
+            }
+        }
+
+        input.addEventListener("input", apply);
+        input.addEventListener("search", apply); /* the type=search clear button */
+        apply();
+    });
+
     /* ---- Scrollspy for tables of contents ----
        Markup: [data-toc] containing anchor links to in-page headings.
        Highlights the last heading scrolled past the sticky-nav line, so a
