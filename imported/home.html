@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TechPortfolio - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@300;400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9ff",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-tint": "#565e74",
+                        "error-container": "#ffdad6",
+                        "outline": "#76777d",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed": "#07006c",
+                        "secondary-container": "#6063ee",
+                        "surface-variant": "#d3e4fe",
+                        "on-surface": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#00201c",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-container": "#00201c",
+                        "on-tertiary-container": "#009485",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-container": "#7c839b",
+                        "secondary": "#4648d4",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#62fae3",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-background": "#0b1c30",
+                        "surface-container-low": "#eff4ff",
+                        "primary": "#000000",
+                        "primary-container": "#131b2e",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed-dim": "#3cddc7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "quote": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "quote": ["20px", { "lineHeight": "1.5", "fontWeight": "300" }],
+                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: theme('colors.secondary'); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid theme('colors.outline-variant'); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); }
+        .timeline-line { width: 2px; background-color: theme('colors.outline-variant'); position: absolute; top: 0; bottom: 0; left: 11px; z-index: 0; }
+        .timeline-dot { width: 10px; height: 10px; background-color: theme('colors.secondary'); border-radius: 50%; position: absolute; left: 7px; top: 8px; z-index: 1; border: 2px solid theme('colors.surface'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline flat no shadows">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4">
+<a class="font-headline-lg text-headline-lg font-bold text-primary dark:text-on-background tracking-tight" href="#">TechPortfolio</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="#">Blog</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-200 nav-link pb-1" href="#">About</a>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button aria-label="dark_mode" class="hover:text-secondary transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dark_mode</span>
+</button>
+<button aria-label="menu" class="md:hidden hover:text-secondary transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter relative">
+<!-- Left Sidebar (Desktop) / Top Area (Mobile) -->
+<aside class="lg:col-span-3 flex flex-col gap-8">
+<!-- Profile Card -->
+<div class="glass-card rounded-xl p-6 flex flex-col items-center text-center gap-4 hover:shadow-md transition-shadow duration-300">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-surface-variant relative group">
+<img alt="Avatar" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A minimalist, high-key, black and white portrait photo of a tech professional in a bright, modern studio. The lighting is soft and flat, emphasizing clean lines. The mood is calm and competent, adhering strictly to the clean, minimalist aesthetic of a modern tech portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBus4HWZjZMLEkd0LH42HbPvWtBSsBXUJWPc-y6vPsqcqTYShfuiujvd7KCSBnFgQqtdGYNjKJH1s27mtwPQRllSUP38n-Ex55pDNBvyxS3A8GV65XcQhjnJ5BHV4Czj8IlxpxDg4F0NJNz9jsrDGdu239WzJ_Q0Yj_zHb2BNYJau9JcE5V6yE44W36diNrHdCE6g2UCI1skGnEOuz3iA3BMW8iQm7qhAtowcobDBaA4tjaZ4t69cd-cQ"/>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Alex Chen</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Engineer &amp; Minimalist</p>
+</div>
+<div class="flex gap-4 mt-2">
+<a aria-label="GitHub" class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+<a aria-label="LinkedIn" class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+<a aria-label="YouTube" class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+</a>
+</div>
+</div>
+<!-- Note Widget -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-3 opacity-20">
+<span class="material-symbols-outlined text-4xl">push_pin</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-secondary uppercase mb-3 tracking-widest">Note // 笔记</h3>
+<p class="font-body-md text-body-md text-on-surface-variant italic border-l-2 border-secondary pl-3">
+                    "Building simple solutions to complex problems. Currently exploring the intersection of generative AI and minimalist UI design." <br/><br/>
+<span class="text-sm">“化繁为简。目前正在探索生成式AI与极简UI设计的交汇点。”</span>
+</p>
+</div>
+<!-- Predicted SideNavBar structure logic integrated here if needed, but overridden by specific prompt requirements for profile/note -->
+</aside>
+<!-- Main Content Canvas -->
+<section class="lg:col-span-9 flex flex-col gap-section-gap">
+<!-- Hero -->
+<div class="py-12 border-b border-outline-variant">
+<h1 class="font-headline-xl text-headline-xl text-on-background max-w-3xl leading-tight">
+                    Crafting <span class="text-secondary italic">Kinetic</span> Experiences in a Static World.
+                </h1>
+<p class="font-quote text-quote text-on-surface-variant mt-6 max-w-2xl">
+                    Full-stack development focused on functional clarity, precise alignment, and high-density information display.
+                </p>
+</div>
+<!-- Archives Vertical Timeline -->
+<div class="flex flex-col gap-12">
+<div class="flex items-center gap-4 border-b border-outline-variant pb-2">
+<span class="material-symbols-outlined text-secondary">history</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background">Archives // 归档</h2>
+</div>
+<div class="relative pl-6">
+<div class="timeline-line"></div>
+<!-- 2024 -->
+<div class="mb-12 relative">
+<h3 class="font-label-sm text-label-sm text-secondary bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2024</h3>
+<div class="flex flex-col gap-6">
+<div class="relative group">
+<div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+<div class="pl-8">
+<a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="#">Architecting the Fluid Web: A Primer</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">OCT 15, 2024 · 5 MIN READ</p>
+</div>
+</div>
+<div class="relative group">
+<div class="timeline-dot group-hover:scale-150 transition-transform duration-300"></div>
+<div class="pl-8">
+<a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="#">Project: Neural Canvas - AI Generation Tool</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">AUG 02, 2024 · RELEASE</p>
+<div class="mt-3 inline-block px-2 py-1 bg-secondary bg-opacity-10 text-secondary font-label-sm text-label-sm uppercase rounded">CASE STUDY</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2023 -->
+<div class="mb-12 relative">
+<h3 class="font-label-sm text-label-sm text-outline bg-surface inline-block pr-4 relative z-10 font-bold mb-6">2023</h3>
+<div class="flex flex-col gap-6">
+<div class="relative group">
+<div class="timeline-dot bg-outline group-hover:bg-secondary group-hover:scale-150 transition-all duration-300"></div>
+<div class="pl-8">
+<a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="#">Why Minimalist UIs Fail When Data Scales</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">NOV 11, 2023 · 8 MIN READ</p>
+</div>
+</div>
+<div class="relative group">
+<div class="timeline-dot bg-outline group-hover:bg-secondary group-hover:scale-150 transition-all duration-300"></div>
+<div class="pl-8">
+<a class="font-body-lg text-body-lg text-on-background hover:text-secondary transition-colors inline-block font-medium" href="#">Refactoring Legacy Monoliths</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 opacity-70">MAY 22, 2023 · TECHNICAL GUIDE</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface dark:bg-background border-t border-outline-variant dark:border-outline flat no shadows mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-margin-mobile flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-headline-lg text-headline-lg text-on-background text-sm">TechPortfolio</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant">© 2024 TechPortfolio. Built with precision.</span>
+<div class="flex gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">RSS Feed</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+</body></html>

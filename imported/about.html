@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About - TechPortfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9ff",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-tint": "#565e74",
+                        "error-container": "#ffdad6",
+                        "outline": "#76777d",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed": "#07006c",
+                        "secondary-container": "#6063ee",
+                        "surface-variant": "#d3e4fe",
+                        "on-surface": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#00201c",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-container": "#00201c",
+                        "on-tertiary-container": "#009485",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-container": "#7c839b",
+                        "secondary": "#4648d4",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#62fae3",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-background": "#0b1c30",
+                        "surface-container-low": "#eff4ff",
+                        "primary": "#000000",
+                        "primary-container": "#131b2e",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed-dim": "#3cddc7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "quote": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "quote": ["20px", { "lineHeight": "1.5", "fontWeight": "300" }],
+                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-on-background">
+                TechPortfolio
+            </div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-200" href="#">Blog</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary opacity-80 hover:text-secondary transition-colors duration-200" href="#">About</a>
+</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined cursor-pointer text-on-surface-variant hover:text-secondary transition-colors duration-200">dark_mode</span>
+<span class="material-symbols-outlined md:hidden cursor-pointer text-on-surface-variant">menu</span>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap">
+<!-- About Section (Two Column) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
+<div class="lg:col-span-7 flex flex-col gap-6">
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary">About Me</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    I am a software engineer with a passion for building minimalist, highly functional digital experiences. My approach blends rigorous technical architecture with a deep appreciation for Swiss-style design principles.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Specializing in modern web technologies, I focus on performance, accessibility, and clean code. When I'm not writing code, I'm analyzing structural design patterns or writing long-form thought pieces on the intersection of technology and aesthetics.
+                </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-widest">Skills</h3>
+<ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">check_circle</span> React &amp; Next.js</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">check_circle</span> TypeScript</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">check_circle</span> UI/UX Design</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">check_circle</span> System Architecture</li>
+</ul>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-widest">Interests</h3>
+<ul class="flex flex-col gap-2 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">arrow_right</span> Typography</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">arrow_right</span> Minimalist Architecture</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">arrow_right</span> Mechanical Keyboards</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined filled text-[16px] text-secondary">arrow_right</span> Open Source</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex justify-center lg:justify-end items-start mt-8 lg:mt-0">
+<div class="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden border border-outline-variant shadow-sm group">
+<div class="absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="A professional, high-contrast black and white portrait of a software engineer in a modern, minimalist studio setting. The lighting is dramatic yet soft, highlighting the subject's thoughtful expression. The background is a clean, uncluttered white wall, emphasizing a sleek, professional, and contemporary aesthetic suitable for a high-end tech portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgLHgo-0McKzBNN6CBsdE7gERW0OPoUFw7cZfoKDNsZ9CvDVmJAMvdh6TthEiioKsKiAnJlPeGbFl4ywXGQlLHkR8sa8Bs1EiuASMlDQC6zvNRwd1omZsxCC7tQKXKfodFAduY9aOcJT97LWBsK2XMe2b9scmxtjFYsz_fjHv2-6JXdE8mCEa14yZf11277zMK6bjPpj8zorRWDMuRwf3wU7oCJ1beHX5m1LlHEge4itgCK7B94ZmA9Q"/>
+</div>
+</div>
+</section>
+<!-- Activities & Work Experience Table -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-8 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-headline-lg text-primary">work</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Activities &amp; Work Experience</h2>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="border-b-2 border-outline font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-4 px-4">Period</th>
+<th class="py-4 px-4">Role / Organization</th>
+<th class="py-4 px-4">Description</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-background divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors duration-200">
+<td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap">2022 - Present</td>
+<td class="py-4 px-4 font-semibold">Senior Frontend Engineer<br/><span class="font-normal text-on-surface-variant text-sm">TechNova Solutions</span></td>
+<td class="py-4 px-4 text-on-surface-variant">Led the migration of legacy monolithic architecture to a modern micro-frontend approach using React and Module Federation. Improved core web vitals by 40%.</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors duration-200">
+<td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap">2020 - 2022</td>
+<td class="py-4 px-4 font-semibold">UI/UX Developer<br/><span class="font-normal text-on-surface-variant text-sm">Creative Digital Agency</span></td>
+<td class="py-4 px-4 text-on-surface-variant">Designed and implemented design systems for multiple enterprise clients. Bridged the gap between design and engineering teams.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Learning Experience Table -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-8 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-headline-lg text-primary">school</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Learning Experience</h2>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="border-b-2 border-outline font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-4 px-4">Year</th>
+<th class="py-4 px-4">Project / Certificate</th>
+<th class="py-4 px-4">Focus Area</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-background divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors duration-200">
+<td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap">2023</td>
+<td class="py-4 px-4 font-semibold">Advanced React Patterns<br/><span class="font-normal text-on-surface-variant text-sm">Frontend Masters</span></td>
+<td class="py-4 px-4">
+<span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">Architecture</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors duration-200">
+<td class="py-4 px-4 font-label-sm text-label-sm text-secondary whitespace-nowrap">2021</td>
+<td class="py-4 px-4 font-semibold">Open Source Hackathon Finalist<br/><span class="font-normal text-on-surface-variant text-sm">Global Tech Event</span></td>
+<td class="py-4 px-4">
+<span class="inline-block bg-secondary/10 text-secondary font-label-sm text-label-sm px-2 py-1 rounded uppercase tracking-wider border border-secondary/20">Full-Stack</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface dark:bg-background border-t border-outline-variant dark:border-outline">
+<div class="max-w-container-max mx-auto px-gutter py-margin-mobile flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-headline-lg text-headline-lg text-primary text-xl">
+                TechPortfolio
+            </div>
+<div class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant">
+                © 2024 TechPortfolio. Built with precision.
+            </div>
+<div class="flex gap-6 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">RSS Feed</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+</body></html>
